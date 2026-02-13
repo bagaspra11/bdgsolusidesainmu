@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="Image/favicon.png">
+    
+    <!-- Meta Preview & SEO -->
+    <title>BDG - Bagas Desainer Grafis | Jasa Desain Profesional</title>
+    <meta name="description" content="Jasa desain grafis profesional untuk UMKM dan Perusahaan. Melayani desain logo, banner, pamflet, sertifikat, dan identitas visual berkualitas tinggi.">
+    <meta name="keywords" content="jasa desain grafis, desainer grafis banyuwangi, bagas desainer grafis, bdg desain, desain pamflet, desain logo murah, jasa desain profesional">
+    <meta name="author" content="Bagas Prayoga">
+    
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bagasdesain.com/">
+    <meta property="og:title" content="BDG - Jasa Desain Grafis Profesional & Berkelas">
+    <meta property="og:description" content="Solusi visual modern untuk brand Anda. Proses cepat, harga terjangkau, dan hasil berkualitas tinggi.">
+    <meta property="og:image" content="image/og-preview.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="BDG - Bagas Desainer Grafis">
+    <meta property="twitter:description" content="Mewujudkan ide menjadi karya visual yang bermakna.">
+    <meta property="twitter:image" content="image/og-preview.jpg">
+
+    <!-- Styles & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b'
+                    },
+                    aspectRatio: {
+                        'landscape': '16 / 9',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .dark .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.1), 0 10px 10px -5px rgba(37, 99, 235, 0.04);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #2563eb, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        #mobile-menu {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Custom Slider Styles */
+        .slider-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .slider-container::-webkit-scrollbar {
+            display: none;
+        }
+        .slider-item {
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+        }
+        @media (min-width: 768px) {
+            .slider-item {
+                flex: 0 0 calc(50% - 12px);
+            }
+        }
+
+        /* Modal Styles */
+        .modal-active {
+            overflow: hidden;
+        }
+        #service-modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        /* FAQ Accordion Custom */
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        .faq-item.active .faq-content {
+            max-height: 500px;
+            padding-bottom: 1.5rem;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Back to Top */
+        #backToTop.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* New: Scroll Progress Bar */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2563eb, #60a5fa);
+            z-index: 100;
+            width: 0%;
+            transition: width 0.1s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 antialiased overflow-x-hidden dark:bg-darkBg dark:text-slate-200">
+
+    <!-- New Feature: Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-nav border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <img src="Image/logobesar.png" alt="BDG Logo" class="h-10 w-auto">
+            </a>
+
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-yellow-400 hover:ring-2 ring-blue-500 transition-all">
+                    <i data-lucide="sun" id="sun-icon" class="hidden w-5 h-5"></i>
+                    <i data-lucide="moon" id="moon-icon" class="w-5 h-5"></i>
+                </button>
+
+                <button id="menu-btn" class="p-2.5 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-all">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Global Hamburger Overlay Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-white dark:bg-darkBg translate-x-full flex flex-col items-center justify-center space-y-8 text-2xl font-bold">
+        <button id="close-menu" class="absolute top-6 right-6 p-4 text-slate-500 dark:text-slate-400">
+            <i data-lucide="x" class="w-10 h-10"></i>
+        </button>
+        <a href="#home" class="menu-link hover:text-blue-600 transition">Home</a>
+        <a href="#tentang" class="menu-link hover:text-blue-600 transition">Tentang</a>
+        <a href="#layanan" class="menu-link hover:text-blue-600 transition">Layanan</a>
+        <a href="#karya" class="menu-link hover:text-blue-600 transition">Hasil Karya</a>
+        <a href="#kontak" class="menu-link hover:text-blue-600 transition">Kontak</a>
+        <a href="https://wa.me/6285708845405" class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg shadow-lg">Order Sekarang</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20 px-6 lg:px-12 bg-gradient-to-b from-blue-50 to-white dark:from-slate-900 dark:to-darkBg">
+        <div class="max-w-7xl mx-auto text-center">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <span class="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-blue-600 uppercase bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 rounded-full">Solusi Desain Terpercaya</span>
+                <h1 class="text-5xl lg:text-8xl font-bold leading-tight mb-8 dark:text-white">Visual Berkelas untuk <br><span class="gradient-text">Brand Anda.</span></h1>
+                <p class="text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    Kami membantu UMKM, Perusahaan, dan Organisasi menciptakan identitas visual yang profesional, modern, dan berdampak tinggi.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://wa.me/6285708845405" class="inline-flex items-center justify-center bg-blue-600 text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-blue-700 transition shadow-xl shadow-blue-100 dark:shadow-none group">
+                        Order Sekarang
+                        <i data-lucide="arrow-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition"></i>
+                    </a>
+                    <a href="#layanan" class="inline-flex items-center justify-center border-2 border-slate-200 dark:border-slate-700 px-10 py-5 rounded-2xl font-bold text-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition">
+                        Lihat Layanan
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Kami -->
+    <section id="tentang" class="py-32 px-6 lg:px-12 bg-white dark:bg-darkBg">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-12 gap-12 items-start">
+                <div class="md:col-span-8" data-aos="fade-up">
+                    <span class="text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest text-sm mb-4 block">Tentang BDG</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-8 leading-tight dark:text-white">Mewujudkan Ide Menjadi <span class="text-blue-600">Karya Visual</span> yang Bermakna.</h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                        BDG (Bagas Desainer Grafis) adalah jasa desain profesional yang berfokus pada estetika modern dan komunikasi visual yang efektif. Didirikan oleh <strong>Bagas Prayoga</strong>, kami hadir untuk memberikan solusi desain eksklusif yang mudah diakses oleh semua kalangan.
+                    </p>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                        Kami percaya bahwa desain yang baik bukan hanya soal keindahan, tapi tentang bagaimana pesan Anda tersampaikan dengan jelas kepada audiens.
+                    </p>
+                </div>
+                <div class="md:col-span-4 space-y-8" data-aos="fade-left">
+                    <div class="p-8 bg-blue-50 dark:bg-slate-800 rounded-[2.5rem] border border-blue-100 dark:border-slate-700">
+                        <img src="Image/gambarbagas.jpg" alt="Bagas Prayoga" class="w-32 h-32 rounded-3xl object-cover mb-6 shadow-md border-2 border-white dark:border-slate-600">
+                        <h4 class="text-blue-600 dark:text-blue-400 font-bold text-xl mb-2">Bagas Prayoga</h4>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-tighter mb-4">Owner and Lead Designer</p>
+                        <hr class="border-blue-200 dark:border-slate-700 mb-4">
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed italic">"Simplicity is the ultimate sophistication."</p>
+                    </div>
+                    <div class="flex items-center space-x-4 px-4 text-slate-800 dark:text-white">
+                        <div class="h-12 w-12 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-200 dark:shadow-none">
+                            <i data-lucide="check-circle" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-lg">100% Profesional</div>
+                            <p class="text-sm text-slate-400">Hasil kerja terjamin kualitasnya.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistik Section (Counters) -->
+    <section class="py-20 bg-blue-600 dark:bg-blue-800 text-white">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div data-aos="zoom-in">
+                <div class="text-4xl md:text-5xl font-bold mb-2 counter" data-target="500">0</div>
+                <p class="text-blue-100 text-sm uppercase tracking-widest font-semibold">Projek Selesai</p>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="100">
+                <div class="text-4xl md:text-5xl font-bold mb-2 counter" data-target="480">0</div>
+                <p class="text-blue-100 text-sm uppercase tracking-widest font-semibold">Klien Puas</p>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="200">
+                <div class="text-4xl md:text-5xl font-bold mb-2 counter" data-target="3">0</div>
+                <p class="text-blue-100 text-sm uppercase tracking-widest font-semibold">Tahun Pengalaman</p>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="300">
+                <div class="text-4xl md:text-5xl font-bold mb-2 counter" data-target="98">0</div>
+                <p class="text-blue-100 text-sm uppercase tracking-widest font-semibold">Tingkat Retensi (%)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layanan & Harga -->
+    <section id="layanan" class="py-24 px-6 lg:px-12 bg-slate-50 dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest text-sm mb-4 block">Daftar Layanan</span>
+                <h2 class="text-4xl md:text-5xl font-bold dark:text-white">Investasi Desain Terjangkau</h2>
+                <p class="text-slate-500 dark:text-slate-400 mt-4 max-w-2xl mx-auto">Tingkatkan value brand Anda dengan harga yang kompetitif tanpa mengurangi kualitas premium.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="services-container">
+                <!-- Data Layanan di render via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Detail Layanan -->
+    <div id="service-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible">
+        <div class="bg-white dark:bg-darkCard w-full max-w-2xl rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95">
+            <button onclick="closeModal()" class="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white transition">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            
+            <div class="p-8 md:p-12 overflow-y-auto max-h-[90vh]">
+                <h2 id="modal-title" class="text-3xl font-bold mb-6 text-blue-600 dark:text-blue-400 leading-tight"></h2>
+                
+                <div class="space-y-6 text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <p id="modal-intro"></p>
+                    
+                    <div class="bg-blue-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-blue-100 dark:border-slate-700">
+                        <p class="font-bold text-slate-800 dark:text-white mb-3" id="modal-price-header"></p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> 1. File PSD/CDR (edit sesuai kebutuhan)</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> 2. File JPEG/PNG (untuk media sosial dan website)</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> 3. File PDF (siap cetak di percetakan mana pun)</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> 4. Garansi Kepuasan (revisi 3x)</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> 5. Bebas Konsultasi</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p class="font-bold text-slate-800 dark:text-white mb-3">Proses Pemesanan:</p>
+                        <ol class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 text-sm">
+                            <li>1. Kontak – Klik “Kirim Pesan Ke Bisnis”</li>
+                            <li>2. Konsultasi – Detail <span class="modal-service-name"></span> Anda</li>
+                            <li>3. Pembayaran DP – Bayar 50% di awal</li>
+                            <li>4. Pengerjaan – Maksimal 4–7 hari kerja</li>
+                            <li>5. Pengiriman – Untuk review/persetujuan</li>
+                            <li>6. Revisi – Maksimal 3x</li>
+                            <li>7. Pelunasan – Setelah disetujui</li>
+                            <li>8. Pengiriman File – Link Google Drive/Email</li>
+                        </ol>
+                    </div>
+
+                    <p class="text-xs italic text-red-500 bg-red-50 dark:bg-red-900/20 p-3 rounded-lg border border-red-100 dark:border-red-900/30">
+                        Catatan: Pemesanan urgent tidak dilayani demi menjaga kualitas hasil akhir yang maksimal.
+                    </p>
+
+                    <div class="pt-4 text-center">
+                        <p class="text-lg font-semibold text-slate-800 dark:text-white mb-6">Jadikan identitas visual Anda lebih berkelas dan profesional mulai hari ini.</p>
+                        <a id="modal-whatsapp-btn" href="#" class="inline-flex items-center justify-center bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 transition shadow-xl shadow-blue-100 dark:shadow-none w-full">
+                            Kirim Pesan Ke Bisnis
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Hasil Karya (Updated: 4 Landscape Images) -->
+    <section id="karya" class="py-24 px-6 lg:px-12 bg-white dark:bg-darkBg overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12" data-aos="fade-up">
+                <div>
+                    <span class="text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest text-sm mb-4 block">Portofolio</span>
+                    <h2 class="text-4xl md:text-5xl font-bold dark:text-white">Hasil Karya Terbaru</h2>
+                </div>
+                <!-- Filter tetap ada untuk struktur, namun data dibatasi 4 -->
+                <div class="flex flex-wrap gap-2 mt-6 md:mt-0">
+                    <button onclick="filterKarya('all')" class="filter-btn active px-6 py-2 rounded-full text-sm font-bold bg-blue-600 text-white transition">Semua</button>
+                </div>
+            </div>
+
+            <!-- Slider Wrapper -->
+            <div class="relative group" data-aos="fade-up">
+                <div id="karya-slider" class="slider-container gap-6 py-4">
+                    
+                    <!-- Karya 1 (Landscape) -->
+                    <div class="slider-item karya-item" data-category="banner">
+                        <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
+                            <img src="Image/bannersholawat.png" alt="Landscape Work 1" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
+                                <h4 class="text-white font-bold text-xl">Banner Acara</h4>
+                                <p class="text-blue-300 text-sm">Kegiatan</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Karya 2 (Landscape) -->
+                    <div class="slider-item karya-item" data-category="banner">
+                        <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
+                            <img src="Image/banner2.png" alt="Landscape Work 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
+                                <h4 class="text-white font-bold text-xl">Banner Event Dan Kegiatan</h4>
+                                <p class="text-blue-300 text-sm">Organisasi & Acara</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Karya 3 (Landscape) -->
+                    <div class="slider-item karya-item" data-category="banner">
+                        <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
+                            <img src="Image/pamflet.png" alt="Landscape Work 3" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
+                                <h4 class="text-white font-bold text-xl">Pamflet</h4>
+                                <p class="text-blue-300 text-sm">Promosi Produk & Layanan</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Karya 4 (Landscape) -->
+                    <div class="slider-item karya-item" data-category="banner">
+                        <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
+                            <img src="Image/poster.png" alt="Landscape Work 4" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
+                                <h4 class="text-white font-bold text-xl">Poster</h4>
+                                <p class="text-blue-300 text-sm">Ucapan Dan Branding</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Slider Navigation -->
+                <button onclick="prevSlide()" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white dark:bg-slate-800 p-4 rounded-full shadow-xl text-blue-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all z-10">
+                    <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                </button>
+                <button onclick="nextSlide()" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white dark:bg-slate-800 p-4 rounded-full shadow-xl text-blue-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all z-10">
+                    <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni -->
+    <section class="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-bold dark:text-white">Apa Kata Klien Kami?</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-8 bg-white dark:bg-darkCard border border-slate-100 dark:border-slate-800 rounded-3xl shadow-sm" data-aos="fade-up">
+                <div class="flex text-yellow-400 mb-4"><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i></div>
+                <p class="text-slate-600 dark:text-slate-400 italic mb-6">"Desainnya sangat modern dan sesuai dengan visi brand kami. Proses revisinya juga sangat cepat dan komunikatif."</p>
+                <div class="font-bold dark:text-white">Adid Irwansah</div>
+                <div class="text-sm text-slate-400">CEO PT. Sukses Bersama</div>
+            </div>
+            <div class="p-8 bg-white dark:bg-darkCard border border-slate-100 dark:border-slate-800 rounded-3xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex text-yellow-400 mb-4"><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i></div>
+                <p class="text-slate-600 dark:text-slate-400 italic mb-6">"Puas banget dengan desain pamflet acaranya. Sangat profesional dan eye-catching buat promosi di media sosial."</p>
+                <div class="font-bold dark:text-white">Siti Aminah</div>
+                <div class="text-sm text-slate-400">Ketua Organisasi Mahasiswa</div>
+            </div>
+            <div class="p-8 bg-white dark:bg-darkCard border border-slate-100 dark:border-slate-800 rounded-3xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex text-yellow-400 mb-4"><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i></div>
+                <p class="text-slate-600 dark:text-slate-400 italic mb-6">"Harga terjangkau tapi hasilnya nggak murahan. Bagas sangat teliti memperhatikan detail terkecil dalam desain."</p>
+                <div class="font-bold dark:text-white">Rogif Asfahany Ahda</div>
+                <div class="text-sm text-slate-400">Founder Ran's Fotografer Banyuwangi</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section class="py-24 px-6 lg:px-12 bg-white dark:bg-darkBg">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest text-sm mb-4 block">Pertanyaan Umum</span>
+                <h2 class="text-4xl font-bold dark:text-white">Sering Ditanyakan</h2>
+            </div>
+
+            <div class="space-y-4" data-aos="fade-up">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
+                    <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
+                        <span class="font-bold text-lg dark:text-white">Berapa lama proses pengerjaan satu desain?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6">
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Pengerjaan normal memakan waktu 4-7 hari kerja tergantung antrean dan tingkat kerumitan desain. Kami tidak melayani sistem urgent demi menjaga kualitas.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
+                    <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
+                        <span class="font-bold text-lg dark:text-white">Format file apa saja yang akan saya dapatkan?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6">
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Anda akan mendapatkan paket lengkap berupa file master (PSD/CDR), file gambar kualitas tinggi (JPEG/PNG), dan file siap cetak (PDF).</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
+                    <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
+                        <span class="font-bold text-lg dark:text-white">Apakah ada batas jumlah revisi?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6">
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Ya, Kami memberikan jatah revisi maksimal 3 kali untuk perubahan minor (warna, teks, dan tata letak). Jika melebihi dari batas jumlah yang ditentukan maka akan dikenakan biaya tambahan.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
+                    <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
+                        <span class="font-bold text-lg dark:text-white">Bagaimana sistem pembayarannya?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6">
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Sistem pembayaran menggunakan Down Payment (DP) 50% di awal sebelum projek dikerjakan, dan pelunasan 50% sisanya setelah desain disetujui. (Desain dibawah harga 30.000 tidak perlu DP)</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak Section -->
+    <section id="kontak" class="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
+        <div class="bg-blue-600 rounded-[3rem] p-8 md:p-16 text-white grid md:grid-cols-2 gap-12 items-center" data-aos="zoom-in">
+            <div>
+                <h2 class="text-4xl font-bold mb-6">Mari Mulai Projek <br>Hebat Bersama.</h2>
+                <p class="text-blue-100 text-lg mb-8">Konsultasikan kebutuhan desain Anda secara gratis. Kami siap membantu kapanpun.</p>
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-blue-500 p-3 rounded-xl"><i data-lucide="phone" class="w-6 h-6"></i></div>
+                        <div>
+                            <div class="text-sm text-blue-200">WhatsApp</div>
+                            <div class="font-bold">0857 0884 5405</div>
+                        </div>
+                    </div>
+                    <!-- New: Interactive Email with Copy Feature -->
+                    <div class="flex items-center space-x-4 group cursor-pointer" onclick="copyEmail()">
+                        <div class="bg-blue-500 p-3 rounded-xl group-hover:bg-white group-hover:text-blue-600 transition"><i data-lucide="mail" class="w-6 h-6"></i></div>
+                        <div>
+                            <div class="text-sm text-blue-200 flex items-center gap-2">Email <span class="text-[10px] bg-blue-700 px-2 py-0.5 rounded" id="copy-status">Click to copy</span></div>
+                            <div class="font-bold">akunkhusus0728@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-blue-500 p-3 rounded-xl mt-1"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
+                        <div>
+                            <div class="text-sm text-blue-200">Alamat</div>
+                            <div class="font-bold max-w-xs text-sm">Jl. KH Ahmad Asyari, Dusun Krajan, Pakistaji, Kec. Kabat, Kabupaten Banyuwangi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] text-slate-800 dark:text-white">
+                <form id="contact-form" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Nama Lengkap</label>
+                        <input type="text" id="name-input" placeholder="Masukkan nama" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Keperluan</label>
+                        <select id="service-input" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                            <option>Desain Sertifikat/Pamflet</option>
+                            <option>Desain Kaos/Banner</option>
+                            <option>Desain Poster Promo/Event</option>
+                            <option>Desain Poster Film</option>
+                            <option>Lainnya</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Pesan Singkat</label>
+                        <textarea id="message-input" placeholder="Ceritakan kebutuhan Anda" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-900 h-32 focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+                    </div>
+                    <button type="button" onclick="kirimWA()" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-100 dark:shadow-none">Kirim Pesan via WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 lg:px-12 border-t border-slate-100 dark:border-slate-800 text-center bg-white dark:bg-darkBg">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <img src="Image/logobesar.png" alt="BDG Logo" class="h-8 w-auto mb-4 md:mb-0">
+            <p class="text-slate-400 text-sm">© 2023 Bagas Desainer Grafis. Didesain dengan penuh dedikasi.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="text-slate-400 hover:text-blue-600 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-blue-600 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-blue-600 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" onclick="scrollToTop()" class="fixed bottom-32 right-8 z-50 bg-blue-600 text-white p-4 rounded-full shadow-2xl opacity-0 invisible translate-y-10 transition-all duration-300 hover:bg-blue-700">
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </button>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/6285708845405" class="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // 1. Data Layanan
+        const services = [
+            { name: "Desain Sertifikat", price: "Rp20.000", original: "Rp50.000", icon: "award" },
+            { name: "Desain Twibbon", price: "Rp20.000", original: "Rp80.000", icon: "image" },
+            { name: "Desain Pamflet", price: "Rp25.000", original: "Rp80.000", icon: "file-text" },
+            { name: "Desain ID Card", price: "Rp30.000", original: "Rp100.000", icon: "credit-card" },
+            { name: "Desain Banner", price: "Rp30.000", original: "Rp120.000", icon: "maximize" },
+            { name: "Poster Dakwah", price: "Rp40.000", original: "Rp80.000", icon: "heart" },
+            { name: "Poster Promosi", price: "Rp40.000", original: "Rp120.000", icon: "trending-up" },
+            { name: "Poster Webinar", price: "Rp40.000", original: "Rp120.000", icon: "video" },
+            { name: "Birthday Poster", price: "Rp25.000", original: "Rp50.000", icon: "gift" },
+            { name: "Desain Kaos", price: "Rp50.000", original: "Rp165.000", icon: "shirt" },
+            { name: "Desain Poster Film", price: "Rp180.000", original: "Rp275.000", icon: "clapperboard" }
+        ];
+
+        const servicesContainer = document.getElementById('services-container');
+        servicesContainer.innerHTML = services.map((s, index) => `
+            <div class="service-card bg-white dark:bg-darkCard p-8 rounded-3xl border border-slate-100 dark:border-slate-800 transition-all duration-300 flex flex-col items-start" data-aos="fade-up">
+                <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-2xl mb-6 text-blue-600 dark:text-blue-400">
+                    <i data-lucide="${s.icon}" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-bold text-xl mb-2 dark:text-white">${s.name}</h3>
+                <div class="mb-6">
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-red-500 bg-red-50 dark:bg-red-900/20 px-2 py-0.5 rounded-md mb-1 inline-block">Diskon Terbatas</span>
+                    <div class="flex flex-col">
+                        <span class="text-slate-400 line-through text-sm">${s.original}</span>
+                        <span class="text-blue-600 dark:text-blue-400 font-bold text-2xl">${s.price}</span>
+                    </div>
+                </div>
+                <button onclick="openServiceModal(${index})" class="mt-auto w-full text-center py-3 bg-slate-50 dark:bg-slate-800 hover:bg-blue-600 hover:text-white transition rounded-xl font-semibold text-sm dark:text-slate-300">Pilih Layanan</button>
+            </div>
+        `).join('');
+
+        // Modal Logic
+        const modal = document.getElementById('service-modal');
+        const modalContent = modal.querySelector('div');
+
+        function openServiceModal(index) {
+            const service = services[index];
+            document.getElementById('modal-title').innerText = `Raih Perhatian dengan "${service.name}" Menarik!`;
+            document.getElementById('modal-intro').innerText = `Buat bisnis atau karya Anda semakin dilirik dengan "${service.name}" yang eye-catching! Kami menawarkan hasil profesional, kreatif, dan sesuai dengan harapan Anda.`;
+            document.getElementById('modal-price-header').innerText = `Paket lengkap "${service.price}" ini sudah termasuk:`;
+            document.querySelectorAll('.modal-service-name').forEach(el => el.innerText = service.name);
+            const waText = `Halo BDG, saya ingin memesan: *${service.name}* (${service.price}). Mohon info selanjutnya.`;
+            document.getElementById('modal-whatsapp-btn').href = `https://wa.me/6285708845405?text=${encodeURIComponent(waText)}`;
+            modal.classList.remove('invisible');
+            modal.classList.add('opacity-100');
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+            document.body.classList.add('modal-active');
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            modal.classList.remove('opacity-100');
+            modal.classList.add('invisible');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            document.body.classList.remove('modal-active');
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // FAQ Logic
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
+        }
+
+        // Counter Logic
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+        const observerOptions = { threshold: 0.5 };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 15);
+                        } else {
+                            counter.innerText = target + (counter.getAttribute('data-target') === '99' ? '%' : '+');
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(counter => observer.observe(counter));
+
+        // Back to Top Logic
+        const btt = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) btt.classList.add('visible');
+            else btt.classList.remove('visible');
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // New: Scroll Progress Bar Logic
+        window.addEventListener('scroll', () => {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('scroll-progress').style.width = scrollPercent + '%';
+        });
+
+        // New: Copy Email Logic
+        function copyEmail() {
+            const email = "akunkhusus0728@gmail.com";
+            navigator.clipboard.writeText(email);
+            const status = document.getElementById('copy-status');
+            status.innerText = "Copied!";
+            status.classList.replace('bg-blue-700', 'bg-green-500');
+            setTimeout(() => {
+                status.innerText = "Click to copy";
+                status.classList.replace('bg-green-500', 'bg-blue-700');
+            }, 2000);
+        }
+
+        // Initialize AOS & Lucide
+        AOS.init({ duration: 800, once: true, offset: 100 });
+        lucide.createIcons();
+
+        // Global Hamburger Menu
+        const menuBtn = document.getElementById('menu-btn');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuLinks = document.querySelectorAll('.menu-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        menuLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Dark Mode
+        const themeToggle = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+        const html = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            sunIcon.classList.toggle('hidden');
+            moonIcon.classList.toggle('hidden');
+        });
+
+        // Navbar Shadow
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) nav.classList.add('shadow-md');
+            else nav.classList.remove('shadow-md');
+        });
+
+        // Slider Logic
+        const slider = document.getElementById('karya-slider');
+        function nextSlide() { slider.scrollBy({ left: slider.offsetWidth / 2, behavior: 'smooth' }); }
+        function prevSlide() { slider.scrollBy({ left: -(slider.offsetWidth / 2), behavior: 'smooth' }); }
+
+        function filterKarya(category) {
+            // Filter functionality preserved for structure
+            slider.scrollTo({ left: 0, behavior: 'smooth' });
+        }
+
+        // WhatsApp Form
+        function kirimWA() {
+            const nama = document.getElementById('name-input').value;
+            const keperluan = document.getElementById('service-input').value;
+            const pesan = document.getElementById('message-input').value;
+            if(!nama) { alert("Tolong masukkan nama Anda"); return; }
+            const text = `Halo BDG, saya *${nama}*.%0ASaya ingin memesan: *${keperluan}*.%0A%0A*Pesan:*%0A${pesan}`;
+            window.open(`https://wa.me/6285708845405?text=${text}`, '_blank');
+        }
+    </script>
+</body>
+</html>
