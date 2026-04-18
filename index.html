@@ -16,13 +16,13 @@
     <meta property="og:url" content="https://bdgsolusidesainmu.my.id/">
     <meta property="og:title" content="BDG - Jasa Desain Grafis Profesional & Berkelas">
     <meta property="og:description" content="Solusi visual modern untuk brand Anda. Proses cepat, harga terjangkau, dan hasil berkualitas tinggi.">
-    <meta property="og:image" content="image/og-preview.jpg">
+    <meta property="og:image" content="image/og-preview.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="BDG - Bagas Desainer Grafis">
     <meta property="twitter:description" content="Mewujudkan ide menjadi karya visual yang bermakna.">
-    <meta property="twitter:image" content="image/og-preview.jpg">
+    <meta property="twitter:image" content="image/og-preview.png">
 
     <!-- Styles & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -34,8 +34,18 @@
                     colors: {
                         darkBg: '#0f172a',
                         darkCard: '#1e293b',
-                        ramadanGold: '#d4af37',
-                        ramadanGreen: '#065f46'
+                        brand: {
+                            50: 'var(--brand-50)',
+                            100: 'var(--brand-100)',
+                            200: 'var(--brand-200)',
+                            300: 'var(--brand-300)',
+                            400: 'var(--brand-400)',
+                            500: 'var(--brand-500)',
+                            600: 'var(--brand-600)',
+                            700: 'var(--brand-700)',
+                            800: 'var(--brand-800)',
+                            900: 'var(--brand-900)'
+                        }
                     },
                     aspectRatio: {
                         'landscape': '16 / 9',
@@ -49,6 +59,66 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
+        :root {
+            /* Tema Biru (Default) */
+            --brand-50: #eff6ff;
+            --brand-100: #dbeafe;
+            --brand-200: #bfdbfe;
+            --brand-300: #93c5fd;
+            --brand-400: #60a5fa;
+            --brand-500: #3b82f6;
+            --brand-600: #2563eb;
+            --brand-700: #1d4ed8;
+            --brand-800: #1e40af;
+            --brand-900: #1e3a8a;
+            --accent-500: #60a5fa;
+        }
+
+        body.theme-ramadhan {
+            /* Tema Hijau & Oren */
+            --brand-50: #ecfdf5;
+            --brand-100: #d1fae5;
+            --brand-200: #a7f3d0;
+            --brand-300: #6ee7b7;
+            --brand-400: #34d399;
+            --brand-500: #10b981;
+            --brand-600: #059669;
+            --brand-700: #047857;
+            --brand-800: #065f46;
+            --brand-900: #064e3b;
+            --accent-500: #f59e0b;
+        }
+
+        body.theme-xmas {
+            /* Tema Merah & Emas */
+            --brand-50: #fef2f2;
+            --brand-100: #fee2e2;
+            --brand-200: #fecaca;
+            --brand-300: #fca5a5;
+            --brand-400: #f87171;
+            --brand-500: #ef4444;
+            --brand-600: #dc2626;
+            --brand-700: #b91c1c;
+            --brand-800: #991b1b;
+            --brand-900: #7f1d1d;
+            --accent-500: #fbbf24;
+        }
+
+        body.theme-imlek {
+            /* Tema Merah Gelap Oriental */
+            --brand-50: #fff1f2;
+            --brand-100: #ffe4e6;
+            --brand-200: #fecdd3;
+            --brand-300: #fda4af;
+            --brand-400: #fb7185;
+            --brand-500: #f43f5e;
+            --brand-600: #e11d48;
+            --brand-700: #be123c;
+            --brand-800: #9f1239;
+            --brand-900: #881337;
+            --accent-500: #facc15;
+        }
+
         body { font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; }
         .glass-nav {
             background: rgba(255, 255, 255, 0.85);
@@ -61,10 +131,10 @@
         }
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.1), 0 10px 10px -5px rgba(37, 99, 235, 0.04);
+            box-shadow: 0 20px 25px -5px rgba(var(--brand-600), 0.1), 0 10px 10px -5px rgba(var(--brand-600), 0.04);
         }
         .gradient-text {
-            background: linear-gradient(90deg, #2563eb, #60a5fa);
+            background: linear-gradient(90deg, var(--brand-600), var(--accent-500));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -99,21 +169,13 @@
             height: 2px;
             width: 100%;
             border-radius: 10px;
-            background: #ffffff; /* Default text color inside blue button */
+            background: #ffffff;
             transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
         }
         
-        /* Active State for Hamburger (X shape) */
-        .hamburger-active .line1 {
-            transform: translateY(7px) rotate(45deg);
-        }
-        .hamburger-active .line2 {
-            opacity: 0;
-            transform: translateX(-10px);
-        }
-        .hamburger-active .line3 {
-            transform: translateY(-7px) rotate(-45deg);
-        }
+        .hamburger-active .line1 { transform: translateY(7px) rotate(45deg); }
+        .hamburger-active .line2 { opacity: 0; transform: translateX(-10px); }
+        .hamburger-active .line3 { transform: translateY(-7px) rotate(-45deg); }
         
         /* Sidebar Item Hover Animation */
         .sidebar-link {
@@ -127,21 +189,19 @@
             top: 0;
             bottom: 0;
             width: 3px;
-            background: #2563eb;
+            background: var(--brand-600);
             border-radius: 0 4px 4px 0;
             opacity: 0;
             transition: opacity 0.3s ease;
         }
         .sidebar-link:hover {
-            background-color: rgba(37, 99, 235, 0.05);
-            padding-left: 1.5rem; /* Slight shift */
+            background-color: var(--brand-50);
+            padding-left: 1.5rem;
         }
         .dark .sidebar-link:hover {
             background-color: rgba(255, 255, 255, 0.05);
         }
-        .sidebar-link:hover::before {
-            opacity: 1;
-        }
+        .sidebar-link:hover::before { opacity: 1; }
 
         /* Custom Slider Styles */
         .slider-container {
@@ -152,24 +212,18 @@
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
-        .slider-container::-webkit-scrollbar {
-            display: none;
-        }
+        .slider-container::-webkit-scrollbar { display: none; }
         .slider-item {
             flex: 0 0 100%;
             scroll-snap-align: start;
         }
         @media (min-width: 768px) {
-            .slider-item {
-                flex: 0 0 calc(50% - 12px);
-            }
+            .slider-item { flex: 0 0 calc(50% - 12px); }
         }
 
         /* Modal Styles */
-        .modal-active {
-            overflow: hidden;
-        }
-        #service-modal {
+        .modal-active { overflow: hidden; }
+        #service-modal, #voucher-modal, #admin-login-modal, #admin-dashboard-modal, #seasonal-promo-modal {
             transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
@@ -179,13 +233,8 @@
             overflow: hidden;
             transition: max-height 0.3s ease-out, padding 0.3s ease;
         }
-        .faq-item.active .faq-content {
-            max-height: 500px;
-            padding-bottom: 1.5rem;
-        }
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
-        }
+        .faq-item.active .faq-content { max-height: 500px; padding-bottom: 1.5rem; }
+        .faq-item.active .faq-icon { transform: rotate(180deg); }
 
         /* Back to Top */
         #backToTop.visible {
@@ -200,73 +249,38 @@
             top: 0;
             left: 0;
             height: 4px;
-            background: linear-gradient(90deg, #2563eb, #60a5fa);
+            background: linear-gradient(90deg, var(--brand-600), var(--accent-500));
             z-index: 100;
             width: 0%;
             transition: width 0.1s ease-out;
         }
 
-        /* RAMADAN ANIMATIONS */
-        .islamic-pattern {
-            background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
-            opacity: 0.05;
-        }
-        .dark .islamic-pattern {
-            filter: invert(1);
-            opacity: 0.03;
-        }
-        .lantern-float {
-            animation: lanternFloat 3s ease-in-out infinite;
-        }
-        @keyframes lanternFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(5deg); }
-        }
-        .highlight-gold {
-            border: 2px solid #d4af37;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-        }
+        /* Ornamen Musiman Animations */
+        .ornament { position: fixed; pointer-events: none; z-index: 45; }
+        .orn-float-1 { top: 15%; left: 8%; font-size: 3rem; animation: float 4s ease-in-out infinite; }
+        .orn-float-2 { top: 20%; right: 10%; font-size: 4rem; animation: float 5s ease-in-out infinite alternate; }
+        .orn-float-3 { bottom: 25%; left: 12%; font-size: 2.5rem; animation: float 3s ease-in-out infinite; }
+        
+        .lantern { font-size: 3.5rem; transform-origin: top center; animation: swing 3s ease-in-out infinite; }
+        .lantern-left { top: 0; left: 15%; }
+        .lantern-right { top: 0; right: 15%; }
 
-        /* --- NEW: POPUP ANIMATION --- */
-        #ramadan-popup-overlay {
-            transition: opacity 0.5s ease-in-out;
-        }
-        #ramadan-popup-content {
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
+        .snow { color: #fff; font-size: 1.5rem; animation: fall linear forwards; position: fixed; top: -50px; z-index: 45; pointer-events: none; text-shadow: 0 0 5px rgba(255,255,255,0.5); }
+        
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+        @keyframes swing { 0%, 100% { transform: rotate(-10deg); } 50% { transform: rotate(10deg); } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
     </style>
 </head>
 <body class="bg-white text-slate-800 antialiased overflow-x-hidden dark:bg-darkBg dark:text-slate-200">
 
-    <!-- NEW: Pop-up Ramadan Notification -->
-    <div id="ramadan-popup-overlay" class="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 backdrop-blur-sm opacity-0 invisible">
-        <div id="ramadan-popup-content" class="relative bg-white dark:bg-slate-900 w-[90%] max-w-md rounded-[2.5rem] overflow-hidden shadow-2xl border-t-8 border-emerald-600 transform scale-75">
-            <!-- Pattern Background -->
-            <div class="absolute inset-0 islamic-pattern opacity-10 pointer-events-none"></div>
-            
-            <div class="p-8 text-center relative z-10">
-                <!-- Icon Decoration -->
-                <div class="w-20 h-20 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 lantern-float">
-                    <i data-lucide="moon-star" class="w-10 h-10"></i>
-                </div>
-                
-                <h3 class="text-2xl font-bold text-emerald-800 dark:text-emerald-400 mb-4">Marhaban ya Ramadan</h3>
-                
-                <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                    Selamat Menunaikan Ibadah Puasa. Semoga Ramadan kali ini membawa berkah, ampunan, dan kebaikan untuk kita semua.
-                </p>
-                
-                <button id="close-ramadan-popup" class="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-2xl transition shadow-lg shadow-emerald-200 dark:shadow-none">
-                    Tutup
-                </button>
-            </div>
-        </div>
-    </div>
-
     <!-- Scroll Progress Bar -->
     <div id="scroll-progress"></div>
 
-    <!-- Backdrop for Sidebar (New) -->
+    <!-- Container Ornamen Musiman -->
+    <div id="seasonal-ornaments"></div>
+
+    <!-- Backdrop for Sidebar -->
     <div id="sidebar-backdrop" class="sidebar-backdrop fixed inset-0 bg-black/40 backdrop-blur-sm z-[55]" onclick="toggleMenu()"></div>
 
     <!-- Navbar -->
@@ -277,19 +291,12 @@
             </a>
 
             <div class="flex items-center space-x-4">
-                <!-- Ramadan Decorative Icon (Nav) -->
-                <div class="hidden md:flex items-center text-amber-500 animate-pulse mr-2">
-                    <i data-lucide="moon-star" class="w-5 h-5 mr-1"></i>
-                    <span class="text-xs font-bold uppercase tracking-tighter">Ramadan Sale</span>
-                </div>
-
-                <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-yellow-400 hover:ring-2 ring-blue-500 transition-all">
+                <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-yellow-400 hover:ring-2 ring-brand-500 transition-all">
                     <i data-lucide="sun" id="sun-icon" class="hidden w-5 h-5"></i>
                     <i data-lucide="moon" id="moon-icon" class="w-5 h-5"></i>
                 </button>
 
-                <!-- Updated Hamburger Button -->
-                <button id="menu-btn" class="p-3 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 dark:shadow-none z-[60] relative">
+                <button id="menu-btn" class="p-3 rounded-xl bg-brand-600 text-white hover:bg-brand-700 transition-all shadow-lg shadow-brand-200 dark:shadow-none z-[60] relative">
                     <div class="hamburger-lines">
                         <span class="line line1"></span>
                         <span class="line line2"></span>
@@ -300,7 +307,7 @@
         </div>
     </nav>
 
-    <!-- Global Hamburger Overlay Menu (REBUILT SIDEBAR) -->
+    <!-- Global Hamburger Overlay Menu -->
     <div id="mobile-menu" class="fixed top-0 right-0 h-full w-[85%] max-w-sm z-[60] bg-white dark:bg-darkCard translate-x-full border-l border-slate-100 dark:border-slate-800 flex flex-col">
         <!-- Sidebar Header -->
         <div class="p-6 border-b border-slate-100 dark:border-slate-800/50 flex items-center justify-between">
@@ -308,7 +315,6 @@
                 <img src="Image/logobesar.png" alt="Logo" class="h-8 w-auto">
                 <span class="font-bold text-slate-800 dark:text-white text-lg tracking-tight">Menu</span>
             </div>
-            <!-- Close button functionality handled by backdrop and toggle logic, but visual X is in the menu-btn -->
         </div>
 
         <!-- Sidebar Content -->
@@ -318,83 +324,79 @@
             <div class="space-y-1">
                 <p class="px-4 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Navigasi Utama</p>
                 
-                <a href="#home" class="menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-blue-600 dark:hover:text-white group">
-                    <i data-lucide="home" class="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-colors"></i>
+                <a href="#home" class="menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-brand-600 dark:hover:text-white group">
+                    <i data-lucide="home" class="w-5 h-5 text-slate-400 group-hover:text-brand-600 transition-colors"></i>
                     <span class="font-medium">Home</span>
                 </a>
                 
-                <a href="#tentang" class="menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-blue-600 dark:hover:text-white group">
-                    <i data-lucide="info" class="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-colors"></i>
+                <a href="#tentang" class="menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-brand-600 dark:hover:text-white group">
+                    <i data-lucide="info" class="w-5 h-5 text-slate-400 group-hover:text-brand-600 transition-colors"></i>
                     <span class="font-medium">Tentang Kami</span>
                 </a>
                 
-                <a href="#layanan" class="menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-blue-600 dark:hover:text-white group">
-                    <i data-lucide="briefcase" class="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-colors"></i>
+                <a href="#layanan" class="menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-brand-600 dark:hover:text-white group">
+                    <i data-lucide="briefcase" class="w-5 h-5 text-slate-400 group-hover:text-brand-600 transition-colors"></i>
                     <span class="font-medium">Layanan</span>
                 </a>
 
-                <a href="#karya" class="menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-blue-600 dark:hover:text-white group">
-                    <i data-lucide="image" class="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-colors"></i>
+                <a href="#karya" class="menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-brand-600 dark:hover:text-white group">
+                    <i data-lucide="image" class="w-5 h-5 text-slate-400 group-hover:text-brand-600 transition-colors"></i>
                     <span class="font-medium">Portofolio</span>
                 </a>
 
-                <a href="#kontak" class="menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-blue-600 dark:hover:text-white group">
-                    <i data-lucide="phone" class="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-colors"></i>
+                <a href="#kontak" class="menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-brand-600 dark:hover:text-white group">
+                    <i data-lucide="phone" class="w-5 h-5 text-slate-400 group-hover:text-brand-600 transition-colors"></i>
                     <span class="font-medium">Kontak</span>
                 </a>
-            </div>
-
-            <!-- Divider -->
-            <div class="h-px bg-slate-100 dark:bg-slate-800 my-4 mx-4"></div>
-
-            <!-- Special Section -->
-             <div class="space-y-1">
-                <p class="px-4 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Penawaran Spesial</p>
-                <a href="#ramadhan" class="menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-amber-600 dark:text-amber-400 rounded-xl bg-amber-50 dark:bg-amber-900/10 hover:bg-amber-100 dark:hover:bg-amber-900/30 transition group">
-                    <i data-lucide="moon-star" class="w-5 h-5 text-amber-500 animate-pulse"></i>
-                    <span class="font-bold">Promo Ramadhan</span>
+                <a href="#paket-ig" class="menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-brand-600 dark:hover:text-white group mt-4">
+                    <i data-lucide="layout-template" class="w-5 h-5 text-slate-400 group-hover:text-brand-600 transition-colors"></i>
+                    <span class="font-medium">Paket Instagram</span>
                 </a>
+                
+                <button onclick="bukaVoucherModal()" class="w-full menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-brand-600 dark:hover:text-white group mt-1">
+                    <i data-lucide="ticket" class="w-5 h-5 text-slate-400 group-hover:text-brand-600 transition-colors"></i>
+                    <span class="font-medium text-left">Tambah Voucher</span>
+                </button>
+
+                <div class="h-px bg-slate-100 dark:bg-slate-800 my-4 mx-4"></div>
+
+                <button onclick="bukaLoginAdmin()" class="w-full menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-red-600 dark:hover:text-red-400 group">
+                    <i data-lucide="lock" class="w-5 h-5 text-slate-400 group-hover:text-red-600 transition-colors"></i>
+                    <span class="font-medium text-left">Admin Login</span>
+                </button>
             </div>
 
         </div>
 
         <!-- Sidebar Footer -->
         <div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
-            <a href="https://wa.me/6285708845405" class="flex items-center justify-center gap-2 w-full py-3.5 bg-blue-600 text-white rounded-xl font-bold shadow-lg shadow-blue-200 dark:shadow-none hover:bg-blue-700 transition active:scale-95">
+            <a href="https://wa.me/6285708845405" class="flex items-center justify-center gap-2 w-full py-3.5 bg-brand-600 text-white rounded-xl font-bold shadow-lg shadow-brand-200 dark:shadow-none hover:bg-brand-700 transition active:scale-95">
                 <span>Order Sekarang</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
             <div class="flex justify-center gap-6 mt-6">
-                 <a href="#" class="text-slate-400 hover:text-blue-600 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                 <a href="#" class="text-slate-400 hover:text-blue-600 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-                 <a href="#" class="text-slate-400 hover:text-blue-600 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                 <a href="#" class="text-slate-400 hover:text-brand-600 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                 <a href="#" class="text-slate-400 hover:text-brand-600 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                 <a href="#" class="text-slate-400 hover:text-brand-600 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
             </div>
             <p class="text-center text-xs text-slate-400 mt-4">© 2023 BDG Design.</p>
         </div>
         
-        <!-- Hidden Close Button (Logic Only) -->
+        <!-- Hidden Close Button -->
         <button id="close-menu" class="hidden"></button>
     </div>
 
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center pt-20 px-6 lg:px-12 bg-gradient-to-b from-blue-50 to-white dark:from-slate-900 dark:to-darkBg overflow-hidden">
-        <!-- Floating Ramadan Ornaments -->
-        <div class="absolute top-32 left-10 text-amber-500/20 lantern-float hidden lg:block">
-            <i data-lucide="lamp" class="w-20 h-20"></i>
-        </div>
-        <div class="absolute bottom-20 right-10 text-amber-500/20 lantern-float hidden lg:block" style="animation-delay: 1.5s;">
-            <i data-lucide="moon-star" class="w-24 h-24"></i>
-        </div>
-
+    <section id="home" class="relative min-h-screen flex items-center pt-20 px-6 lg:px-12 bg-gradient-to-b from-brand-50 to-white dark:from-slate-900 dark:to-darkBg overflow-hidden">
         <div class="max-w-7xl mx-auto text-center relative z-10">
             <div data-aos="fade-up" data-aos-duration="1000">
-                <span class="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-blue-600 uppercase bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 rounded-full">Solusi Desain Terpercaya</span>
+                <span class="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-brand-600 uppercase bg-brand-100 dark:bg-brand-900/30 dark:text-brand-400 rounded-full">Solusi Desain Terpercaya</span>
                 <h1 class="text-5xl lg:text-8xl font-bold leading-tight mb-8 dark:text-white">Visual Berkelas untuk <br><span class="gradient-text">Brand Anda.</span></h1>
                 <p class="text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
                     Kami membantu UMKM, Perusahaan, dan Organisasi menciptakan identitas visual yang profesional, modern, dan berdampak tinggi.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="https://wa.me/6285708845405" class="inline-flex items-center justify-center bg-blue-600 text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-blue-700 transition shadow-xl shadow-blue-100 dark:shadow-none group">
+                    <a href="https://wa.me/6285708845405" class="inline-flex items-center justify-center bg-brand-600 text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-brand-700 transition shadow-xl shadow-brand-100 dark:shadow-none group">
                         Order Sekarang
                         <i data-lucide="arrow-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition"></i>
                     </a>
@@ -411,8 +413,8 @@
         <div class="max-w-5xl mx-auto">
             <div class="grid md:grid-cols-12 gap-12 items-start">
                 <div class="md:col-span-8" data-aos="fade-up">
-                    <span class="text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest text-sm mb-4 block">Tentang BDG</span>
-                    <h2 class="text-4xl md:text-5xl font-bold mb-8 leading-tight dark:text-white">Mewujudkan Ide Menjadi <span class="text-blue-600">Karya Visual</span> yang Bermakna.</h2>
+                    <span class="text-brand-600 dark:text-brand-400 font-bold uppercase tracking-widest text-sm mb-4 block">Tentang BDG</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-8 leading-tight dark:text-white">Mewujudkan Ide Menjadi <span class="text-brand-600">Karya Visual</span> yang Bermakna.</h2>
                     <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
                         BDG (Bagas Desainer Grafis) adalah jasa desain profesional yang berfokus pada estetika modern dan komunikasi visual yang efektif. Didirikan oleh <strong>Bagas Prayoga</strong>, kami hadir untuk memberikan solusi desain eksklusif yang mudah diakses oleh semua kalangan.
                     </p>
@@ -421,15 +423,15 @@
                     </p>
                 </div>
                 <div class="md:col-span-4 space-y-8" data-aos="fade-left">
-                    <div class="p-8 bg-blue-50 dark:bg-slate-800 rounded-[2.5rem] border border-blue-100 dark:border-slate-700">
+                    <div class="p-8 bg-brand-50 dark:bg-slate-800 rounded-[2.5rem] border border-brand-100 dark:border-slate-700">
                         <img src="Image/gambarbagas.jpg" alt="Bagas Prayoga" class="w-32 h-32 rounded-3xl object-cover mb-6 shadow-md border-2 border-white dark:border-slate-600">
-                        <h4 class="text-blue-600 dark:text-blue-400 font-bold text-xl mb-2">Bagas Prayoga</h4>
+                        <h4 class="text-brand-600 dark:text-brand-400 font-bold text-xl mb-2">Bagas Prayoga</h4>
                         <p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-tighter mb-4">Owner and Lead Designer</p>
-                        <hr class="border-blue-200 dark:border-slate-700 mb-4">
+                        <hr class="border-brand-200 dark:border-slate-700 mb-4">
                         <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed italic">"Simplicity is the ultimate sophistication."</p>
                     </div>
                     <div class="flex items-center space-x-4 px-4 text-slate-800 dark:text-white">
-                        <div class="h-12 w-12 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-200 dark:shadow-none">
+                        <div class="h-12 w-12 rounded-xl bg-brand-600 flex items-center justify-center text-white shadow-lg shadow-brand-200 dark:shadow-none">
                             <i data-lucide="check-circle" class="w-6 h-6"></i>
                         </div>
                         <div>
@@ -442,24 +444,24 @@
         </div>
     </section>
 
-    <!-- Statistik Section (Counters) -->
-    <section class="py-20 bg-blue-600 dark:bg-blue-800 text-white">
+    <!-- Statistik Section -->
+    <section class="py-20 bg-brand-600 dark:bg-brand-800 text-white">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div data-aos="zoom-in">
                 <div class="text-4xl md:text-5xl font-bold mb-2 counter" data-target="500">0</div>
-                <p class="text-blue-100 text-sm uppercase tracking-widest font-semibold">Projek Selesai</p>
+                <p class="text-brand-100 text-sm uppercase tracking-widest font-semibold">Projek Selesai</p>
             </div>
             <div data-aos="zoom-in" data-aos-delay="100">
                 <div class="text-4xl md:text-5xl font-bold mb-2 counter" data-target="480">0</div>
-                <p class="text-blue-100 text-sm uppercase tracking-widest font-semibold">Klien Puas</p>
+                <p class="text-brand-100 text-sm uppercase tracking-widest font-semibold">Klien Puas</p>
             </div>
             <div data-aos="zoom-in" data-aos-delay="200">
                 <div class="text-4xl md:text-5xl font-bold mb-2 counter" data-target="3">0</div>
-                <p class="text-blue-100 text-sm uppercase tracking-widest font-semibold">Tahun Pengalaman</p>
+                <p class="text-brand-100 text-sm uppercase tracking-widest font-semibold">Tahun Pengalaman</p>
             </div>
             <div data-aos="zoom-in" data-aos-delay="300">
                 <div class="text-4xl md:text-5xl font-bold mb-2 counter" data-target="98">0</div>
-                <p class="text-blue-100 text-sm uppercase tracking-widest font-semibold">Tingkat Retensi (%)</p>
+                <p class="text-brand-100 text-sm uppercase tracking-widest font-semibold">Tingkat Retensi (%)</p>
             </div>
         </div>
     </section>
@@ -468,7 +470,7 @@
     <section id="layanan" class="py-24 px-6 lg:px-12 bg-slate-50 dark:bg-slate-900/50">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest text-sm mb-4 block">Daftar Layanan</span>
+                <span class="text-brand-600 dark:text-brand-400 font-bold uppercase tracking-widest text-sm mb-4 block">Daftar Layanan</span>
                 <h2 class="text-4xl md:text-5xl font-bold dark:text-white">Investasi Desain Terjangkau</h2>
                 <p class="text-slate-500 dark:text-slate-400 mt-4 max-w-2xl mx-auto">Tingkatkan value brand Anda dengan harga yang kompetitif tanpa mengurangi kualitas premium.</p>
             </div>
@@ -479,79 +481,87 @@
         </div>
     </section>
 
-    <!-- Paket Spesial Ramadhan Instagram Design -->
-    <section id="ramadhan" class="py-24 px-6 lg:px-12 bg-white dark:bg-darkBg relative overflow-hidden">
-        <!-- Islamic Background Pattern -->
-        <div class="absolute inset-0 islamic-pattern pointer-events-none"></div>
-        
+    <!-- Paket Instagram Design -->
+    <section id="paket-ig" class="py-24 px-6 lg:px-12 bg-white dark:bg-darkBg relative overflow-hidden">
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="text-center mb-16" data-aos="fade-up">
-                <div class="flex items-center justify-center gap-2 mb-4">
-                    <i data-lucide="moon-star" class="text-amber-500 w-8 h-8 lantern-float"></i>
-                    <span class="text-amber-600 dark:text-amber-400 font-extrabold uppercase tracking-[0.3em] text-sm block">Special Offer</span>
-                    <i data-lucide="lamp" class="text-amber-500 w-8 h-8 lantern-float" style="animation-delay: 0.5s;"></i>
-                </div>
-                <h2 class="text-4xl md:text-5xl font-bold dark:text-white mb-4">Paket Spesial Ramadhan <br><span class="text-amber-600 dark:text-amber-500">Instagram Design</span></h2>
-                <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto italic">Tingkatkan engagement media sosial Anda selama bulan suci dengan desain estetik dan profesional.</p>
+                <span class="text-brand-600 dark:text-brand-400 font-bold uppercase tracking-widest text-sm mb-4 block">Social Media Maintenance</span>
+                <h2 class="text-4xl md:text-5xl font-bold dark:text-white mb-4">Paket Desain Instagram</h2>
+                <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">Tingkatkan engagement media sosial Anda dengan desain estetik dan profesional.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Paket 1: Basic -->
+                <!-- Paket 1 -->
                 <div class="bg-slate-50 dark:bg-darkCard p-10 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 transition-all hover:shadow-2xl flex flex-col group" data-aos="fade-up">
                     <h3 class="text-2xl font-bold mb-2 dark:text-white">Basic</h3>
-                    <div class="mb-6">
-                        <span class="text-3xl font-bold text-slate-800 dark:text-white">Rp120.000</span>
+                    <div class="mb-6 ig-price-container">
+                        <span class="text-3xl font-bold text-slate-800 dark:text-white ig-price-display" data-base="240000">Rp240.000</span>
                     </div>
                     <ul class="space-y-4 mb-10 flex-grow text-slate-600 dark:text-slate-400">
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> 3 Desain Feed Instagram</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> Maksimal 3x Revisi</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> Format JPG/PNG</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> Free Konsultasi</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> Link Google Drive</li>
-                        <li class="flex items-center gap-3 opacity-60 italic text-sm"><i data-lucide="clock" class="w-4 h-4"></i> Estimasi 3-4 Hari</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-brand-500 w-5 h-5"></i> 3 Desain Feed Instagram</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-brand-500 w-5 h-5"></i> Maksimal 3x Revisi</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-brand-500 w-5 h-5"></i> Format JPG/PNG</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-brand-500 w-5 h-5"></i> Free Konsultasi</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-brand-500 w-5 h-5"></i> Link Google Drive</li>
+                        <li class="flex items-center gap-3 opacity-60 text-sm"><i data-lucide="clock" class="w-4 h-4"></i> Estimasi 3-4 Hari</li>
                     </ul>
-                    <a href="https://wa.me/6285708845405?text=Halo%20BDG,%20saya%20ingin%20pesan%20Paket%20Ramadhan%20Basic" class="w-full py-4 rounded-2xl bg-slate-200 dark:bg-slate-800 dark:text-white font-bold text-center hover:bg-amber-500 hover:text-white transition">Pesan Sekarang</a>
+                    <button onclick="pesanInstagram('Basic', 240000)" class="w-full py-4 rounded-2xl bg-slate-200 dark:bg-slate-800 dark:text-white font-bold text-center hover:bg-brand-600 hover:text-white transition">Pesan Sekarang</button>
                 </div>
 
-                <!-- Paket 2: Standard (REKOMENDASI) -->
-                <div class="bg-white dark:bg-slate-800 p-10 rounded-[2.5rem] highlight-gold transition-all shadow-xl relative flex flex-col group scale-105" data-aos="zoom-in">
-                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-amber-500 text-white px-6 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest whitespace-nowrap shadow-lg">Paling Populer</div>
+                <!-- Paket 2 -->
+                <div class="bg-white dark:bg-slate-800 p-10 rounded-[2.5rem] border-2 border-brand-500 transition-all shadow-xl relative flex flex-col group scale-105" data-aos="zoom-in">
+                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-brand-600 text-white px-6 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest whitespace-nowrap shadow-lg">Paling Populer</div>
                     <h3 class="text-2xl font-bold mb-2 dark:text-white">Standard</h3>
-                    <div class="mb-6">
-                        <span class="text-3xl font-bold text-slate-800 dark:text-white">Rp230.000</span>
+                    <div class="mb-6 ig-price-container">
+                        <span class="text-3xl font-bold text-slate-800 dark:text-white ig-price-display" data-base="460000">Rp460.000</span>
                     </div>
                     <ul class="space-y-4 mb-10 flex-grow text-slate-600 dark:text-slate-300">
-                        <li class="flex items-center gap-3 font-bold text-amber-600 dark:text-amber-400"><i data-lucide="sparkles" class="w-5 h-5"></i> 6 Desain Feed Instagram</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> Maksimal 3x Revisi</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> Format JPG/PNG</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> Free Konsultasi</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> Link Google Drive</li>
-                        <li class="flex items-center gap-3 opacity-60 italic text-sm"><i data-lucide="clock" class="w-4 h-4"></i> Estimasi 3-6 Hari</li>
+                        <li class="flex items-center gap-3 font-bold text-brand-600 dark:text-brand-400"><i data-lucide="sparkles" class="w-5 h-5"></i> 6 Desain Feed Instagram</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-brand-500 w-5 h-5"></i> Maksimal 3x Revisi</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-brand-500 w-5 h-5"></i> Format JPG/PNG</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-brand-500 w-5 h-5"></i> Free Konsultasi</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-brand-500 w-5 h-5"></i> Link Google Drive</li>
+                        <li class="flex items-center gap-3 opacity-60 text-sm"><i data-lucide="clock" class="w-4 h-4"></i> Estimasi 3-6 Hari</li>
                     </ul>
-                    <a href="https://wa.me/6285708845405?text=Halo%20BDG,%20saya%20ingin%20pesan%20Paket%20Ramadhan%20Standard" class="w-full py-4 rounded-2xl bg-amber-500 text-white font-bold text-center hover:bg-amber-600 transition shadow-lg shadow-amber-200 dark:shadow-none">Pesan Sekarang</a>
+                    <button onclick="pesanInstagram('Standard', 460000)" class="w-full py-4 rounded-2xl bg-brand-600 text-white font-bold text-center hover:bg-brand-700 transition shadow-lg shadow-brand-200 dark:shadow-none">Pesan Sekarang</button>
                 </div>
 
-                <!-- Paket 3: Premium -->
+                <!-- Paket 3 -->
                 <div class="bg-slate-50 dark:bg-darkCard p-10 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 transition-all hover:shadow-2xl flex flex-col group" data-aos="fade-up">
                     <h3 class="text-2xl font-bold mb-2 dark:text-white">Premium</h3>
-                    <div class="mb-6">
-                        <span class="text-3xl font-bold text-slate-800 dark:text-white">Rp350.000</span>
+                    <div class="mb-6 ig-price-container">
+                        <span class="text-3xl font-bold text-slate-800 dark:text-white ig-price-display" data-base="700000">Rp700.000</span>
                     </div>
                     <ul class="space-y-4 mb-10 flex-grow text-slate-600 dark:text-slate-400">
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> 9 Desain Feed Instagram</li>
-                        <li class="flex items-center gap-3 font-bold text-blue-500"><i data-lucide="zap" class="w-5 h-5"></i> Maksimal 6x Revisi</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> Format JPG/PNG</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> Free Konsultasi</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> Link Google Drive</li>
-                        <li class="flex items-center gap-3 opacity-60 italic text-sm"><i data-lucide="clock" class="w-4 h-4"></i> Estimasi 4-8 Hari</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-brand-500 w-5 h-5"></i> 9 Desain Feed Instagram</li>
+                        <li class="flex items-center gap-3 font-bold text-brand-500"><i data-lucide="zap" class="w-5 h-5"></i> Maksimal 6x Revisi</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-brand-500 w-5 h-5"></i> Format JPG/PNG</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-brand-500 w-5 h-5"></i> Free Konsultasi</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-brand-500 w-5 h-5"></i> Link Google Drive</li>
+                        <li class="flex items-center gap-3 opacity-60 text-sm"><i data-lucide="clock" class="w-4 h-4"></i> Estimasi 4-8 Hari</li>
                     </ul>
-                    <a href="https://wa.me/6285708845405?text=Halo%20BDG,%20saya%20ingin%20pesan%20Paket%20Ramadhan%20Premium" class="w-full py-4 rounded-2xl bg-slate-200 dark:bg-slate-800 dark:text-white font-bold text-center hover:bg-amber-500 hover:text-white transition">Pesan Sekarang</a>
+                    <button onclick="pesanInstagram('Premium', 700000)" class="w-full py-4 rounded-2xl bg-slate-200 dark:bg-slate-800 dark:text-white font-bold text-center hover:bg-brand-600 hover:text-white transition">Pesan Sekarang</button>
                 </div>
             </div>
             
             <p class="text-center mt-12 text-sm text-slate-400">*Waktu pengerjaan dapat lebih lama tergantung tingkat kesulitan desain.</p>
         </div>
     </section>
+
+    <!-- Modal Seasonal Promo -->
+    <div id="seasonal-promo-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible">
+        <div class="bg-white dark:bg-darkCard w-full max-w-md rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95 p-8 text-center border-4 border-brand-500">
+            <button onclick="tutupSeasonalPromo()" class="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white transition z-10">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div id="seasonal-promo-icon" class="text-6xl mb-4 animate-bounce"></div>
+            <h3 id="seasonal-promo-title" class="text-3xl font-bold mb-4 text-brand-600 dark:text-brand-400 leading-tight"></h3>
+            <p id="seasonal-promo-desc" class="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed"></p>
+            <button onclick="tutupSeasonalPromo()" class="w-full bg-brand-600 text-white font-bold py-4 rounded-xl hover:bg-brand-700 transition shadow-lg shadow-brand-200 dark:shadow-none text-lg">
+                Gunakan Diskon Sekarang!
+            </button>
+        </div>
+    </div>
 
     <!-- Modal Detail Layanan -->
     <div id="service-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible">
@@ -561,12 +571,12 @@
             </button>
             
             <div class="p-8 md:p-12 overflow-y-auto max-h-[90vh]">
-                <h2 id="modal-title" class="text-3xl font-bold mb-6 text-blue-600 dark:text-blue-400 leading-tight"></h2>
+                <h2 id="modal-title" class="text-3xl font-bold mb-6 text-brand-600 dark:text-brand-400 leading-tight"></h2>
                 
                 <div class="space-y-6 text-slate-600 dark:text-slate-300 leading-relaxed">
                     <p id="modal-intro"></p>
                     
-                    <div class="bg-blue-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-blue-100 dark:border-slate-700">
+                    <div class="bg-brand-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-brand-100 dark:border-slate-700">
                         <p class="font-bold text-slate-800 dark:text-white mb-3" id="modal-price-header"></p>
                         <ul class="space-y-2 text-sm">
                             <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> 1. File PSD/CDR (edit sesuai kebutuhan)</li>
@@ -597,9 +607,115 @@
 
                     <div class="pt-4 text-center">
                         <p class="text-lg font-semibold text-slate-800 dark:text-white mb-6">Jadikan identitas visual Anda lebih berkelas dan profesional mulai hari ini.</p>
-                        <a id="modal-whatsapp-btn" href="#" class="inline-flex items-center justify-center bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 transition shadow-xl shadow-blue-100 dark:shadow-none w-full">
+                        <a id="modal-whatsapp-btn" href="#" class="inline-flex items-center justify-center bg-brand-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-brand-700 transition shadow-xl shadow-brand-100 dark:shadow-none w-full">
                             Kirim Pesan Ke Bisnis
                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Voucher -->
+    <div id="voucher-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible">
+        <div class="bg-white dark:bg-darkCard w-full max-w-md rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95 p-8 text-center">
+            <button onclick="tutupVoucherModal()" class="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white transition">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <div class="w-16 h-16 bg-brand-100 dark:bg-brand-900/30 text-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="ticket" class="w-8 h-8"></i>
+            </div>
+            
+            <h3 class="text-2xl font-bold mb-2 text-slate-800 dark:text-white">Masukkan Voucher</h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-6 leading-relaxed">Dapatkan potongan harga spesial untuk pesanan desain Anda. Masukkan kode unik di bawah ini.</p>
+            
+            <div class="space-y-4 text-left">
+                <input type="text" id="voucher-input" placeholder="Contoh: DISKON20" class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:border-brand-600 text-center text-lg font-bold uppercase tracking-widest text-slate-800 dark:text-white transition">
+                <button onclick="terapkanVoucher()" class="w-full bg-brand-600 text-white font-bold py-4 rounded-xl hover:bg-brand-700 transition shadow-lg shadow-brand-200 dark:shadow-none">Terapkan Diskon</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Admin Login -->
+    <div id="admin-login-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible">
+        <div class="bg-white dark:bg-darkCard w-full max-w-md rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95 p-8 text-center">
+            <button onclick="tutupLoginAdmin()" class="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white transition">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <div class="w-16 h-16 bg-red-100 dark:bg-red-900/30 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="lock" class="w-8 h-8"></i>
+            </div>
+            
+            <h3 class="text-2xl font-bold mb-2 text-slate-800 dark:text-white">Akses Admin</h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-6 leading-relaxed">Masukkan kredensial untuk mengakses mode administrator.</p>
+            
+            <div class="space-y-4 text-left">
+                <input type="text" id="admin-user" placeholder="Username" class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:border-red-600 text-lg font-bold text-slate-800 dark:text-white transition">
+                <input type="password" id="admin-pass" placeholder="Password" class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:border-red-600 text-lg font-bold text-slate-800 dark:text-white transition">
+                <button onclick="prosesLoginAdmin()" class="w-full bg-red-600 text-white font-bold py-4 rounded-xl hover:bg-red-700 transition shadow-lg shadow-red-200 dark:shadow-none">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Admin Dashboard -->
+    <div id="admin-dashboard-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible">
+        <div class="bg-white dark:bg-darkCard w-full max-w-lg rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95 p-8 max-h-[90vh] overflow-y-auto">
+            <button onclick="tutupAdminDashboard()" class="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white transition">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 rounded-xl flex items-center justify-center">
+                    <i data-lucide="shield-check" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-800 dark:text-white">Admin Dashboard</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm">Kelola pengaturan situs Anda.</p>
+                </div>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- Setting Tema -->
+                <div class="flex items-center justify-between p-4 border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-slate-900/50">
+                    <div>
+                        <div class="font-bold text-slate-800 dark:text-white">Mode Gelap / Terang</div>
+                        <div class="text-sm text-slate-500">Ubah tampilan default</div>
+                    </div>
+                    <button onclick="document.getElementById('theme-toggle').click()" class="px-4 py-2 bg-slate-200 dark:bg-slate-700 rounded-lg text-sm font-bold dark:text-white hover:bg-slate-300 transition">Ubah Tema</button>
+                </div>
+
+                <!-- Setting Musiman -->
+                <div class="p-4 border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-slate-900/50">
+                    <div class="mb-4">
+                        <div class="font-bold text-slate-800 dark:text-white">Tema Musiman</div>
+                        <div class="text-sm text-slate-500">Aktifkan tema visual dan promo otomatis</div>
+                    </div>
+                    <select id="theme-selector" onchange="setSeasonalThemeAdmin(this.value)" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:outline-none focus:border-brand-600 text-sm font-bold text-slate-800 dark:text-white transition mb-2">
+                        <option value="normal">Normal (Default)</option>
+                        <option value="ramadhan">Ramadhan (Oren & Hijau)</option>
+                        <option value="xmas">Natal (Merah & Emas + Salju)</option>
+                        <option value="imlek">Imlek (Merah & Oriental)</option>
+                    </select>
+                </div>
+
+                <!-- Manajemen Voucher -->
+                <div class="p-4 border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-slate-900/50">
+                    <div class="mb-4">
+                        <div class="font-bold text-slate-800 dark:text-white">Manajemen Voucher</div>
+                        <div class="text-sm text-slate-500">Buat dan atur kode voucher diskon</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-2 mb-4">
+                        <input type="text" id="new-voucher-code" placeholder="Kode (BDG10)" class="col-span-1 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm focus:outline-none focus:border-brand-600 dark:text-white">
+                        <input type="number" id="new-voucher-discount" placeholder="Diskon (%)" class="col-span-1 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm focus:outline-none focus:border-brand-600 dark:text-white">
+                        <input type="date" id="new-voucher-expiry" class="col-span-1 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm focus:outline-none focus:border-brand-600 dark:text-white">
+                    </div>
+                    <button onclick="tambahVoucher()" class="w-full py-2 mb-4 bg-brand-100 text-brand-600 dark:bg-brand-900/30 dark:text-brand-400 rounded-lg text-sm font-bold hover:bg-brand-200 transition">Tambah Voucher Baru</button>
+
+                    <div id="admin-voucher-list" class="space-y-2 max-h-48 overflow-y-auto pr-2">
+                        <!-- List voucher di-render JS -->
                     </div>
                 </div>
             </div>
@@ -611,11 +727,11 @@
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12" data-aos="fade-up">
                 <div>
-                    <span class="text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest text-sm mb-4 block">Portofolio</span>
+                    <span class="text-brand-600 dark:text-brand-400 font-bold uppercase tracking-widest text-sm mb-4 block">Portofolio</span>
                     <h2 class="text-4xl md:text-5xl font-bold dark:text-white">Hasil Karya Terbaru</h2>
                 </div>
                 <div class="flex flex-wrap gap-2 mt-6 md:mt-0">
-                    <button onclick="filterKarya('all')" class="filter-btn active px-6 py-2 rounded-full text-sm font-bold bg-blue-600 text-white transition">Semua</button>
+                    <button onclick="filterKarya('all')" class="filter-btn active px-6 py-2 rounded-full text-sm font-bold bg-brand-600 text-white transition">Semua</button>
                 </div>
             </div>
 
@@ -623,46 +739,42 @@
             <div class="relative group" data-aos="fade-up">
                 <div id="karya-slider" class="slider-container gap-6 py-4">
                     
-                    <!-- Karya 1 (Landscape) -->
                     <div class="slider-item karya-item" data-category="banner">
                         <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
                             <img src="Image/bannersholawat.png" alt="Landscape Work 1" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
                                 <h4 class="text-white font-bold text-xl">Banner Acara</h4>
-                                <p class="text-blue-300 text-sm">Kegiatan</p>
+                                <p class="text-brand-300 text-sm">Kegiatan</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Karya 2 (Landscape) -->
                     <div class="slider-item karya-item" data-category="banner">
                         <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
                             <img src="Image/banner2.png" alt="Landscape Work 2" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
                                 <h4 class="text-white font-bold text-xl">Banner Event Dan Kegiatan</h4>
-                                <p class="text-blue-300 text-sm">Organisasi & Acara</p>
+                                <p class="text-brand-300 text-sm">Organisasi & Acara</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Karya 3 (Landscape) -->
                     <div class="slider-item karya-item" data-category="banner">
                         <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
                             <img src="Image/pamflet.png" alt="Landscape Work 3" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
                                 <h4 class="text-white font-bold text-xl">Pamflet</h4>
-                                <p class="text-blue-300 text-sm">Promosi Produk & Layanan</p>
+                                <p class="text-brand-300 text-sm">Promosi Produk & Layanan</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Karya 4 (Landscape) -->
                     <div class="slider-item karya-item" data-category="banner">
                         <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
                             <img src="Image/poster.png" alt="Landscape Work 4" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
                                 <h4 class="text-white font-bold text-xl">Poster</h4>
-                                <p class="text-blue-300 text-sm">Ucapan Dan Branding</p>
+                                <p class="text-brand-300 text-sm">Ucapan Dan Branding</p>
                             </div>
                         </div>
                     </div>
@@ -670,10 +782,10 @@
                 </div>
 
                 <!-- Slider Navigation -->
-                <button onclick="prevSlide()" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white dark:bg-slate-800 p-4 rounded-full shadow-xl text-blue-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all z-10">
+                <button onclick="prevSlide()" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white dark:bg-slate-800 p-4 rounded-full shadow-xl text-brand-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all z-10">
                     <i data-lucide="chevron-left" class="w-6 h-6"></i>
                 </button>
-                <button onclick="nextSlide()" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white dark:bg-slate-800 p-4 rounded-full shadow-xl text-blue-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all z-10">
+                <button onclick="nextSlide()" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white dark:bg-slate-800 p-4 rounded-full shadow-xl text-brand-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all z-10">
                     <i data-lucide="chevron-right" class="w-6 h-6"></i>
                 </button>
             </div>
@@ -711,49 +823,45 @@
     <section class="py-24 px-6 lg:px-12 bg-white dark:bg-darkBg">
         <div class="max-w-3xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest text-sm mb-4 block">Pertanyaan Umum</span>
+                <span class="text-brand-600 dark:text-brand-400 font-bold uppercase tracking-widest text-sm mb-4 block">Pertanyaan Umum</span>
                 <h2 class="text-4xl font-bold dark:text-white">Sering Ditanyakan</h2>
             </div>
 
             <div class="space-y-4" data-aos="fade-up">
-                <!-- FAQ Item 1 -->
                 <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
                     <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
                         <span class="font-bold text-lg dark:text-white">Berapa lama proses pengerjaan satu desain?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-blue-600 transition-transform"></i>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-brand-600 transition-transform"></i>
                     </button>
                     <div class="faq-content px-6">
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Pengerjaan normal memakan waktu 4-7 hari kerja tergantung antrean dan tingkat kerumitan desain. Kami tidak melayani sistem urgent demi menjaga kualitas.</p>
                     </div>
                 </div>
 
-                <!-- FAQ Item 2 -->
                 <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
                     <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
                         <span class="font-bold text-lg dark:text-white">Format file apa saja yang akan saya dapatkan?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-blue-600 transition-transform"></i>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-brand-600 transition-transform"></i>
                     </button>
                     <div class="faq-content px-6">
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Anda akan mendapatkan paket lengkap berupa file master (PSD/CDR), file gambar kualitas tinggi (JPEG/PNG), dan file siap cetak (PDF).</p>
                     </div>
                 </div>
 
-                <!-- FAQ Item 3 -->
                 <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
                     <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
                         <span class="font-bold text-lg dark:text-white">Apakah ada batas jumlah revisi?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-blue-600 transition-transform"></i>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-brand-600 transition-transform"></i>
                     </button>
                     <div class="faq-content px-6">
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Ya, Kami memberikan jatah revisi maksimal 3 kali untuk perubahan minor (warna, teks, dan tata letak). Jika melebihi dari batas jumlah yang ditentukan maka akan dikenakan biaya tambahan.</p>
                     </div>
                 </div>
 
-                <!-- FAQ Item 4 -->
                 <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
                     <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
                         <span class="font-bold text-lg dark:text-white">Bagaimana sistem pembayarannya?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-blue-600 transition-transform"></i>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-brand-600 transition-transform"></i>
                     </button>
                     <div class="faq-content px-6">
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Sistem pembayaran menggunakan Down Payment (DP) 50% di awal sebelum projek dikerjakan, dan pelunasan 50% sisanya setelah desain disetujui. (Desain dibawah harga 30.000 tidak perlu DP)</p>
@@ -765,35 +873,30 @@
 
     <!-- Kontak Section -->
     <section id="kontak" class="py-24 px-6 lg:px-12 max-w-7xl mx-auto relative overflow-hidden">
-        <!-- Decoration for Contact -->
-        <div class="absolute top-10 right-10 text-white opacity-10 animate-pulse">
-            <i data-lucide="moon" class="w-32 h-32"></i>
-        </div>
-
-        <div class="bg-blue-600 rounded-[3rem] p-8 md:p-16 text-white grid md:grid-cols-2 gap-12 items-center relative z-10" data-aos="zoom-in">
+        <div class="bg-brand-600 rounded-[3rem] p-8 md:p-16 text-white grid md:grid-cols-2 gap-12 items-center relative z-10" data-aos="zoom-in">
             <div>
                 <h2 class="text-4xl font-bold mb-6">Mari Mulai Projek <br>Hebat Bersama.</h2>
-                <p class="text-blue-100 text-lg mb-8">Konsultasikan kebutuhan desain Anda secara gratis. Kami siap membantu kapanpun.</p>
+                <p class="text-brand-100 text-lg mb-8">Konsultasikan kebutuhan desain Anda secara gratis. Kami siap membantu kapanpun.</p>
                 <div class="space-y-6">
                     <div class="flex items-center space-x-4">
-                        <div class="bg-blue-500 p-3 rounded-xl"><i data-lucide="phone" class="w-6 h-6"></i></div>
+                        <div class="bg-brand-500 p-3 rounded-xl"><i data-lucide="phone" class="w-6 h-6"></i></div>
                         <div>
-                            <div class="text-sm text-blue-200">WhatsApp</div>
+                            <div class="text-sm text-brand-200">WhatsApp</div>
                             <div class="font-bold">0857 0884 5405</div>
                         </div>
                     </div>
                     <!-- Interactive Email with Copy Feature -->
                     <div class="flex items-center space-x-4 group cursor-pointer" onclick="copyEmail()">
-                        <div class="bg-blue-500 p-3 rounded-xl group-hover:bg-white group-hover:text-blue-600 transition"><i data-lucide="mail" class="w-6 h-6"></i></div>
+                        <div class="bg-brand-500 p-3 rounded-xl group-hover:bg-white group-hover:text-brand-600 transition"><i data-lucide="mail" class="w-6 h-6"></i></div>
                         <div>
-                            <div class="text-sm text-blue-200 flex items-center gap-2">Email <span class="text-[10px] bg-blue-700 px-2 py-0.5 rounded" id="copy-status">Click to copy</span></div>
+                            <div class="text-sm text-brand-200 flex items-center gap-2">Email <span class="text-[10px] bg-brand-700 px-2 py-0.5 rounded" id="copy-status">Click to copy</span></div>
                             <div class="font-bold">akunkhusus0728@gmail.com</div>
                         </div>
                     </div>
                     <div class="flex items-start space-x-4">
-                        <div class="bg-blue-500 p-3 rounded-xl mt-1"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
+                        <div class="bg-brand-500 p-3 rounded-xl mt-1"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
                         <div>
-                            <div class="text-sm text-blue-200">Alamat</div>
+                            <div class="text-sm text-brand-200">Alamat</div>
                             <div class="font-bold max-w-xs text-sm">Jl. KH Ahmad Asyari, Dusun Krajan, Pakistaji, Kec. Kabat, Kabupaten Banyuwangi</div>
                         </div>
                     </div>
@@ -803,11 +906,11 @@
                 <form id="contact-form" class="space-y-4">
                     <div>
                         <label class="block text-sm font-bold mb-2">Nama Lengkap</label>
-                        <input type="text" id="name-input" placeholder="Masukkan nama" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        <input type="text" id="name-input" placeholder="Masukkan nama" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-600">
                     </div>
                     <div>
                         <label class="block text-sm font-bold mb-2">Keperluan</label>
-                        <select id="service-input" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        <select id="service-input" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-600">
                             <option>Desain Sertifikat/Pamflet</option>
                             <option>Desain Kaos/Banner</option>
                             <option>Desain Poster Promo/Event</option>
@@ -817,9 +920,9 @@
                     </div>
                     <div>
                         <label class="block text-sm font-bold mb-2">Pesan Singkat</label>
-                        <textarea id="message-input" placeholder="Ceritakan kebutuhan Anda" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-900 h-32 focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+                        <textarea id="message-input" placeholder="Ceritakan kebutuhan Anda" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-900 h-32 focus:outline-none focus:ring-2 focus:ring-brand-600"></textarea>
                     </div>
-                    <button type="button" onclick="kirimWA()" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-100 dark:shadow-none">Kirim Pesan via WhatsApp</button>
+                    <button type="button" onclick="kirimWA()" class="w-full bg-brand-600 text-white font-bold py-4 rounded-xl hover:bg-brand-700 transition shadow-lg shadow-brand-100 dark:shadow-none">Kirim Pesan via WhatsApp</button>
                 </form>
             </div>
         </div>
@@ -827,28 +930,19 @@
 
     <!-- Footer -->
     <footer class="py-12 px-6 lg:px-12 border-t border-slate-100 dark:border-slate-800 text-center bg-white dark:bg-darkBg relative overflow-hidden">
-        <!-- Footer Ramadan Deco -->
-        <div class="absolute bottom-0 left-0 w-full opacity-5 pointer-events-none flex justify-around">
-            <i data-lucide="moon" class="w-12 h-12"></i>
-            <i data-lucide="lamp" class="w-12 h-12"></i>
-            <i data-lucide="moon-star" class="w-12 h-12"></i>
-            <i data-lucide="lamp" class="w-12 h-12"></i>
-            <i data-lucide="moon" class="w-12 h-12"></i>
-        </div>
-        
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center relative z-10">
             <img src="Image/logobesar.png" alt="BDG Logo" class="h-8 w-auto mb-4 md:mb-0">
             <p class="text-slate-400 text-sm">© 2023 Bagas Desainer Grafis. Didesain dengan penuh dedikasi.</p>
             <div class="flex space-x-6 mt-4 md:mt-0">
-                <a href="#" class="text-slate-400 hover:text-blue-600 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                <a href="#" class="text-slate-400 hover:text-blue-600 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-                <a href="#" class="text-slate-400 hover:text-blue-600 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-brand-600 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-brand-600 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-brand-600 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" onclick="scrollToTop()" class="fixed bottom-32 right-8 z-50 bg-blue-600 text-white p-4 rounded-full shadow-2xl opacity-0 invisible translate-y-10 transition-all duration-300 hover:bg-blue-700">
+    <button id="backToTop" onclick="scrollToTop()" class="fixed bottom-32 right-8 z-50 bg-brand-600 text-white p-4 rounded-full shadow-2xl opacity-0 invisible translate-y-10 transition-all duration-300 hover:bg-brand-700">
         <i data-lucide="arrow-up" class="w-6 h-6"></i>
     </button>
 
@@ -857,87 +951,460 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
 
+    <!-- Fake Notification Popup -->
+    <div id="fake-notif" class="fixed bottom-24 left-6 md:bottom-8 md:left-8 z-[90] bg-white dark:bg-darkCard p-4 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 flex items-center gap-4 transition-all duration-500 translate-y-20 opacity-0 pointer-events-none max-w-[calc(100vw-3rem)] md:max-w-sm">
+        <div class="w-12 h-12 rounded-full bg-brand-100 dark:bg-brand-900/30 text-brand-600 flex items-center justify-center shrink-0">
+            <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+        </div>
+        <div class="flex-1 min-w-0">
+            <p class="text-sm text-slate-500 dark:text-slate-400 mb-0.5"><span id="notif-name" class="font-bold text-slate-800 dark:text-white truncate inline-block max-w-[120px] align-bottom"></span> memesan</p>
+            <p id="notif-service" class="text-sm font-bold text-brand-600 dark:text-brand-400 truncate"></p>
+            <p id="notif-time" class="text-xs text-slate-400 mt-1"></p>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // NEW: Ramadan Pop-up Logic (Satu kali per sesi)
-        window.addEventListener('load', () => {
-            const hasShownPopup = sessionStorage.getItem('ramadanPopupShown');
-            
-            if (!hasShownPopup) {
-                const overlay = document.getElementById('ramadan-popup-overlay');
-                const content = document.getElementById('ramadan-popup-content');
-                const closeBtn = document.getElementById('close-ramadan-popup');
+        // Alert Kustom
+        function tampilkanPeringatan(pesan) {
+            const kotakPeringatan = document.createElement('div');
+            kotakPeringatan.className = 'fixed top-10 left-1/2 transform -translate-x-1/2 bg-brand-600 text-white px-6 py-3 rounded-2xl shadow-2xl z-[200] font-bold text-sm text-center';
+            kotakPeringatan.innerText = pesan;
+            document.body.appendChild(kotakPeringatan);
+            setTimeout(() => kotakPeringatan.remove(), 3000);
+        }
 
-                // Trigger Animation Masuk
-                overlay.classList.remove('invisible');
-                setTimeout(() => {
-                    overlay.classList.add('opacity-100');
-                    content.classList.replace('scale-75', 'scale-100');
-                }, 100);
+        // Format Rupiah
+        function formatRupiah(angka) {
+            return "Rp" + angka.toLocaleString('id-ID');
+        }
 
-                // Fungsi Tutup
-                const closePopup = () => {
-                    overlay.classList.remove('opacity-100');
-                    content.classList.replace('scale-100', 'scale-75');
-                    setTimeout(() => {
-                        overlay.classList.add('invisible');
-                        sessionStorage.setItem('ramadanPopupShown', 'true');
-                    }, 500);
-                };
-
-                closeBtn.addEventListener('click', closePopup);
-                overlay.addEventListener('click', (e) => {
-                    if (e.target === overlay) closePopup();
-                });
-            }
-        });
-
-        // 1. Data Layanan
+        // Data Layanan
         const services = [
-            { name: "Desain Sertifikat", price: "Rp20.000", original: "Rp50.000", icon: "award" },
-            { name: "Desain Twibbon", price: "Rp20.000", original: "Rp80.000", icon: "image" },
-            { name: "Desain Pamflet", price: "Rp25.000", original: "Rp80.000", icon: "file-text" },
-            { name: "Desain ID Card", price: "Rp30.000", original: "Rp100.000", icon: "credit-card" },
-            { name: "Desain Banner", price: "Rp30.000", original: "Rp120.000", icon: "maximize" },
-            { name: "Poster Dakwah", price: "Rp40.000", original: "Rp80.000", icon: "heart" },
-            { name: "Poster Promosi", price: "Rp40.000", original: "Rp120.000", icon: "trending-up" },
-            { name: "Poster Webinar", price: "Rp40.000", original: "Rp120.000", icon: "video" },
-            { name: "Birthday Poster", price: "Rp25.000", original: "Rp50.000", icon: "gift" },
-            { name: "Desain Kaos", price: "Rp50.000", original: "Rp165.000", icon: "shirt" },
-            { name: "Desain Poster Film", price: "Rp180.000", original: "Rp275.000", icon: "clapperboard" }
+            { name: "Desain Sertifikat", price: 20000, icon: "award" },
+            { name: "Desain Twibbon", price: 20000, icon: "image" },
+            { name: "Desain Pamflet", price: 25000, icon: "file-text" },
+            { name: "Desain ID Card", price: 30000, icon: "credit-card" },
+            { name: "Desain Banner", price: 30000, icon: "maximize" },
+            { name: "Poster Dakwah", price: 40000, icon: "heart" },
+            { name: "Poster Promosi", price: 40000, icon: "trending-up" },
+            { name: "Poster Webinar", price: 40000, icon: "video" },
+            { name: "Birthday Poster", price: 25000, icon: "gift" },
+            { name: "Desain Kaos", price: 50000, icon: "shirt" },
+            { name: "Desain Poster Film", price: 180000, icon: "clapperboard" }
         ];
 
-        const servicesContainer = document.getElementById('services-container');
-        servicesContainer.innerHTML = services.map((s, index) => `
-            <div class="service-card bg-white dark:bg-darkCard p-8 rounded-3xl border border-slate-100 dark:border-slate-800 transition-all duration-300 flex flex-col items-start" data-aos="fade-up">
-                <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-2xl mb-6 text-blue-600 dark:text-blue-400">
-                    <i data-lucide="${s.icon}" class="w-8 h-8"></i>
-                </div>
-                <h3 class="font-bold text-xl mb-2 dark:text-white">${s.name}</h3>
-                <div class="mb-6">
-                    <span class="text-[10px] font-bold uppercase tracking-wider text-red-500 bg-red-50 dark:bg-red-900/20 px-2 py-0.5 rounded-md mb-1 inline-block">Diskon Terbatas</span>
-                    <div class="flex flex-col">
-                        <span class="text-slate-400 line-through text-sm">${s.original}</span>
-                        <span class="text-blue-600 dark:text-blue-400 font-bold text-2xl">${s.price}</span>
+        // Sistem Voucher & Promo
+        let diskonAktif = 0;
+        let kodeVoucherAktif = '';
+        
+        let daftarVoucher = JSON.parse(localStorage.getItem('bdg_vouchers')) || [
+            { kode: 'DISKON10', diskon: 0.1, aktif: true, expired: '2026-12-31' },
+            { kode: 'DISKON20', diskon: 0.2, aktif: true, expired: '2026-12-31' },
+            { kode: 'BDG50', diskon: 0.5, aktif: true, expired: '2026-12-31' }
+        ];
+
+        function simpanVoucher() {
+            localStorage.setItem('bdg_vouchers', JSON.stringify(daftarVoucher));
+        }
+
+        // Render Vouchers di Admin
+        function renderAdminVouchers() {
+            const container = document.getElementById('admin-voucher-list');
+            if(!container) return;
+            
+            if(daftarVoucher.length === 0) {
+                container.innerHTML = '<p class="text-sm text-slate-500 text-center py-4">Belum ada voucher.</p>';
+                return;
+            }
+
+            container.innerHTML = daftarVoucher.map((v, i) => `
+                <div class="flex items-center justify-between p-3 border border-slate-200 dark:border-slate-700 rounded-xl mb-2 bg-white dark:bg-slate-800">
+                    <div>
+                        <div class="font-bold text-brand-600 dark:text-brand-400">${v.kode}</div>
+                        <div class="text-xs text-slate-500">Diskon: ${v.diskon * 100}% | Berlaku: ${v.expired}</div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="toggleVoucherStatus(${i})" class="px-3 py-1 text-xs font-bold rounded-lg transition ${v.aktif ? 'bg-green-100 text-green-600 dark:bg-green-900/30' : 'bg-slate-100 text-slate-500 dark:bg-slate-700 dark:text-slate-400'}">
+                            ${v.aktif ? 'Aktif' : 'Nonaktif'}
+                        </button>
+                        <button onclick="hapusVoucher(${i})" class="px-3 py-1 text-xs font-bold rounded-lg bg-red-100 text-red-600 dark:bg-red-900/30 hover:bg-red-200 transition">
+                            Hapus
+                        </button>
                     </div>
                 </div>
-                <button onclick="openServiceModal(${index})" class="mt-auto w-full text-center py-3 bg-slate-50 dark:bg-slate-800 hover:bg-blue-600 hover:text-white transition rounded-xl font-semibold text-sm dark:text-slate-300">Pilih Layanan</button>
-            </div>
-        `).join('');
+            `).join('');
+        }
 
-        // Modal Logic
-        const modal = document.getElementById('service-modal');
-        const modalContent = modal.querySelector('div');
+        function tambahVoucher() {
+            const kode = document.getElementById('new-voucher-code').value.trim().toUpperCase();
+            const diskonVal = parseFloat(document.getElementById('new-voucher-discount').value);
+            const expired = document.getElementById('new-voucher-expiry').value;
+
+            if(!kode || isNaN(diskonVal) || !expired) {
+                tampilkanPeringatan('Mohon lengkapi semua data voucher');
+                return;
+            }
+
+            const diskon = diskonVal / 100;
+            daftarVoucher.push({ kode, diskon, aktif: true, expired });
+            simpanVoucher();
+            renderAdminVouchers();
+            
+            document.getElementById('new-voucher-code').value = '';
+            document.getElementById('new-voucher-discount').value = '';
+            document.getElementById('new-voucher-expiry').value = '';
+            tampilkanPeringatan('Voucher berhasil ditambahkan');
+        }
+
+        function toggleVoucherStatus(index) {
+            daftarVoucher[index].aktif = !daftarVoucher[index].aktif;
+            simpanVoucher();
+            renderAdminVouchers();
+        }
+
+        function hapusVoucher(index) {
+            daftarVoucher.splice(index, 1);
+            simpanVoucher();
+            renderAdminVouchers();
+        }
+
+        // Modal Voucher User
+        function bukaVoucherModal() {
+            toggleMenu(); 
+            const modal = document.getElementById('voucher-modal');
+            modal.classList.remove('invisible');
+            modal.classList.add('opacity-100');
+            modal.querySelector('div').classList.remove('scale-95');
+            modal.querySelector('div').classList.add('scale-100');
+            document.body.classList.add('modal-active');
+        }
+
+        function tutupVoucherModal() {
+            const modal = document.getElementById('voucher-modal');
+            modal.classList.remove('opacity-100');
+            modal.classList.add('invisible');
+            modal.querySelector('div').classList.remove('scale-100');
+            modal.querySelector('div').classList.add('scale-95');
+            document.body.classList.remove('modal-active');
+        }
+
+        document.getElementById('voucher-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'voucher-modal') tutupVoucherModal();
+        });
+
+        function terapkanVoucher() {
+            const input = document.getElementById('voucher-input').value.trim().toUpperCase();
+            const voucher = daftarVoucher.find(v => v.kode === input);
+            const hariIni = new Date().toISOString().split('T')[0];
+
+            if(voucher) {
+                if(!voucher.aktif) {
+                    tampilkanPeringatan("Voucher sedang dinonaktifkan.");
+                    return;
+                }
+                if(voucher.expired < hariIni) {
+                    tampilkanPeringatan("Voucher sudah kedaluwarsa.");
+                    return;
+                }
+                
+                diskonAktif = voucher.diskon;
+                kodeVoucherAktif = voucher.kode;
+                tampilkanPeringatan(`Voucher berhasil! Anda mendapat potongan ${diskonAktif * 100}%`);
+                renderLayanan();
+                updateHargaInstagram();
+                tutupVoucherModal();
+                document.getElementById('voucher-input').value = "";
+            } else {
+                tampilkanPeringatan("Kode voucher tidak ditemukan.");
+            }
+        }
+
+        // Modal Admin Login & Dashboard
+        function bukaLoginAdmin() {
+            toggleMenu();
+            const modal = document.getElementById('admin-login-modal');
+            modal.classList.remove('invisible');
+            modal.classList.add('opacity-100');
+            modal.querySelector('div').classList.remove('scale-95');
+            modal.querySelector('div').classList.add('scale-100');
+            document.body.classList.add('modal-active');
+        }
+
+        function tutupLoginAdmin() {
+            const modal = document.getElementById('admin-login-modal');
+            modal.classList.remove('opacity-100');
+            modal.classList.add('invisible');
+            modal.querySelector('div').classList.remove('scale-100');
+            modal.querySelector('div').classList.add('scale-95');
+            document.body.classList.remove('modal-active');
+        }
+
+        document.getElementById('admin-login-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'admin-login-modal') tutupLoginAdmin();
+        });
+
+        function prosesLoginAdmin() {
+            const user = document.getElementById('admin-user').value;
+            const pass = document.getElementById('admin-pass').value;
+            if(user === 'bdg' && pass === 'adminbdg1') {
+                tampilkanPeringatan('Akses Admin Berhasil Diberikan');
+                tutupLoginAdmin();
+                document.getElementById('admin-user').value = '';
+                document.getElementById('admin-pass').value = '';
+                setTimeout(() => { 
+                    document.getElementById('theme-selector').value = localStorage.getItem('seasonalTheme') || 'normal';
+                    renderAdminVouchers();
+                    bukaAdminDashboard(); 
+                }, 300);
+            } else {
+                tampilkanPeringatan('Username atau Password Salah');
+            }
+        }
+
+        function bukaAdminDashboard() {
+            const modal = document.getElementById('admin-dashboard-modal');
+            modal.classList.remove('invisible');
+            modal.classList.add('opacity-100');
+            modal.querySelector('div').classList.remove('scale-95');
+            modal.querySelector('div').classList.add('scale-100');
+            document.body.classList.add('modal-active');
+            lucide.createIcons();
+        }
+
+        function tutupAdminDashboard() {
+            const modal = document.getElementById('admin-dashboard-modal');
+            modal.classList.remove('opacity-100');
+            modal.classList.add('invisible');
+            modal.querySelector('div').classList.remove('scale-100');
+            modal.querySelector('div').classList.add('scale-95');
+            document.body.classList.remove('modal-active');
+        }
+
+        document.getElementById('admin-dashboard-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'admin-dashboard-modal') tutupAdminDashboard();
+        });
+
+        function setPromoAdmin(diskon) {
+            diskonAktif = diskon;
+            kodeVoucherAktif = ''; // Reset voucher jika promo manual diaktifkan
+            renderLayanan();
+            updateHargaInstagram();
+            if (diskon > 0) {
+                tampilkanPeringatan(`Mode promo aktif. Semua harga dipotong ${diskon * 100}%`);
+            } else {
+                tampilkanPeringatan(`Promo dinonaktifkan. Harga kembali normal`);
+            }
+        }
+
+        // Logika Tema Musiman
+        function setSeasonalThemeAdmin(theme) {
+            localStorage.setItem('seasonalTheme', theme);
+            applySeasonalTheme();
+            tampilkanPeringatan(`Tema ${theme} berhasil diterapkan.`);
+        }
+
+        function applySeasonalTheme() {
+            const theme = localStorage.getItem('seasonalTheme') || 'normal';
+            document.body.classList.remove('theme-ramadhan', 'theme-xmas', 'theme-imlek');
+            
+            if (theme !== 'normal') {
+                document.body.classList.add(`theme-${theme}`);
+                renderOrnamenMusiman(theme);
+                tampilkanPromoMusiman(theme);
+            } else {
+                renderOrnamenMusiman('normal');
+            }
+        }
+
+        function renderOrnamenMusiman(theme) {
+            const container = document.getElementById('seasonal-ornaments');
+            container.innerHTML = '';
+            if(window.snowInterval) clearInterval(window.snowInterval);
+
+            if (theme === 'ramadhan') {
+                container.innerHTML = `
+                    <div class="ornament orn-float-1 opacity-50 dark:opacity-80">🌙</div>
+                    <div class="ornament orn-float-2 opacity-50 dark:opacity-80">✨</div>
+                    <div class="ornament orn-float-3 opacity-50 dark:opacity-80">🕌</div>
+                `;
+            } else if (theme === 'xmas') {
+                container.innerHTML = `
+                    <div class="ornament orn-float-1 opacity-80">🎅</div>
+                    <div class="ornament orn-float-2 opacity-80">🎄</div>
+                `;
+                window.snowInterval = setInterval(() => {
+                    const snow = document.createElement('div');
+                    snow.className = 'snow';
+                    snow.innerText = '❄️';
+                    snow.style.left = Math.random() * 100 + 'vw';
+                    snow.style.fontSize = (Math.random() * 1 + 0.5) + 'rem';
+                    snow.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    container.appendChild(snow);
+                    setTimeout(() => snow.remove(), 5000);
+                }, 300);
+            } else if (theme === 'imlek') {
+                container.innerHTML = `
+                    <div class="ornament lantern lantern-left">🏮</div>
+                    <div class="ornament lantern lantern-right">🏮</div>
+                    <div class="ornament orn-float-3 opacity-80">🧧</div>
+                `;
+            }
+        }
+
+        function tampilkanPromoMusiman(theme) {
+            const modal = document.getElementById('seasonal-promo-modal');
+            const title = document.getElementById('seasonal-promo-title');
+            const desc = document.getElementById('seasonal-promo-desc');
+            const icon = document.getElementById('seasonal-promo-icon');
+
+            if (theme === 'ramadhan') {
+                icon.innerText = "🕌";
+                title.innerText = "Berkah Ramadhan!";
+                desc.innerText = "Sambut bulan suci dengan visual brand yang lebih fresh. Nikmati diskon spesial untuk semua layanan desain kami.";
+                setPromoAdmin(0.2); 
+            } else if (theme === 'xmas') {
+                icon.innerText = "🎅";
+                title.innerText = "Merry Christmas!";
+                desc.innerText = "Bagikan kebahagiaan Natal dengan desain visual yang memukau. Dapatkan kado diskon spesial dari BDG Design.";
+                setPromoAdmin(0.2);
+            } else if (theme === 'imlek') {
+                icon.innerText = "🏮";
+                title.innerText = "Gong Xi Fa Cai!";
+                desc.innerText = "Awali tahun baru dengan rezeki melimpah dan desain baru. Angpao diskon spesial menanti pesanan Anda hari ini.";
+                setPromoAdmin(0.2);
+            }
+
+            modal.classList.remove('invisible');
+            modal.classList.add('opacity-100');
+            modal.querySelector('div').classList.remove('scale-95');
+            modal.querySelector('div').classList.add('scale-100');
+            document.body.classList.add('modal-active');
+        }
+
+        function tutupSeasonalPromo() {
+            const modal = document.getElementById('seasonal-promo-modal');
+            modal.classList.remove('opacity-100');
+            modal.classList.add('invisible');
+            modal.querySelector('div').classList.remove('scale-100');
+            modal.querySelector('div').classList.add('scale-95');
+            document.body.classList.remove('modal-active');
+        }
+
+        // Logic Notifikasi Palsu
+        const namaPelanggan = ['Budi Santoso', 'CV Maju Jaya', 'Andi Rizky', 'Siti Aminah', 'Toko Berkah', 'Kopi Senja', 'Dimas', 'Citra Lestari', 'Warung Sederhana', 'PT Makmur', 'Ahmad', 'Nisa', 'Klinik Sehat', 'Rina', 'Dedi'];
+        const waktuPesan = ['Baru saja', '1 menit yang lalu', 'Beberapa detik yang lalu', '2 menit yang lalu'];
+
+        function tampilkanNotifPalsu() {
+            const notif = document.getElementById('fake-notif');
+            if (notif.classList.contains('translate-y-0')) return;
+
+            const namaRandom = namaPelanggan[Math.floor(Math.random() * namaPelanggan.length)];
+            const layananRandom = services[Math.floor(Math.random() * services.length)].name;
+            const waktuRandom = waktuPesan[Math.floor(Math.random() * waktuPesan.length)];
+
+            document.getElementById('notif-name').innerText = namaRandom;
+            document.getElementById('notif-service').innerText = layananRandom;
+            document.getElementById('notif-time').innerText = waktuRandom;
+
+            notif.classList.remove('translate-y-20', 'opacity-0');
+            notif.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                notif.classList.remove('translate-y-0', 'opacity-100');
+                notif.classList.add('translate-y-20', 'opacity-0');
+                jadwalkanNotifSelanjutnya();
+            }, 4000);
+        }
+
+        function jadwalkanNotifSelanjutnya() {
+            const jedaAcak = Math.floor(Math.random() * (15000 - 8000 + 1)) + 8000;
+            setTimeout(tampilkanNotifPalsu, jedaAcak);
+        }
+
+        // Render Layanan
+        function renderLayanan() {
+            const servicesContainer = document.getElementById('services-container');
+            servicesContainer.innerHTML = services.map((s, index) => {
+                const hargaSetelahDiskon = s.price - (s.price * diskonAktif);
+                const tagVoucher = diskonAktif > 0 ? `<span class="text-[10px] font-bold uppercase tracking-wider text-green-500 bg-green-50 dark:bg-green-900/20 px-2 py-0.5 rounded-md mb-1 inline-block">Diskon Terpasang</span>` : '';
+                const hargaCoret = diskonAktif > 0 ? `<span class="text-slate-400 line-through text-sm">${formatRupiah(s.price)}</span>` : '';
+                
+                return `
+                    <div class="service-card bg-white dark:bg-darkCard p-8 rounded-3xl border border-slate-100 dark:border-slate-800 transition-all duration-300 flex flex-col items-start" data-aos="fade-up">
+                        <div class="bg-brand-50 dark:bg-brand-900/30 p-4 rounded-2xl mb-6 text-brand-600 dark:text-brand-400">
+                            <i data-lucide="${s.icon}" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2 dark:text-white">${s.name}</h3>
+                        <div class="mb-6">
+                            ${tagVoucher}
+                            <div class="flex flex-col">
+                                ${hargaCoret}
+                                <span class="text-brand-600 dark:text-brand-400 font-bold text-2xl">${formatRupiah(hargaSetelahDiskon)}</span>
+                            </div>
+                        </div>
+                        <button onclick="openServiceModal(${index})" class="mt-auto w-full text-center py-3 bg-slate-50 dark:bg-slate-800 hover:bg-brand-600 hover:text-white transition rounded-xl font-semibold text-sm dark:text-slate-300">Pilih Layanan</button>
+                    </div>
+                `;
+            }).join('');
+            lucide.createIcons();
+        }
+
+        function updateHargaInstagram() {
+            document.querySelectorAll('.ig-price-display').forEach(el => {
+                const basePrice = parseFloat(el.getAttribute('data-base'));
+                const hargaAkhir = basePrice - (basePrice * diskonAktif);
+                el.innerText = formatRupiah(hargaAkhir);
+                
+                const wadah = el.closest('.ig-price-container');
+                const existingCoret = wadah.querySelector('.ig-harga-coret');
+                
+                if (diskonAktif > 0) {
+                    if (!existingCoret) {
+                        const coret = document.createElement('div');
+                        coret.className = 'ig-harga-coret text-sm font-semibold text-slate-400 line-through mb-1';
+                        coret.innerText = formatRupiah(basePrice);
+                        wadah.insertBefore(coret, el);
+                    }
+                } else if (existingCoret) {
+                    existingCoret.remove();
+                }
+            });
+        }
+
+        // WhatsApp Checkout Logic
+        function getTeksDiskonWA() {
+            if (diskonAktif > 0 && kodeVoucherAktif !== '') {
+                return `%0A*(Menggunakan voucher ${kodeVoucherAktif} diskon ${diskonAktif * 100}%)*`;
+            } else if (diskonAktif > 0) {
+                return `%0A*(Menggunakan promo diskon ${diskonAktif * 100}%)*`;
+            }
+            return '';
+        }
+
+        function pesanInstagram(paket, basePrice) {
+            const hargaAkhir = basePrice - (basePrice * diskonAktif);
+            const hargaTeks = formatRupiah(hargaAkhir);
+            let waText = `Halo BDG, saya ingin pesan *Paket Instagram ${paket}* dengan harga ${hargaTeks}.${getTeksDiskonWA()}`;
+            window.open(`https://wa.me/6285708845405?text=${waText}`, '_blank');
+        }
 
         function openServiceModal(index) {
             const service = services[index];
+            const hargaAkhir = service.price - (service.price * diskonAktif);
+            const hargaTeks = formatRupiah(hargaAkhir);
+
             document.getElementById('modal-title').innerText = `Raih Perhatian dengan "${service.name}" Menarik!`;
             document.getElementById('modal-intro').innerText = `Buat bisnis atau karya Anda semakin dilirik dengan "${service.name}" yang eye-catching! Kami menawarkan hasil profesional, kreatif, dan sesuai dengan harapan Anda.`;
-            document.getElementById('modal-price-header').innerText = `Paket lengkap "${service.price}" ini sudah termasuk:`;
+            document.getElementById('modal-price-header').innerText = `Paket lengkap "${hargaTeks}" ini sudah termasuk:`;
             document.querySelectorAll('.modal-service-name').forEach(el => el.innerText = service.name);
-            const waText = `Halo BDG, saya ingin memesan: *${service.name}* (${service.price}). Mohon info selanjutnya.`;
-            document.getElementById('modal-whatsapp-btn').href = `https://wa.me/6285708845405?text=${encodeURIComponent(waText)}`;
+            
+            let waText = `Halo BDG, saya ingin memesan: *${service.name}* seharga ${hargaTeks}.${getTeksDiskonWA()}%0AMohon info selanjutnya.`;
+            document.getElementById('modal-whatsapp-btn').href = `https://wa.me/6285708845405?text=${waText}`;
+            
+            const modal = document.getElementById('service-modal');
+            const modalContent = modal.querySelector('div');
             modal.classList.remove('invisible');
             modal.classList.add('opacity-100');
             modalContent.classList.remove('scale-95');
@@ -947,6 +1414,8 @@
         }
 
         function closeModal() {
+            const modal = document.getElementById('service-modal');
+            const modalContent = modal.querySelector('div');
             modal.classList.remove('opacity-100');
             modal.classList.add('invisible');
             modalContent.classList.remove('scale-100');
@@ -954,8 +1423,8 @@
             document.body.classList.remove('modal-active');
         }
 
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
+        document.getElementById('service-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'service-modal') closeModal();
         });
 
         // FAQ Logic
@@ -1017,10 +1486,10 @@
             navigator.clipboard.writeText(email);
             const status = document.getElementById('copy-status');
             status.innerText = "Copied!";
-            status.classList.replace('bg-blue-700', 'bg-green-500');
+            status.classList.replace('bg-brand-700', 'bg-green-500');
             setTimeout(() => {
                 status.innerText = "Click to copy";
-                status.classList.replace('bg-green-500', 'bg-blue-700');
+                status.classList.replace('bg-green-500', 'bg-brand-700');
             }, 2000);
         }
 
@@ -1032,16 +1501,15 @@
         const menuBtn = document.getElementById('menu-btn');
         const closeMenu = document.getElementById('close-menu');
         const mobileMenu = document.getElementById('mobile-menu');
-        const menuLinks = document.querySelectorAll('.menu-link');
+        const menuLinks = document.querySelectorAll('.menu-link:not([onclick])');
         const sidebarBackdrop = document.getElementById('sidebar-backdrop');
         const hamburgerLines = document.querySelector('.hamburger-lines');
 
         function toggleMenu() {
             mobileMenu.classList.toggle('translate-x-full');
             document.body.classList.toggle('overflow-hidden');
-            document.body.classList.toggle('sidebar-open'); // For backdrop handling via CSS
+            document.body.classList.toggle('sidebar-open');
             
-            // Toggle Hamburger Animation
             if(hamburgerLines) {
                 hamburgerLines.parentElement.classList.toggle('hamburger-active');
             }
@@ -1049,7 +1517,9 @@
 
         menuBtn.addEventListener('click', toggleMenu);
         closeMenu.addEventListener('click', toggleMenu);
-        menuLinks.forEach(link => link.addEventListener('click', toggleMenu));
+        menuLinks.forEach(link => link.addEventListener('click', () => {
+            toggleMenu();
+        }));
 
         // Dark Mode
         const themeToggle = document.getElementById('theme-toggle');
@@ -1092,10 +1562,15 @@
             const nama = document.getElementById('name-input').value;
             const keperluan = document.getElementById('service-input').value;
             const pesan = document.getElementById('message-input').value;
-            if(!nama) { alert("Tolong masukkan nama Anda"); return; }
-            const text = `Halo BDG, saya *${nama}*.%0ASaya ingin memesan: *${keperluan}*.%0A%0A*Pesan:*%0A${pesan}`;
+            if(!nama) { tampilkanPeringatan("Tolong masukkan nama Anda"); return; }
+            let text = `Halo BDG, saya *${nama}*.%0ASaya ingin memesan: *${keperluan}*.${getTeksDiskonWA()}%0A%0A*Pesan:*%0A${pesan}`;
             window.open(`https://wa.me/6285708845405?text=${text}`, '_blank');
         }
+
+        // Inisialisasi awal
+        renderLayanan();
+        applySeasonalTheme();
+        setTimeout(tampilkanNotifPalsu, 5000);
     </script>
 </body>
 </html>
