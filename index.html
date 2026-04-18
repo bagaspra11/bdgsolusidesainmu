@@ -16,13 +16,13 @@
     <meta property="og:url" content="https://bdgsolusidesainmu.my.id/">
     <meta property="og:title" content="BDG - Jasa Desain Grafis Profesional & Berkelas">
     <meta property="og:description" content="Solusi visual modern untuk brand Anda. Proses cepat, harga terjangkau, dan hasil berkualitas tinggi.">
-    <meta property="og:image" content="image/og-preview.png">
+    <meta property="og:image" content="image/og-preview.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="BDG - Bagas Desainer Grafis">
     <meta property="twitter:description" content="Mewujudkan ide menjadi karya visual yang bermakna.">
-    <meta property="twitter:image" content="image/og-preview.png">
+    <meta property="twitter:image" content="image/og-preview.jpg">
 
     <!-- Styles & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -627,11 +627,11 @@
                 <i data-lucide="ticket" class="w-8 h-8"></i>
             </div>
             
-            <h3 class="text-2xl font-bold mb-2 text-slate-800 dark:text-white">Masukkan Voucher</h3>
+            <h3 class="text-2xl font-bold mb-2 text-slate-800 dark:text-white">Masukkan Kode Voucher</h3>
             <p class="text-slate-500 dark:text-slate-400 text-sm mb-6 leading-relaxed">Dapatkan potongan harga spesial untuk pesanan desain Anda. Masukkan kode unik di bawah ini.</p>
             
             <div class="space-y-4 text-left">
-                <input type="text" id="voucher-input" placeholder="MASUKKAN KODE VOUCHER" class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:border-brand-600 text-center text-lg font-bold uppercase tracking-widest text-slate-800 dark:text-white transition">
+                <input type="text" id="voucher-input" placeholder="Contoh: DISKON20" class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:border-brand-600 text-center text-lg font-bold uppercase tracking-widest text-slate-800 dark:text-white transition">
                 <button onclick="terapkanVoucher()" class="w-full bg-brand-600 text-white font-bold py-4 rounded-xl hover:bg-brand-700 transition shadow-lg shadow-brand-200 dark:shadow-none">Terapkan Diskon</button>
             </div>
         </div>
@@ -683,7 +683,7 @@
                         <div class="font-bold text-slate-800 dark:text-white">Mode Gelap / Terang</div>
                         <div class="text-sm text-slate-500">Ubah tampilan default</div>
                     </div>
-                    <button onclick="document.getElementById('theme-toggle').click()" class="px-4 py-2 bg-slate-200 dark:bg-slate-700 rounded-lg text-sm font-bold dark:text-white hover:bg-slate-300 transition">Ubah Tema</button>
+                    <button id="btn-admin-theme" onclick="togglePendingTheme()" class="px-4 py-2 bg-slate-200 dark:bg-slate-700 rounded-lg text-sm font-bold dark:text-white hover:bg-slate-300 transition">Ubah Tema</button>
                 </div>
 
                 <!-- Setting Musiman -->
@@ -698,6 +698,19 @@
                         <option value="xmas">Natal (Merah & Emas + Salju)</option>
                         <option value="imlek">Imlek (Merah & Oriental)</option>
                     </select>
+                </div>
+
+                <!-- Setting Promo -->
+                <div class="p-4 border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-slate-900/50">
+                    <div class="mb-4">
+                        <div class="font-bold text-slate-800 dark:text-white">Mode Promo Massal</div>
+                        <div class="text-sm text-slate-500">Terapkan diskon ke seluruh layanan tanpa kode</div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button id="btn-promo-20" onclick="setPromoAdmin(0.2)" class="flex-1 py-2 bg-brand-100 text-brand-600 dark:bg-brand-900/30 dark:text-brand-400 rounded-lg text-sm font-bold hover:bg-brand-200 transition">Diskon 20%</button>
+                        <button id="btn-promo-50" onclick="setPromoAdmin(0.5)" class="flex-1 py-2 bg-brand-100 text-brand-600 dark:bg-brand-900/30 dark:text-brand-400 rounded-lg text-sm font-bold hover:bg-brand-200 transition">Diskon 50%</button>
+                        <button id="btn-promo-normal" onclick="setPromoAdmin(0)" class="flex-1 py-2 bg-slate-200 text-slate-600 dark:bg-slate-700 dark:text-slate-300 rounded-lg text-sm font-bold hover:bg-slate-300 transition">Normal</button>
+                    </div>
                 </div>
 
                 <!-- Manajemen Voucher -->
@@ -718,6 +731,10 @@
                         <!-- List voucher di-render JS -->
                     </div>
                 </div>
+                
+                <button onclick="terapkanPerubahanAdmin()" class="w-full bg-emerald-600 text-white font-bold py-4 rounded-xl hover:bg-emerald-700 transition shadow-lg shadow-emerald-200 dark:shadow-none text-lg mt-4">
+                    Terapkan Perubahan
+                </button>
             </div>
         </div>
     </div>
@@ -995,9 +1012,9 @@
             { name: "Desain Poster Film", price: 180000, icon: "clapperboard" }
         ];
 
-        // Sistem Voucher & Promo
-        let diskonAktif = 0;
-        let kodeVoucherAktif = '';
+        // Sistem Penyimpanan Global (Sinkronisasi Antar Sesi)
+        let diskonAktif = parseFloat(localStorage.getItem('bdg_global_promo')) || 0;
+        let kodeVoucherAktif = localStorage.getItem('bdg_active_voucher') || '';
         
         let daftarVoucher = JSON.parse(localStorage.getItem('bdg_vouchers')) || [
             { kode: 'DISKON10', diskon: 0.1, aktif: true, expired: '2026-12-31' },
@@ -1009,17 +1026,48 @@
             localStorage.setItem('bdg_vouchers', JSON.stringify(daftarVoucher));
         }
 
-        // Render Vouchers di Admin
+        function simpanStateGlobal() {
+            localStorage.setItem('bdg_global_promo', diskonAktif);
+            localStorage.setItem('bdg_active_voucher', kodeVoucherAktif);
+        }
+
+        // Listener Sinkronisasi Antar Tab/Sesi
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'bdg_vouchers') {
+                daftarVoucher = JSON.parse(e.newValue);
+            }
+            if (e.key === 'bdg_global_promo') {
+                diskonAktif = parseFloat(e.newValue) || 0;
+            }
+            if (e.key === 'bdg_active_voucher') {
+                kodeVoucherAktif = e.newValue || '';
+            }
+            if (e.key === 'seasonalTheme') {
+                applySeasonalTheme();
+            }
+            if (['bdg_vouchers', 'bdg_global_promo', 'bdg_active_voucher', 'seasonalTheme'].includes(e.key)) {
+                renderLayanan();
+                updateHargaInstagram();
+            }
+        });
+
+        // Variabel Staging Admin
+        let pendingDiskonAktif = diskonAktif;
+        let pendingSeasonalTheme = localStorage.getItem('seasonalTheme') || 'normal';
+        let pendingVouchers = [];
+        let pendingIsDark = false;
+
+        // Render Vouchers di Admin (Menggunakan pendingVouchers)
         function renderAdminVouchers() {
             const container = document.getElementById('admin-voucher-list');
             if(!container) return;
             
-            if(daftarVoucher.length === 0) {
+            if(pendingVouchers.length === 0) {
                 container.innerHTML = '<p class="text-sm text-slate-500 text-center py-4">Belum ada voucher.</p>';
                 return;
             }
 
-            container.innerHTML = daftarVoucher.map((v, i) => `
+            container.innerHTML = pendingVouchers.map((v, i) => `
                 <div class="flex items-center justify-between p-3 border border-slate-200 dark:border-slate-700 rounded-xl mb-2 bg-white dark:bg-slate-800">
                     <div>
                         <div class="font-bold text-brand-600 dark:text-brand-400">${v.kode}</div>
@@ -1048,25 +1096,22 @@
             }
 
             const diskon = diskonVal / 100;
-            daftarVoucher.push({ kode, diskon, aktif: true, expired });
-            simpanVoucher();
+            pendingVouchers.push({ kode, diskon, aktif: true, expired });
             renderAdminVouchers();
             
             document.getElementById('new-voucher-code').value = '';
             document.getElementById('new-voucher-discount').value = '';
             document.getElementById('new-voucher-expiry').value = '';
-            tampilkanPeringatan('Voucher berhasil ditambahkan');
+            tampilkanPeringatan('Voucher ditambahkan (belum diterapkan)');
         }
 
         function toggleVoucherStatus(index) {
-            daftarVoucher[index].aktif = !daftarVoucher[index].aktif;
-            simpanVoucher();
+            pendingVouchers[index].aktif = !pendingVouchers[index].aktif;
             renderAdminVouchers();
         }
 
         function hapusVoucher(index) {
-            daftarVoucher.splice(index, 1);
-            simpanVoucher();
+            pendingVouchers.splice(index, 1);
             renderAdminVouchers();
         }
 
@@ -1111,6 +1156,7 @@
                 
                 diskonAktif = voucher.diskon;
                 kodeVoucherAktif = voucher.kode;
+                simpanStateGlobal();
                 tampilkanPeringatan(`Voucher berhasil! Anda mendapat potongan ${diskonAktif * 100}%`);
                 renderLayanan();
                 updateHargaInstagram();
@@ -1154,8 +1200,6 @@
                 document.getElementById('admin-user').value = '';
                 document.getElementById('admin-pass').value = '';
                 setTimeout(() => { 
-                    document.getElementById('theme-selector').value = localStorage.getItem('seasonalTheme') || 'normal';
-                    renderAdminVouchers();
                     bukaAdminDashboard(); 
                 }, 300);
             } else {
@@ -1164,6 +1208,16 @@
         }
 
         function bukaAdminDashboard() {
+            pendingDiskonAktif = diskonAktif;
+            pendingSeasonalTheme = localStorage.getItem('seasonalTheme') || 'normal';
+            pendingVouchers = JSON.parse(JSON.stringify(daftarVoucher));
+            pendingIsDark = document.documentElement.classList.contains('dark');
+
+            document.getElementById('theme-selector').value = pendingSeasonalTheme;
+            updateBtnThemeAdmin();
+            updatePromoButtonsAdmin(pendingDiskonAktif);
+            renderAdminVouchers();
+
             const modal = document.getElementById('admin-dashboard-modal');
             modal.classList.remove('invisible');
             modal.classList.add('opacity-100');
@@ -1186,23 +1240,78 @@
             if (e.target.id === 'admin-dashboard-modal') tutupAdminDashboard();
         });
 
-        function setPromoAdmin(diskon) {
-            diskonAktif = diskon;
-            kodeVoucherAktif = ''; // Reset voucher jika promo manual diaktifkan
-            renderLayanan();
-            updateHargaInstagram();
-            if (diskon > 0) {
-                tampilkanPeringatan(`Mode promo aktif. Semua harga dipotong ${diskon * 100}%`);
+        function togglePendingTheme() {
+            pendingIsDark = !pendingIsDark;
+            updateBtnThemeAdmin();
+        }
+
+        function updateBtnThemeAdmin() {
+            const btn = document.getElementById('btn-admin-theme');
+            if(pendingIsDark) {
+                btn.innerText = 'Ke Mode Terang';
             } else {
-                tampilkanPeringatan(`Promo dinonaktifkan. Harga kembali normal`);
+                btn.innerText = 'Ke Mode Gelap';
             }
         }
 
-        // Logika Tema Musiman
+        function setPromoAdmin(diskon) {
+            pendingDiskonAktif = diskon;
+            updatePromoButtonsAdmin(diskon);
+        }
+
+        function updatePromoButtonsAdmin(diskon) {
+            const btnNormal = document.getElementById('btn-promo-normal');
+            const btn20 = document.getElementById('btn-promo-20');
+            const btn50 = document.getElementById('btn-promo-50');
+            
+            const activeClass = ['bg-brand-600', 'text-white', 'dark:bg-brand-600', 'dark:text-white'];
+            const inactiveClass = ['bg-brand-100', 'text-brand-600', 'dark:bg-brand-900/30', 'dark:text-brand-400', 'bg-slate-200', 'text-slate-600', 'dark:bg-slate-700', 'dark:text-slate-300'];
+
+            [btnNormal, btn20, btn50].forEach(btn => {
+                btn.classList.remove(...activeClass);
+                if(btn.id === 'btn-promo-normal') btn.classList.add('bg-slate-200', 'text-slate-600', 'dark:bg-slate-700', 'dark:text-slate-300');
+                else btn.classList.add('bg-brand-100', 'text-brand-600', 'dark:bg-brand-900/30', 'dark:text-brand-400');
+            });
+
+            if(diskon === 0) {
+                btnNormal.classList.remove(...inactiveClass);
+                btnNormal.classList.add(...activeClass);
+            } else if(diskon === 0.2) {
+                btn20.classList.remove(...inactiveClass);
+                btn20.classList.add(...activeClass);
+            } else if(diskon === 0.5) {
+                btn50.classList.remove(...inactiveClass);
+                btn50.classList.add(...activeClass);
+            }
+        }
+
         function setSeasonalThemeAdmin(theme) {
-            localStorage.setItem('seasonalTheme', theme);
+            pendingSeasonalTheme = theme;
+        }
+
+        function terapkanPerubahanAdmin() {
+            const isCurrentlyDark = document.documentElement.classList.contains('dark');
+            if(pendingIsDark !== isCurrentlyDark) {
+                document.getElementById('theme-toggle').click();
+            }
+
+            localStorage.setItem('seasonalTheme', pendingSeasonalTheme);
             applySeasonalTheme();
-            tampilkanPeringatan(`Tema ${theme} berhasil diterapkan.`);
+
+            diskonAktif = pendingDiskonAktif;
+            if(diskonAktif > 0 && diskonAktif !== (daftarVoucher.find(v => v.kode === kodeVoucherAktif)?.diskon || 0)) {
+                kodeVoucherAktif = ''; 
+            }
+            simpanStateGlobal();
+
+            daftarVoucher = JSON.parse(JSON.stringify(pendingVouchers));
+            simpanVoucher();
+
+            renderLayanan();
+            updateHargaInstagram();
+
+            tampilkanPeringatan('Semua perubahan berhasil diterapkan dan disinkronkan');
+            tutupAdminDashboard();
         }
 
         function applySeasonalTheme() {
@@ -1212,7 +1321,7 @@
             if (theme !== 'normal') {
                 document.body.classList.add(`theme-${theme}`);
                 renderOrnamenMusiman(theme);
-                tampilkanPromoMusiman(theme);
+                if(diskonAktif === 0) tampilkanPromoMusiman(theme);
             } else {
                 renderOrnamenMusiman('normal');
             }
@@ -1263,17 +1372,14 @@
                 icon.innerText = "🕌";
                 title.innerText = "Berkah Ramadhan!";
                 desc.innerText = "Sambut bulan suci dengan visual brand yang lebih fresh. Nikmati diskon spesial untuk semua layanan desain kami.";
-                setPromoAdmin(0.2); 
             } else if (theme === 'xmas') {
                 icon.innerText = "🎅";
                 title.innerText = "Merry Christmas!";
                 desc.innerText = "Bagikan kebahagiaan Natal dengan desain visual yang memukau. Dapatkan kado diskon spesial dari BDG Design.";
-                setPromoAdmin(0.2);
             } else if (theme === 'imlek') {
                 icon.innerText = "🏮";
                 title.innerText = "Gong Xi Fa Cai!";
                 desc.innerText = "Awali tahun baru dengan rezeki melimpah dan desain baru. Angpao diskon spesial menanti pesanan Anda hari ini.";
-                setPromoAdmin(0.2);
             }
 
             modal.classList.remove('invisible');
@@ -1569,6 +1675,7 @@
 
         // Inisialisasi awal
         renderLayanan();
+        updateHargaInstagram();
         applySeasonalTheme();
         setTimeout(tampilkanNotifPalsu, 5000);
     </script>
