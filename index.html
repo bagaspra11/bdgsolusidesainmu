@@ -139,7 +139,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* --- UPDATED: Sidebar & Hamburger Styles --- */
         #mobile-menu {
             transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
             box-shadow: -10px 0 30px rgba(0,0,0,0.1);
@@ -155,7 +154,6 @@
             visibility: visible;
         }
 
-        /* Hamburger Animation */
         .hamburger-lines {
             display: flex;
             flex-direction: column;
@@ -177,7 +175,6 @@
         .hamburger-active .line2 { opacity: 0; transform: translateX(-10px); }
         .hamburger-active .line3 { transform: translateY(-7px) rotate(-45deg); }
         
-        /* Sidebar Item Hover Animation */
         .sidebar-link {
             position: relative;
             transition: all 0.3s ease;
@@ -203,7 +200,6 @@
         }
         .sidebar-link:hover::before { opacity: 1; }
 
-        /* Custom Slider Styles */
         .slider-container {
             display: flex;
             overflow-x: auto;
@@ -221,13 +217,11 @@
             .slider-item { flex: 0 0 calc(50% - 12px); }
         }
 
-        /* Modal Styles */
         .modal-active { overflow: hidden; }
         #service-modal, #voucher-modal, #admin-login-modal, #admin-dashboard-modal, #seasonal-promo-modal {
             transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
-        /* FAQ Accordion Custom */
         .faq-content {
             max-height: 0;
             overflow: hidden;
@@ -236,14 +230,12 @@
         .faq-item.active .faq-content { max-height: 500px; padding-bottom: 1.5rem; }
         .faq-item.active .faq-icon { transform: rotate(180deg); }
 
-        /* Back to Top */
         #backToTop.visible {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
 
-        /* Scroll Progress Bar */
         #scroll-progress {
             position: fixed;
             top: 0;
@@ -255,7 +247,6 @@
             transition: width 0.1s ease-out;
         }
 
-        /* Ornamen Musiman Animations */
         .ornament { position: fixed; pointer-events: none; z-index: 45; }
         .orn-float-1 { top: 15%; left: 8%; font-size: 3rem; animation: float 4s ease-in-out infinite; }
         .orn-float-2 { top: 20%; right: 10%; font-size: 4rem; animation: float 5s ease-in-out infinite alternate; }
@@ -274,16 +265,10 @@
 </head>
 <body class="bg-white text-slate-800 antialiased overflow-x-hidden dark:bg-darkBg dark:text-slate-200">
 
-    <!-- Scroll Progress Bar -->
     <div id="scroll-progress"></div>
-
-    <!-- Container Ornamen Musiman -->
     <div id="seasonal-ornaments"></div>
-
-    <!-- Backdrop for Sidebar -->
     <div id="sidebar-backdrop" class="sidebar-backdrop fixed inset-0 bg-black/40 backdrop-blur-sm z-[55]" onclick="toggleMenu()"></div>
 
-    <!-- Navbar -->
     <nav class="fixed w-full z-50 glass-nav border-b border-slate-100 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 py-4 flex justify-between items-center">
             <a href="#" class="flex items-center">
@@ -307,9 +292,7 @@
         </div>
     </nav>
 
-    <!-- Global Hamburger Overlay Menu -->
     <div id="mobile-menu" class="fixed top-0 right-0 h-full w-[85%] max-w-sm z-[60] bg-white dark:bg-darkCard translate-x-full border-l border-slate-100 dark:border-slate-800 flex flex-col">
-        <!-- Sidebar Header -->
         <div class="p-6 border-b border-slate-100 dark:border-slate-800/50 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <img src="Image/logobesar.png" alt="Logo" class="h-8 w-auto">
@@ -317,33 +300,25 @@
             </div>
         </div>
 
-        <!-- Sidebar Content -->
         <div class="flex-1 overflow-y-auto py-6 px-4 space-y-2">
-            
-            <!-- Navigation Links -->
             <div class="space-y-1">
                 <p class="px-4 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Navigasi Utama</p>
-                
                 <a href="#home" class="menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-brand-600 dark:hover:text-white group">
                     <i data-lucide="home" class="w-5 h-5 text-slate-400 group-hover:text-brand-600 transition-colors"></i>
                     <span class="font-medium">Home</span>
                 </a>
-                
                 <a href="#tentang" class="menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-brand-600 dark:hover:text-white group">
                     <i data-lucide="info" class="w-5 h-5 text-slate-400 group-hover:text-brand-600 transition-colors"></i>
                     <span class="font-medium">Tentang Kami</span>
                 </a>
-                
                 <a href="#layanan" class="menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-brand-600 dark:hover:text-white group">
                     <i data-lucide="briefcase" class="w-5 h-5 text-slate-400 group-hover:text-brand-600 transition-colors"></i>
                     <span class="font-medium">Layanan</span>
                 </a>
-
                 <a href="#karya" class="menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-brand-600 dark:hover:text-white group">
                     <i data-lucide="image" class="w-5 h-5 text-slate-400 group-hover:text-brand-600 transition-colors"></i>
                     <span class="font-medium">Portofolio</span>
                 </a>
-
                 <a href="#kontak" class="menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-brand-600 dark:hover:text-white group">
                     <i data-lucide="phone" class="w-5 h-5 text-slate-400 group-hover:text-brand-600 transition-colors"></i>
                     <span class="font-medium">Kontak</span>
@@ -352,23 +327,18 @@
                     <i data-lucide="layout-template" class="w-5 h-5 text-slate-400 group-hover:text-brand-600 transition-colors"></i>
                     <span class="font-medium">Paket Instagram</span>
                 </a>
-                
                 <button onclick="bukaVoucherModal()" class="w-full menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-brand-600 dark:hover:text-white group mt-1">
                     <i data-lucide="ticket" class="w-5 h-5 text-slate-400 group-hover:text-brand-600 transition-colors"></i>
                     <span class="font-medium text-left">Klaim Voucher</span>
                 </button>
-
                 <div class="h-px bg-slate-100 dark:bg-slate-800 my-4 mx-4"></div>
-
                 <button onclick="bukaLoginAdmin()" class="w-full menu-link sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-red-600 dark:hover:text-red-400 group">
                     <i data-lucide="lock" class="w-5 h-5 text-slate-400 group-hover:text-red-600 transition-colors"></i>
                     <span class="font-medium text-left">Admin Login</span>
                 </button>
             </div>
-
         </div>
 
-        <!-- Sidebar Footer -->
         <div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
             <a href="https://wa.me/6285708845405" class="flex items-center justify-center gap-2 w-full py-3.5 bg-brand-600 text-white rounded-xl font-bold shadow-lg shadow-brand-200 dark:shadow-none hover:bg-brand-700 transition active:scale-95">
                 <span>Order Sekarang</span>
@@ -382,11 +352,9 @@
             <p class="text-center text-xs text-slate-400 mt-4">© 2023 BDG Design.</p>
         </div>
         
-        <!-- Hidden Close Button -->
         <button id="close-menu" class="hidden"></button>
     </div>
 
-    <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center pt-20 px-6 lg:px-12 bg-gradient-to-b from-brand-50 to-white dark:from-slate-900 dark:to-darkBg overflow-hidden">
         <div class="max-w-7xl mx-auto text-center relative z-10">
             <div data-aos="fade-up" data-aos-duration="1000">
@@ -408,7 +376,6 @@
         </div>
     </section>
 
-    <!-- Tentang Kami -->
     <section id="tentang" class="py-32 px-6 lg:px-12 bg-white dark:bg-darkBg">
         <div class="max-w-5xl mx-auto">
             <div class="grid md:grid-cols-12 gap-12 items-start">
@@ -444,7 +411,6 @@
         </div>
     </section>
 
-    <!-- Statistik Section -->
     <section class="py-20 bg-brand-600 dark:bg-brand-800 text-white">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div data-aos="zoom-in">
@@ -466,7 +432,6 @@
         </div>
     </section>
 
-    <!-- Layanan & Harga -->
     <section id="layanan" class="py-24 px-6 lg:px-12 bg-slate-50 dark:bg-slate-900/50">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -474,14 +439,10 @@
                 <h2 class="text-4xl md:text-5xl font-bold dark:text-white">Investasi Desain Terjangkau</h2>
                 <p class="text-slate-500 dark:text-slate-400 mt-4 max-w-2xl mx-auto">Tingkatkan value brand Anda dengan harga yang kompetitif tanpa mengurangi kualitas premium.</p>
             </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="services-container">
-                <!-- Data Layanan di render via JS -->
-            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="services-container"></div>
         </div>
     </section>
 
-    <!-- Paket Instagram Design -->
     <section id="paket-ig" class="py-24 px-6 lg:px-12 bg-white dark:bg-darkBg relative overflow-hidden">
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -489,9 +450,7 @@
                 <h2 class="text-4xl md:text-5xl font-bold dark:text-white mb-4">Paket Desain Instagram</h2>
                 <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">Tingkatkan engagement media sosial Anda dengan desain estetik dan profesional.</p>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Paket 1 -->
                 <div class="bg-slate-50 dark:bg-darkCard p-10 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 transition-all hover:shadow-2xl flex flex-col group" data-aos="fade-up">
                     <h3 class="text-2xl font-bold mb-2 dark:text-white">Basic</h3>
                     <div class="mb-6 ig-price-container">
@@ -507,8 +466,6 @@
                     </ul>
                     <button onclick="pesanInstagram('Basic', 240000)" class="w-full py-4 rounded-2xl bg-slate-200 dark:bg-slate-800 dark:text-white font-bold text-center hover:bg-brand-600 hover:text-white transition">Pesan Sekarang</button>
                 </div>
-
-                <!-- Paket 2 -->
                 <div class="bg-white dark:bg-slate-800 p-10 rounded-[2.5rem] border-2 border-brand-500 transition-all shadow-xl relative flex flex-col group scale-105" data-aos="zoom-in">
                     <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-brand-600 text-white px-6 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest whitespace-nowrap shadow-lg">Paling Populer</div>
                     <h3 class="text-2xl font-bold mb-2 dark:text-white">Standard</h3>
@@ -525,8 +482,6 @@
                     </ul>
                     <button onclick="pesanInstagram('Standard', 460000)" class="w-full py-4 rounded-2xl bg-brand-600 text-white font-bold text-center hover:bg-brand-700 transition shadow-lg shadow-brand-200 dark:shadow-none">Pesan Sekarang</button>
                 </div>
-
-                <!-- Paket 3 -->
                 <div class="bg-slate-50 dark:bg-darkCard p-10 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 transition-all hover:shadow-2xl flex flex-col group" data-aos="fade-up">
                     <h3 class="text-2xl font-bold mb-2 dark:text-white">Premium</h3>
                     <div class="mb-6 ig-price-container">
@@ -543,12 +498,10 @@
                     <button onclick="pesanInstagram('Premium', 700000)" class="w-full py-4 rounded-2xl bg-slate-200 dark:bg-slate-800 dark:text-white font-bold text-center hover:bg-brand-600 hover:text-white transition">Pesan Sekarang</button>
                 </div>
             </div>
-            
             <p class="text-center mt-12 text-sm text-slate-400">*Waktu pengerjaan dapat lebih lama tergantung tingkat kesulitan desain.</p>
         </div>
     </section>
 
-    <!-- Modal Seasonal Promo -->
     <div id="seasonal-promo-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible">
         <div class="bg-white dark:bg-darkCard w-full max-w-md rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95 p-8 text-center border-4 border-brand-500">
             <button onclick="tutupSeasonalPromo()" class="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white transition z-10">
@@ -563,19 +516,15 @@
         </div>
     </div>
 
-    <!-- Modal Detail Layanan -->
     <div id="service-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible">
         <div class="bg-white dark:bg-darkCard w-full max-w-2xl rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95">
             <button onclick="closeModal()" class="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white transition">
                 <i data-lucide="x" class="w-8 h-8"></i>
             </button>
-            
             <div class="p-8 md:p-12 overflow-y-auto max-h-[90vh]">
                 <h2 id="modal-title" class="text-3xl font-bold mb-6 text-brand-600 dark:text-brand-400 leading-tight"></h2>
-                
                 <div class="space-y-6 text-slate-600 dark:text-slate-300 leading-relaxed">
                     <p id="modal-intro"></p>
-                    
                     <div class="bg-brand-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-brand-100 dark:border-slate-700">
                         <p class="font-bold text-slate-800 dark:text-white mb-3" id="modal-price-header"></p>
                         <ul class="space-y-2 text-sm">
@@ -586,7 +535,6 @@
                             <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> 5. Bebas Konsultasi</li>
                         </ul>
                     </div>
-
                     <div>
                         <p class="font-bold text-slate-800 dark:text-white mb-3">Proses Pemesanan:</p>
                         <ol class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 text-sm">
@@ -600,11 +548,9 @@
                             <li>8. Pengiriman File – Link Google Drive/Email</li>
                         </ol>
                     </div>
-
                     <p class="text-xs italic text-red-500 bg-red-50 dark:bg-red-900/20 p-3 rounded-lg border border-red-100 dark:border-red-900/30">
                         Catatan: Pemesanan urgent tidak dilayani demi menjaga kualitas hasil akhir yang maksimal.
                     </p>
-
                     <div class="pt-4 text-center">
                         <p class="text-lg font-semibold text-slate-800 dark:text-white mb-6">Jadikan identitas visual Anda lebih berkelas dan profesional mulai hari ini.</p>
                         <a id="modal-whatsapp-btn" href="#" class="inline-flex items-center justify-center bg-brand-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-brand-700 transition shadow-xl shadow-brand-100 dark:shadow-none w-full">
@@ -616,41 +562,33 @@
         </div>
     </div>
 
-    <!-- Modal Voucher -->
     <div id="voucher-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible">
         <div class="bg-white dark:bg-darkCard w-full max-w-md rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95 p-8 text-center">
             <button onclick="tutupVoucherModal()" class="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white transition">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
-            
             <div class="w-16 h-16 bg-brand-100 dark:bg-brand-900/30 text-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <i data-lucide="ticket" class="w-8 h-8"></i>
             </div>
-            
-            <h3 class="text-2xl font-bold mb-2 text-slate-800 dark:text-white">Masukkan Kode Voucher</h3>
+            <h3 class="text-2xl font-bold mb-2 text-slate-800 dark:text-white">Klaim Voucher</h3>
             <p class="text-slate-500 dark:text-slate-400 text-sm mb-6 leading-relaxed">Dapatkan potongan harga spesial untuk pesanan desain Anda. Masukkan kode unik di bawah ini.</p>
-            
             <div class="space-y-4 text-left">
-                <input type="text" id="voucher-input" placeholder="Contoh: DISKON20" class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:border-brand-600 text-center text-lg font-bold uppercase tracking-widest text-slate-800 dark:text-white transition">
+                <input type="text" id="voucher-input" placeholder="Masukkan kode voucher" class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:border-brand-600 text-center text-lg font-bold uppercase tracking-widest text-slate-800 dark:text-white transition">
                 <button onclick="terapkanVoucher()" class="w-full bg-brand-600 text-white font-bold py-4 rounded-xl hover:bg-brand-700 transition shadow-lg shadow-brand-200 dark:shadow-none">Terapkan Diskon</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal Admin Login -->
     <div id="admin-login-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible">
         <div class="bg-white dark:bg-darkCard w-full max-w-md rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95 p-8 text-center">
             <button onclick="tutupLoginAdmin()" class="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white transition">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
-            
             <div class="w-16 h-16 bg-red-100 dark:bg-red-900/30 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <i data-lucide="lock" class="w-8 h-8"></i>
             </div>
-            
             <h3 class="text-2xl font-bold mb-2 text-slate-800 dark:text-white">Akses Admin</h3>
             <p class="text-slate-500 dark:text-slate-400 text-sm mb-6 leading-relaxed">Masukkan kredensial untuk mengakses mode administrator.</p>
-            
             <div class="space-y-4 text-left">
                 <input type="text" id="admin-user" placeholder="Username" class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:border-red-600 text-lg font-bold text-slate-800 dark:text-white transition">
                 <input type="password" id="admin-pass" placeholder="Password" class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:border-red-600 text-lg font-bold text-slate-800 dark:text-white transition">
@@ -659,13 +597,11 @@
         </div>
     </div>
 
-    <!-- Modal Admin Dashboard -->
     <div id="admin-dashboard-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible">
         <div class="bg-white dark:bg-darkCard w-full max-w-lg rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95 p-8 max-h-[90vh] overflow-y-auto">
             <button onclick="tutupAdminDashboard()" class="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white transition">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
-            
             <div class="flex items-center gap-4 mb-8">
                 <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 rounded-xl flex items-center justify-center">
                     <i data-lucide="shield-check" class="w-6 h-6"></i>
@@ -675,9 +611,7 @@
                     <p class="text-slate-500 dark:text-slate-400 text-sm">Kelola pengaturan situs Anda.</p>
                 </div>
             </div>
-            
             <div class="space-y-6">
-                <!-- Setting Tema -->
                 <div class="flex items-center justify-between p-4 border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-slate-900/50">
                     <div>
                         <div class="font-bold text-slate-800 dark:text-white">Mode Gelap / Terang</div>
@@ -686,7 +620,6 @@
                     <button id="btn-admin-theme" onclick="togglePendingTheme()" class="px-4 py-2 bg-slate-200 dark:bg-slate-700 rounded-lg text-sm font-bold dark:text-white hover:bg-slate-300 transition">Ubah Tema</button>
                 </div>
 
-                <!-- Setting Musiman -->
                 <div class="p-4 border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-slate-900/50">
                     <div class="mb-4">
                         <div class="font-bold text-slate-800 dark:text-white">Tema Musiman</div>
@@ -700,7 +633,6 @@
                     </select>
                 </div>
 
-                <!-- Setting Promo -->
                 <div class="p-4 border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-slate-900/50">
                     <div class="mb-4">
                         <div class="font-bold text-slate-800 dark:text-white">Mode Promo Massal</div>
@@ -713,7 +645,6 @@
                     </div>
                 </div>
 
-                <!-- Manajemen Voucher -->
                 <div class="p-4 border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-slate-900/50">
                     <div class="mb-4">
                         <div class="font-bold text-slate-800 dark:text-white">Manajemen Voucher</div>
@@ -728,7 +659,6 @@
                     <button onclick="tambahVoucher()" class="w-full py-2 mb-4 bg-brand-100 text-brand-600 dark:bg-brand-900/30 dark:text-brand-400 rounded-lg text-sm font-bold hover:bg-brand-200 transition">Tambah Voucher Baru</button>
 
                     <div id="admin-voucher-list" class="space-y-2 max-h-48 overflow-y-auto pr-2">
-                        <!-- List voucher di-render JS -->
                     </div>
                 </div>
                 
@@ -739,7 +669,6 @@
         </div>
     </div>
 
-    <!-- Section Hasil Karya -->
     <section id="karya" class="py-24 px-6 lg:px-12 bg-white dark:bg-darkBg overflow-hidden">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12" data-aos="fade-up">
@@ -751,11 +680,8 @@
                     <button onclick="filterKarya('all')" class="filter-btn active px-6 py-2 rounded-full text-sm font-bold bg-brand-600 text-white transition">Semua</button>
                 </div>
             </div>
-
-            <!-- Slider Wrapper -->
             <div class="relative group" data-aos="fade-up">
                 <div id="karya-slider" class="slider-container gap-6 py-4">
-                    
                     <div class="slider-item karya-item" data-category="banner">
                         <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
                             <img src="Image/bannersholawat.png" alt="Landscape Work 1" class="w-full h-full object-cover">
@@ -765,7 +691,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="slider-item karya-item" data-category="banner">
                         <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
                             <img src="Image/banner2.png" alt="Landscape Work 2" class="w-full h-full object-cover">
@@ -775,7 +700,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="slider-item karya-item" data-category="banner">
                         <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
                             <img src="Image/pamflet.png" alt="Landscape Work 3" class="w-full h-full object-cover">
@@ -785,7 +709,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="slider-item karya-item" data-category="banner">
                         <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
                             <img src="Image/poster.png" alt="Landscape Work 4" class="w-full h-full object-cover">
@@ -795,10 +718,7 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-                <!-- Slider Navigation -->
                 <button onclick="prevSlide()" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white dark:bg-slate-800 p-4 rounded-full shadow-xl text-brand-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all z-10">
                     <i data-lucide="chevron-left" class="w-6 h-6"></i>
                 </button>
@@ -809,7 +729,6 @@
         </div>
     </section>
 
-    <!-- Testimoni -->
     <section class="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
         <div class="text-center mb-16" data-aos="fade-up">
             <h2 class="text-4xl font-bold dark:text-white">Apa Kata Klien Kami?</h2>
@@ -836,14 +755,12 @@
         </div>
     </section>
 
-    <!-- FAQ Accordion Section -->
     <section class="py-24 px-6 lg:px-12 bg-white dark:bg-darkBg">
         <div class="max-w-3xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
                 <span class="text-brand-600 dark:text-brand-400 font-bold uppercase tracking-widest text-sm mb-4 block">Pertanyaan Umum</span>
                 <h2 class="text-4xl font-bold dark:text-white">Sering Ditanyakan</h2>
             </div>
-
             <div class="space-y-4" data-aos="fade-up">
                 <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
                     <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
@@ -854,7 +771,6 @@
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Pengerjaan normal memakan waktu 4-7 hari kerja tergantung antrean dan tingkat kerumitan desain. Kami tidak melayani sistem urgent demi menjaga kualitas.</p>
                     </div>
                 </div>
-
                 <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
                     <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
                         <span class="font-bold text-lg dark:text-white">Format file apa saja yang akan saya dapatkan?</span>
@@ -864,7 +780,6 @@
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Anda akan mendapatkan paket lengkap berupa file master (PSD/CDR), file gambar kualitas tinggi (JPEG/PNG), dan file siap cetak (PDF).</p>
                     </div>
                 </div>
-
                 <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
                     <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
                         <span class="font-bold text-lg dark:text-white">Apakah ada batas jumlah revisi?</span>
@@ -874,7 +789,6 @@
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Ya, Kami memberikan jatah revisi maksimal 3 kali untuk perubahan minor (warna, teks, dan tata letak). Jika melebihi dari batas jumlah yang ditentukan maka akan dikenakan biaya tambahan.</p>
                     </div>
                 </div>
-
                 <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
                     <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
                         <span class="font-bold text-lg dark:text-white">Bagaimana sistem pembayarannya?</span>
@@ -888,7 +802,6 @@
         </div>
     </section>
 
-    <!-- Kontak Section -->
     <section id="kontak" class="py-24 px-6 lg:px-12 max-w-7xl mx-auto relative overflow-hidden">
         <div class="bg-brand-600 rounded-[3rem] p-8 md:p-16 text-white grid md:grid-cols-2 gap-12 items-center relative z-10" data-aos="zoom-in">
             <div>
@@ -902,7 +815,6 @@
                             <div class="font-bold">0857 0884 5405</div>
                         </div>
                     </div>
-                    <!-- Interactive Email with Copy Feature -->
                     <div class="flex items-center space-x-4 group cursor-pointer" onclick="copyEmail()">
                         <div class="bg-brand-500 p-3 rounded-xl group-hover:bg-white group-hover:text-brand-600 transition"><i data-lucide="mail" class="w-6 h-6"></i></div>
                         <div>
@@ -945,7 +857,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-12 px-6 lg:px-12 border-t border-slate-100 dark:border-slate-800 text-center bg-white dark:bg-darkBg relative overflow-hidden">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center relative z-10">
             <img src="Image/logobesar.png" alt="BDG Logo" class="h-8 w-auto mb-4 md:mb-0">
@@ -958,17 +869,14 @@
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
     <button id="backToTop" onclick="scrollToTop()" class="fixed bottom-32 right-8 z-50 bg-brand-600 text-white p-4 rounded-full shadow-2xl opacity-0 invisible translate-y-10 transition-all duration-300 hover:bg-brand-700">
         <i data-lucide="arrow-up" class="w-6 h-6"></i>
     </button>
 
-    <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/6285708845405" class="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition duration-300">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
 
-    <!-- Fake Notification Popup -->
     <div id="fake-notif" class="fixed bottom-24 left-6 md:bottom-8 md:left-8 z-[90] bg-white dark:bg-darkCard p-4 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 flex items-center gap-4 transition-all duration-500 translate-y-20 opacity-0 pointer-events-none max-w-[calc(100vw-3rem)] md:max-w-sm">
         <div class="w-12 h-12 rounded-full bg-brand-100 dark:bg-brand-900/30 text-brand-600 flex items-center justify-center shrink-0">
             <i data-lucide="shopping-bag" class="w-6 h-6"></i>
@@ -980,10 +888,20 @@
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // Alert Kustom
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxvidEJ0cLMEoS4ekiThbkOz8F5v41auh8i1LxgY5ADuDAdeFPHXfPQ9G622hZuVb7g/exec';
+
+        function syncToGoogleSheets(action, voucher) {
+            if (!SCRIPT_URL || SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxvidEJ0cLMEoS4ekiThbkOz8F5v41auh8i1LxgY5ADuDAdeFPHXfPQ9G622hZuVb7g/exec') return;
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain' },
+                body: JSON.stringify({ action: action, voucher: voucher })
+            }).catch(err => console.error('Gagal sinkronisasi data:', err));
+        }
+
         function tampilkanPeringatan(pesan) {
             const kotakPeringatan = document.createElement('div');
             kotakPeringatan.className = 'fixed top-10 left-1/2 transform -translate-x-1/2 bg-brand-600 text-white px-6 py-3 rounded-2xl shadow-2xl z-[200] font-bold text-sm text-center';
@@ -992,12 +910,10 @@
             setTimeout(() => kotakPeringatan.remove(), 3000);
         }
 
-        // Format Rupiah
         function formatRupiah(angka) {
             return "Rp" + angka.toLocaleString('id-ID');
         }
 
-        // Data Layanan
         const services = [
             { name: "Desain Sertifikat", price: 20000, icon: "award" },
             { name: "Desain Twibbon", price: 20000, icon: "image" },
@@ -1012,14 +928,13 @@
             { name: "Desain Poster Film", price: 180000, icon: "clapperboard" }
         ];
 
-        // Sistem Penyimpanan Global (Sinkronisasi Antar Sesi)
         let diskonAktif = parseFloat(localStorage.getItem('bdg_global_promo')) || 0;
         let kodeVoucherAktif = localStorage.getItem('bdg_active_voucher') || '';
         
         let daftarVoucher = JSON.parse(localStorage.getItem('bdg_vouchers')) || [
-            { kode: 'DISKON10', diskon: 0.1, aktif: true, expired: '2026-12-31' },
-            { kode: 'DISKON20', diskon: 0.2, aktif: true, expired: '2026-12-31' },
-            { kode: 'BDG50', diskon: 0.5, aktif: true, expired: '2026-12-31' }
+            { kode: 'DISKON10', diskon: 0.1, aktif: true, expired: '2026-12-31', tanggalDibuat: '2023-01-01', penggunaan: 0 },
+            { kode: 'DISKON20', diskon: 0.2, aktif: true, expired: '2026-12-31', tanggalDibuat: '2023-01-01', penggunaan: 0 },
+            { kode: 'BDG50', diskon: 0.5, aktif: true, expired: '2026-12-31', tanggalDibuat: '2023-01-01', penggunaan: 0 }
         ];
 
         function simpanVoucher() {
@@ -1031,7 +946,6 @@
             localStorage.setItem('bdg_active_voucher', kodeVoucherAktif);
         }
 
-        // Listener Sinkronisasi Antar Tab/Sesi
         window.addEventListener('storage', (e) => {
             if (e.key === 'bdg_vouchers') {
                 daftarVoucher = JSON.parse(e.newValue);
@@ -1051,13 +965,11 @@
             }
         });
 
-        // Variabel Staging Admin
         let pendingDiskonAktif = diskonAktif;
         let pendingSeasonalTheme = localStorage.getItem('seasonalTheme') || 'normal';
         let pendingVouchers = [];
         let pendingIsDark = false;
 
-        // Render Vouchers di Admin (Menggunakan pendingVouchers)
         function renderAdminVouchers() {
             const container = document.getElementById('admin-voucher-list');
             if(!container) return;
@@ -1071,7 +983,7 @@
                 <div class="flex items-center justify-between p-3 border border-slate-200 dark:border-slate-700 rounded-xl mb-2 bg-white dark:bg-slate-800">
                     <div>
                         <div class="font-bold text-brand-600 dark:text-brand-400">${v.kode}</div>
-                        <div class="text-xs text-slate-500">Diskon: ${v.diskon * 100}% | Berlaku: ${v.expired}</div>
+                        <div class="text-xs text-slate-500">Diskon: ${v.diskon * 100}% | Berlaku: ${v.expired} | Dipakai: ${v.penggunaan || 0}x</div>
                     </div>
                     <div class="flex gap-2">
                         <button onclick="toggleVoucherStatus(${i})" class="px-3 py-1 text-xs font-bold rounded-lg transition ${v.aktif ? 'bg-green-100 text-green-600 dark:bg-green-900/30' : 'bg-slate-100 text-slate-500 dark:bg-slate-700 dark:text-slate-400'}">
@@ -1096,26 +1008,32 @@
             }
 
             const diskon = diskonVal / 100;
-            pendingVouchers.push({ kode, diskon, aktif: true, expired });
+            const hariIni = new Date().toISOString().split('T')[0];
+            const newVoucher = { kode, diskon, aktif: true, expired, tanggalDibuat: hariIni, penggunaan: 0 };
+            
+            pendingVouchers.push(newVoucher);
             renderAdminVouchers();
+            syncToGoogleSheets('CREATE', newVoucher);
             
             document.getElementById('new-voucher-code').value = '';
             document.getElementById('new-voucher-discount').value = '';
             document.getElementById('new-voucher-expiry').value = '';
-            tampilkanPeringatan('Voucher ditambahkan (belum diterapkan)');
+            tampilkanPeringatan('Voucher ditambahkan (belum diterapkan sepenuhnya)');
         }
 
         function toggleVoucherStatus(index) {
             pendingVouchers[index].aktif = !pendingVouchers[index].aktif;
             renderAdminVouchers();
+            syncToGoogleSheets('UPDATE', pendingVouchers[index]);
         }
 
         function hapusVoucher(index) {
+            const deletedVoucher = pendingVouchers[index];
             pendingVouchers.splice(index, 1);
             renderAdminVouchers();
+            syncToGoogleSheets('DELETE', deletedVoucher);
         }
 
-        // Modal Voucher User
         function bukaVoucherModal() {
             toggleMenu(); 
             const modal = document.getElementById('voucher-modal');
@@ -1141,7 +1059,8 @@
 
         function terapkanVoucher() {
             const input = document.getElementById('voucher-input').value.trim().toUpperCase();
-            const voucher = daftarVoucher.find(v => v.kode === input);
+            const voucherIndex = daftarVoucher.findIndex(v => v.kode === input);
+            const voucher = daftarVoucher[voucherIndex];
             const hariIni = new Date().toISOString().split('T')[0];
 
             if(voucher) {
@@ -1156,6 +1075,11 @@
                 
                 diskonAktif = voucher.diskon;
                 kodeVoucherAktif = voucher.kode;
+                
+                daftarVoucher[voucherIndex].penggunaan = (daftarVoucher[voucherIndex].penggunaan || 0) + 1;
+                simpanVoucher();
+                syncToGoogleSheets('USAGE', daftarVoucher[voucherIndex]);
+                
                 simpanStateGlobal();
                 tampilkanPeringatan(`Voucher berhasil! Anda mendapat potongan ${diskonAktif * 100}%`);
                 renderLayanan();
@@ -1167,7 +1091,6 @@
             }
         }
 
-        // Modal Admin Login & Dashboard
         function bukaLoginAdmin() {
             toggleMenu();
             const modal = document.getElementById('admin-login-modal');
@@ -1398,8 +1321,7 @@
             document.body.classList.remove('modal-active');
         }
 
-        // Logic Notifikasi Palsu
-        const namaPelanggan = ['Budi Santoso', 'CV Maju Jaya', 'Andi Rizky', 'Siti Aminah', 'Toko Berkah', 'Kopi Senja', 'Dimas', 'Citra Lestari', 'Warung Sederhana', 'PT Makmur', 'Ahmad', 'Nisa', 'Klinik Sehat', 'Rina', 'Dedi'];
+        const namaPelanggan = ['Budi Santoso', 'CV Maju Jaya', 'Andi Rizky', 'Siti Aminah', 'Toko Berkah', 'PT Bismar', 'Dimas', 'Citra Lestari', 'Warung Sederhana', 'PT Makmur', 'Ahmad', 'Nisa', 'Klinik Sehat', 'Rina', 'Dedi'];
         const waktuPesan = ['Baru saja', '1 menit yang lalu', 'Beberapa detik yang lalu', '2 menit yang lalu'];
 
         function tampilkanNotifPalsu() {
@@ -1429,7 +1351,6 @@
             setTimeout(tampilkanNotifPalsu, jedaAcak);
         }
 
-        // Render Layanan
         function renderLayanan() {
             const servicesContainer = document.getElementById('services-container');
             servicesContainer.innerHTML = services.map((s, index) => {
@@ -1479,7 +1400,6 @@
             });
         }
 
-        // WhatsApp Checkout Logic
         function getTeksDiskonWA() {
             if (diskonAktif > 0 && kodeVoucherAktif !== '') {
                 return `%0A*(Menggunakan voucher ${kodeVoucherAktif} diskon ${diskonAktif * 100}%)*`;
@@ -1533,7 +1453,6 @@
             if (e.target.id === 'service-modal') closeModal();
         });
 
-        // FAQ Logic
         function toggleFaq(button) {
             const item = button.parentElement;
             const isActive = item.classList.contains('active');
@@ -1541,7 +1460,6 @@
             if (!isActive) item.classList.add('active');
         }
 
-        // Counter Logic
         const counters = document.querySelectorAll('.counter');
         const speed = 200;
         const observerOptions = { threshold: 0.5 };
@@ -1569,7 +1487,6 @@
 
         counters.forEach(counter => observer.observe(counter));
 
-        // Back to Top Logic
         const btt = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 500) btt.classList.add('visible');
@@ -1580,13 +1497,11 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Scroll Progress Bar Logic
         window.addEventListener('scroll', () => {
             const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
             document.getElementById('scroll-progress').style.width = scrollPercent + '%';
         });
 
-        // Copy Email Logic
         function copyEmail() {
             const email = "akunkhusus0728@gmail.com";
             navigator.clipboard.writeText(email);
@@ -1599,11 +1514,9 @@
             }, 2000);
         }
 
-        // Initialize AOS & Lucide
         AOS.init({ duration: 800, once: true, offset: 100 });
         lucide.createIcons();
 
-        // Global Hamburger Menu
         const menuBtn = document.getElementById('menu-btn');
         const closeMenu = document.getElementById('close-menu');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -1627,7 +1540,6 @@
             toggleMenu();
         }));
 
-        // Dark Mode
         const themeToggle = document.getElementById('theme-toggle');
         const sunIcon = document.getElementById('sun-icon');
         const moonIcon = document.getElementById('moon-icon');
@@ -1647,14 +1559,12 @@
             moonIcon.classList.toggle('hidden');
         });
 
-        // Navbar Shadow
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) nav.classList.add('shadow-md');
             else nav.classList.remove('shadow-md');
         });
 
-        // Slider Logic
         const slider = document.getElementById('karya-slider');
         function nextSlide() { slider.scrollBy({ left: slider.offsetWidth / 2, behavior: 'smooth' }); }
         function prevSlide() { slider.scrollBy({ left: -(slider.offsetWidth / 2), behavior: 'smooth' }); }
@@ -1663,7 +1573,6 @@
             slider.scrollTo({ left: 0, behavior: 'smooth' });
         }
 
-        // WhatsApp Form
         function kirimWA() {
             const nama = document.getElementById('name-input').value;
             const keperluan = document.getElementById('service-input').value;
@@ -1673,7 +1582,6 @@
             window.open(`https://wa.me/6285708845405?text=${text}`, '_blank');
         }
 
-        // Inisialisasi awal
         renderLayanan();
         updateHargaInstagram();
         applySeasonalTheme();
