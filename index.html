@@ -140,6 +140,7 @@
         .gradient-text {
             background: linear-gradient(90deg, var(--brand-600), var(--accent-500));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -1245,7 +1246,7 @@
             `;
             container.innerHTML = Array(4).fill(skeleton).join('');
 
-            if (SCRIPT_URL_LAYANAN === 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
+            if (SCRIPT_URL_=== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
                 allServicesData = fallbackServices;
                 processServices();
                 return;
@@ -1383,7 +1384,7 @@
             btn.disabled = true;
 
             try {
-                if (SCRIPT_URL_VOUCHER === '=https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
+                if (!SCRIPT_URL_VOUCHER) {
                     throw new Error("URL API Voucher belum diatur.");
                 }
 
@@ -1561,13 +1562,15 @@
                 if (index !== -1) {
                     activePromosData[index] = {
                         ...activePromosData[index],
-                        nama_promo, target, layanan_target: target === 'LAYANAN_TERTENTU' ? specific : '',
-                        diskon, tanggal_mulai: start, tanggal_akhir: end
+                        nama_promo,
+                        target,
+                        layanan_target: target === 'LAYANAN_TERTENTU' ? specific : '',
+                        diskon,
+                        tanggal_mulai: start,
+                        tanggal_akhir: end
                     };
                     tampilkanPeringatan('Menyimpan perubahan...');
-                    if (SCRIPT_URL_PROMO !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
-                        fetch(SCRIPT_URL_PROMO, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'UPDATE', promo: activePromosData[index] }) }).catch(console.error);
-                    }
+                    fetch(SCRIPT_URL_PROMO, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'UPDATE', promo: activePromosData[index] }) }).catch(console.error);
                 }
                 batalEditPromo();
             } else {
@@ -1584,14 +1587,13 @@
                 };
                 activePromosData.push(newPromo);
                 tampilkanPeringatan('Menambahkan promo...');
-                if (SCRIPT_URL_PROMO !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
-                    fetch(SCRIPT_URL_PROMO, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'CREATE', promo: newPromo }) }).catch(console.error);
-                }
-                document.getElementById('new-promo-name').value = '';
-                document.getElementById('new-promo-specific').value = '';
-                document.getElementById('new-promo-discount').value = '';
+                fetch(SCRIPT_URL_PROMO, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'CREATE', promo: newPromo }) }).catch(console.error);
             }
-            
+            document.getElementById('new-promo-name').value = '';
+            document.getElementById('new-promo-specific').value = '';
+            document.getElementById('new-promo-discount').value = '';
+            document.getElementById('new-promo-start').value = '';
+            document.getElementById('new-promo-end').value = '';
             renderAdminPromos();
             renderLayanan();
             updateHargaInstagram();
@@ -1606,9 +1608,7 @@
             renderLayanan();
             updateHargaInstagram();
 
-            if (SCRIPT_URL_PROMO !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
-                fetch(SCRIPT_URL_PROMO, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'UPDATE', promo: promo }) }).catch(console.error);
-            }
+            fetch(SCRIPT_URL_PROMO, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'UPDATE', promo: promo }) }).catch(console.error);
         }
 
         async function hapusPromo(index) {
@@ -1619,9 +1619,7 @@
             renderLayanan();
             updateHargaInstagram();
 
-            if (SCRIPT_URL_PROMO !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
-                fetch(SCRIPT_URL_PROMO, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'DELETE', promo: deletedPromo }) }).catch(console.error);
-            }
+            fetch(SCRIPT_URL_PROMO, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'DELETE', promo: deletedPromo }) }).catch(console.error);
         }
 
         // --- MANAJEMEN LAYANAN ADMIN ---
@@ -1700,17 +1698,13 @@
                 if (index !== -1) {
                     allServicesData[index] = payload;
                     tampilkanPeringatan('Perubahan layanan disimpan');
-                    if (SCRIPT_URL_LAYANAN !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
-                        fetch(SCRIPT_URL_LAYANAN, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'UPDATE', layanan: payload }) }).catch(console.error);
-                    }
+                    fetch(SCRIPT_URL_LAYANAN, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'UPDATE', layanan: payload }) }).catch(console.error);
                 }
             } else {
                 // Tambah Layanan
                 allServicesData.push(payload);
                 tampilkanPeringatan('Layanan baru ditambahkan');
-                if (SCRIPT_URL_LAYANAN !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
-                    fetch(SCRIPT_URL_LAYANAN, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'CREATE', layanan: payload }) }).catch(console.error);
-                }
+                fetch(SCRIPT_URL_LAYANAN, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'CREATE', layanan: payload }) }).catch(console.error);
             }
 
             batalEditLayanan();
@@ -1777,11 +1771,9 @@
                 renderAdminServices(); // Perbarui list admin
                 tampilkanPeringatan('Layanan dihapus');
 
-                if (SCRIPT_URL_LAYANAN !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
                     fetch(SCRIPT_URL_LAYANAN, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'DELETE', layanan: deletedSrv }) }).catch(console.error);
                 }
             }
-        }
 
         function toggleSrvStatus(id) {
             const index = allServicesData.findIndex(s => s.id === id);
@@ -1792,9 +1784,7 @@
                 processServices();
                 renderAdminServices();
                 
-                if (SCRIPT_URL_LAYANAN !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
-                    fetch(SCRIPT_URL_LAYANAN, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'UPDATE', layanan: srv }) }).catch(console.error);
-                }
+                fetch(SCRIPT_URL_LAYANAN, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'UPDATE', layanan: srv }) }).catch(console.error);
             }
         }
 
