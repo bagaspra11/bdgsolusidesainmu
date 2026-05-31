@@ -339,14 +339,14 @@
                     <i data-lucide="layout-template" class="w-5 h-5 text-slate-400 group-hover:text-brand-600 transition-colors"></i>
                     <span class="font-medium">Paket Instagram</span>
                 </a>
-                <button onclick="bukaVoucherModal()" class="w-full sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-brand-600 dark:hover:text-white group mt-1 text-left">
+                <button onclick="bukaVoucherModal()" class="w-full sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-brand-600 dark:hover:text-white group mt-1">
                     <i data-lucide="ticket" class="w-5 h-5 text-slate-400 group-hover:text-brand-600 transition-colors"></i>
-                    <span class="font-medium">Klaim Voucher</span>
+                    <span class="font-medium text-left">Klaim Voucher</span>
                 </button>
                 <div class="h-px bg-slate-100 dark:bg-slate-800 my-4 mx-4"></div>
-                <button onclick="bukaLoginAdmin()" class="w-full sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-red-600 dark:hover:text-red-400 group text-left">
+                <button onclick="bukaLoginAdmin()" class="w-full sidebar-link flex items-center gap-4 px-4 py-3.5 text-slate-600 dark:text-slate-300 rounded-xl hover:text-red-600 dark:hover:text-red-400 group">
                     <i data-lucide="lock" class="w-5 h-5 text-slate-400 group-hover:text-red-600 transition-colors"></i>
-                    <span class="font-medium">Admin Login</span>
+                    <span class="font-medium text-left">Admin Login</span>
                 </button>
             </div>
         </div>
@@ -367,7 +367,7 @@
         <button id="close-menu" class="hidden"></button>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Sisa HTML Konten tidak ada yang diubah -->
     <section id="home" class="relative min-h-screen flex items-center pt-20 px-6 lg:px-12 bg-gradient-to-b from-brand-50 to-white dark:from-slate-900 dark:to-darkBg overflow-hidden">
         <div class="max-w-7xl mx-auto text-center relative z-10">
             <div data-aos="fade-up" data-aos-duration="1000">
@@ -389,7 +389,6 @@
         </div>
     </section>
 
-    <!-- Tentang Section -->
     <section id="tentang" class="py-32 px-6 lg:px-12 bg-white dark:bg-darkBg">
         <div class="max-w-5xl mx-auto">
             <div class="grid md:grid-cols-12 gap-12 items-start">
@@ -425,7 +424,6 @@
         </div>
     </section>
 
-    <!-- Counters Section -->
     <section class="py-20 bg-brand-600 dark:bg-brand-800 text-white">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div data-aos="zoom-in">
@@ -447,7 +445,6 @@
         </div>
     </section>
 
-    <!-- Layanan Grid Section -->
     <section id="layanan" class="py-24 px-6 lg:px-12 bg-slate-50 dark:bg-slate-900/50">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -459,7 +456,6 @@
         </div>
     </section>
 
-    <!-- Paket Instagram Section -->
     <section id="paket-ig" class="py-24 px-6 lg:px-12 bg-white dark:bg-darkBg relative overflow-hidden">
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -468,7 +464,6 @@
                 <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">Tingkatkan engagement media sosial Anda dengan desain estetik dan profesional.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Basic Card -->
                 <div class="bg-slate-50 dark:bg-darkCard p-10 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 transition-all hover:shadow-2xl flex flex-col group" data-aos="fade-up">
                     <h3 class="text-2xl font-bold mb-2 dark:text-white">Basic</h3>
                     <div class="mb-6 ig-price-container">
@@ -484,7 +479,6 @@
                     </ul>
                     <button onclick="pesanInstagram('Basic', 240000)" class="w-full py-4 rounded-2xl bg-slate-200 dark:bg-slate-800 dark:text-white font-bold text-center hover:bg-brand-600 hover:text-white transition">Pesan Sekarang</button>
                 </div>
-                <!-- Standard Card -->
                 <div class="bg-white dark:bg-slate-800 p-10 rounded-[2.5rem] border-2 border-brand-500 transition-all shadow-xl relative flex flex-col group scale-105" data-aos="zoom-in">
                     <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-brand-600 text-white px-6 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest whitespace-nowrap shadow-lg">Paling Populer</div>
                     <h3 class="text-2xl font-bold mb-2 dark:text-white">Standard</h3>
@@ -501,7 +495,6 @@
                     </ul>
                     <button onclick="pesanInstagram('Standard', 460000)" class="w-full py-4 rounded-2xl bg-brand-600 text-white font-bold text-center hover:bg-brand-700 transition shadow-lg shadow-brand-200 dark:shadow-none">Pesan Sekarang</button>
                 </div>
-                <!-- Premium Card -->
                 <div class="bg-slate-50 dark:bg-darkCard p-10 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 transition-all hover:shadow-2xl flex flex-col group" data-aos="fade-up">
                     <h3 class="text-2xl font-bold mb-2 dark:text-white">Premium</h3>
                     <div class="mb-6 ig-price-container">
@@ -522,234 +515,7 @@
         </div>
     </section>
 
-    <!-- Portofolio Section -->
-    <section id="karya" class="py-24 px-6 lg:px-12 bg-white dark:bg-darkBg overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12" data-aos="fade-up">
-                <div>
-                    <span class="text-brand-600 dark:text-brand-400 font-bold uppercase tracking-widest text-sm mb-4 block">Portofolio</span>
-                    <h2 class="text-4xl md:text-5xl font-bold dark:text-white">Hasil Karya Terbaru</h2>
-                </div>
-                <div class="flex flex-wrap gap-2 mt-6 md:mt-0">
-                    <button onclick="filterKarya('all')" class="filter-btn active px-6 py-2 rounded-full text-sm font-bold bg-brand-600 text-white transition">Semua</button>
-                </div>
-            </div>
-            <div class="relative group" data-aos="fade-up">
-                <div id="karya-slider" class="slider-container gap-6 py-4">
-                    <div class="slider-item karya-item" data-category="banner">
-                        <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
-                            <img src="Image/bannersholawat.png" alt="Landscape Work 1" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8 text-left">
-                                <h4 class="text-white font-bold text-xl">Banner Acara</h4>
-                                <p class="text-brand-300 text-sm">Kegiatan</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slider-item karya-item" data-category="banner">
-                        <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
-                            <img src="Image/banner2.png" alt="Landscape Work 2" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8 text-left">
-                                <h4 class="text-white font-bold text-xl">Banner Event Dan Kegiatan</h4>
-                                <p class="text-brand-300 text-sm">Organisasi & Acara</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slider-item karya-item" data-category="banner">
-                        <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
-                            <img src="Image/pamflet.png" alt="Landscape Work 3" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8 text-left">
-                                <h4 class="text-white font-bold text-xl">Pamflet</h4>
-                                <p class="text-brand-300 text-sm">Promosi Produk & Layanan</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slider-item karya-item" data-category="banner">
-                        <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
-                            <img src="Image/poster.png" alt="Landscape Work 4" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8 text-left">
-                                <h4 class="text-white font-bold text-xl">Poster</h4>
-                                <p class="text-brand-300 text-sm">Ucapan Dan Branding</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button onclick="prevSlide()" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white dark:bg-slate-800 p-4 rounded-full shadow-xl text-brand-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all z-10">
-                    <i data-lucide="chevron-left" class="w-6 h-6"></i>
-                </button>
-                <button onclick="nextSlide()" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white dark:bg-slate-800 p-4 rounded-full shadow-xl text-brand-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all z-10">
-                    <i data-lucide="chevron-right" class="w-6 h-6"></i>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-4xl font-bold dark:text-white">Apa Kata Klien Kami?</h2>
-        </div>
-        <div class="grid md:grid-cols-3 gap-8 text-left">
-            <div class="p-8 bg-white dark:bg-darkCard border border-slate-100 dark:border-slate-800 rounded-3xl shadow-sm" data-aos="fade-up">
-                <div class="flex text-yellow-400 mb-4"><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i></div>
-                <p class="text-slate-600 dark:text-slate-400 italic mb-6">"Desainnya sangat modern dan sesuai dengan visi brand kami. Proses revisinya juga sangat cepat dan komunikatif."</p>
-                <div class="font-bold dark:text-white">Adid Irwansah</div>
-                <div class="text-sm text-slate-400">CEO PT. Sukses Bersama</div>
-            </div>
-            <div class="p-8 bg-white dark:bg-darkCard border border-slate-100 dark:border-slate-800 rounded-3xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex text-yellow-400 mb-4"><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i></div>
-                <p class="text-slate-600 dark:text-slate-400 italic mb-6">"Puas banget dengan desain pamflet acaranya. Sangat profesional dan eye-catching buat promosi di media sosial."</p>
-                <div class="font-bold dark:text-white">Siti Aminah</div>
-                <div class="text-sm text-slate-400">Ketua Organisasi Mahasiswa</div>
-            </div>
-            <div class="p-8 bg-white dark:bg-darkCard border border-slate-100 dark:border-slate-800 rounded-3xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
-                <div class="flex text-yellow-400 mb-4"><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i></div>
-                <p class="text-slate-600 dark:text-slate-400 italic mb-6">"Harga terjangkau tapi hasilnya nggak murahan. Bagas sangat teliti memperhatikan detail terkecil dalam desain."</p>
-                <div class="font-bold dark:text-white">Rogif Asfahany Ahda</div>
-                <div class="text-sm text-slate-400">Founder Ran's Fotografer Banyuwangi</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="py-24 px-6 lg:px-12 bg-white dark:bg-darkBg">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-brand-600 dark:text-brand-400 font-bold uppercase tracking-widest text-sm mb-4 block">Pertanyaan Umum</span>
-                <h2 class="text-4xl font-bold dark:text-white">Sering Ditanyakan</h2>
-            </div>
-            <div class="space-y-4" data-aos="fade-up">
-                <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
-                    <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
-                        <span class="font-bold text-lg dark:text-white">Berapa lama proses pengerjaan satu desain?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-brand-600 transition-transform"></i>
-                    </button>
-                    <div class="faq-content px-6 text-left">
-                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Pengerjaan normal memakan waktu 4-7 hari kerja tergantung antrean dan tingkat kerumitan desain. Kami tidak melayani sistem urgent demi menjaga kualitas.</p>
-                    </div>
-                </div>
-                <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
-                    <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
-                        <span class="font-bold text-lg dark:text-white">Format file apa saja yang akan saya dapatkan?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-brand-600 transition-transform"></i>
-                    </button>
-                    <div class="faq-content px-6 text-left">
-                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Anda akan mendapatkan paket lengkap berupa file master (PSD/CDR), file gambar kualitas tinggi (JPEG/PNG), dan file siap cetak (PDF).</p>
-                    </div>
-                </div>
-                <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
-                    <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
-                        <span class="font-bold text-lg dark:text-white">Apakah ada batas jumlah revisi?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-brand-600 transition-transform"></i>
-                    </button>
-                    <div class="faq-content px-6 text-left">
-                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Ya, Kami memberikan jatah revisi maksimal 3 kali untuk perubahan minor (warna, teks, dan tata letak). Jika melebihi dari batas jumlah yang ditentukan maka akan dikenakan biaya tambahan.</p>
-                    </div>
-                </div>
-                <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
-                    <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
-                        <span class="font-bold text-lg dark:text-white">Bagaimana sistem pembayarannya?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-brand-600 transition-transform"></i>
-                    </button>
-                    <div class="faq-content px-6 text-left">
-                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Sistem pembayaran menggunakan Down Payment (DP) 50% di awal sebelum projek dikerjakan, dan pelunasan 50% sisanya setelah desain disetujui. (Desain dibawah harga 30.000 tidak perlu DP)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Kontak Section -->
-    <section id="kontak" class="py-24 px-6 lg:px-12 max-w-7xl mx-auto relative overflow-hidden">
-        <div class="bg-brand-600 rounded-[3rem] p-8 md:p-16 text-white grid md:grid-cols-2 gap-12 items-center relative z-10" data-aos="zoom-in">
-            <div class="text-left">
-                <h2 class="text-4xl font-bold mb-6">Mari Mulai Projek <br>Hebat Bersama.</h2>
-                <p class="text-brand-100 text-lg mb-8">Konsultasikan kebutuhan desain Anda secara gratis. Kami siap membantu kapanpun.</p>
-                <div class="space-y-6">
-                    <div class="flex items-center space-x-4">
-                        <div class="bg-brand-500 p-3 rounded-xl"><i data-lucide="phone" class="w-6 h-6"></i></div>
-                        <div>
-                            <div class="text-sm text-brand-200">WhatsApp</div>
-                            <div class="font-bold">0857 0884 5405</div>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-4 group cursor-pointer" onclick="copyEmail()">
-                        <div class="bg-brand-500 p-3 rounded-xl group-hover:bg-white group-hover:text-brand-600 transition"><i data-lucide="mail" class="w-6 h-6"></i></div>
-                        <div>
-                            <div class="text-sm text-brand-200 flex items-center gap-2 text-left">Email <span class="text-[10px] bg-brand-700 px-2 py-0.5 rounded" id="copy-status">Click to copy</span></div>
-                            <div class="font-bold">akunkhusus0728@gmail.com</div>
-                        </div>
-                    </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="bg-brand-500 p-3 rounded-xl mt-1"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
-                        <div>
-                            <div class="text-sm text-brand-200">Alamat</div>
-                            <div class="font-bold max-w-xs text-sm text-left">Jl. KH Ahmad Asyari, Dusun Krajan, Pakistaji, Kec. Kabat, Kabupaten Banyuwangi</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] text-slate-800 dark:text-white text-left">
-                <form id="contact-form" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-bold mb-2">Nama Lengkap</label>
-                        <input type="text" id="name-input" placeholder="Masukkan nama" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-600">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold mb-2">Keperluan</label>
-                        <select id="service-input" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-600">
-                            <option>Desain Sertifikat/Pamflet</option>
-                            <option>Desain Kaos/Banner</option>
-                            <option>Desain Poster Promo/Event</option>
-                            <option>Desain Poster Film</option>
-                            <option>Lainnya</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold mb-2">Pesan Singkat</label>
-                        <textarea id="message-input" placeholder="Ceritakan kebutuhan Anda" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-900 h-32 focus:outline-none focus:ring-2 focus:ring-brand-600"></textarea>
-                    </div>
-                    <button type="button" onclick="kirimWA()" class="w-full bg-brand-600 text-white font-bold py-4 rounded-xl hover:bg-brand-700 transition shadow-lg shadow-brand-100 dark:shadow-none">Kirim Pesan via WhatsApp</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-12 px-6 lg:px-12 border-t border-slate-100 dark:border-slate-800 text-center bg-white dark:bg-darkBg relative overflow-hidden">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center relative z-10">
-            <img src="Image/logobesar.png" alt="BDG Logo" class="h-8 w-auto mb-4 md:mb-0">
-            <p class="text-slate-400 text-sm">© 2023 Bagas Desainer Grafis. Didesain dengan penuh dedikasi.</p>
-            <div class="flex space-x-6 mt-4 md:mt-0">
-                <a href="#" class="text-slate-400 hover:text-brand-600 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                <a href="#" class="text-slate-400 hover:text-brand-600 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-                <a href="#" class="text-slate-400 hover:text-brand-600 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Back to top & Whatsapp Float -->
-    <button id="backToTop" onclick="scrollToTop()" class="fixed bottom-32 right-8 z-50 bg-brand-600 text-white p-4 rounded-full shadow-2xl opacity-0 invisible translate-y-10 transition-all duration-300 hover:bg-brand-700">
-        <i data-lucide="arrow-up" class="w-6 h-6"></i>
-    </button>
-
-    <a href="https://wa.me/6285708845405" class="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition duration-300">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-    </a>
-
-    <!-- Notification popup -->
-    <div id="fake-notif" class="fixed bottom-24 left-6 md:bottom-8 md:left-8 z-[90] bg-white dark:bg-darkCard p-4 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 flex items-center gap-4 transition-all duration-500 translate-y-20 opacity-0 pointer-events-none max-w-[calc(100vw-3rem)] md:max-w-sm text-left">
-        <div class="w-12 h-12 rounded-full bg-brand-100 dark:bg-brand-900/30 text-brand-600 flex items-center justify-center shrink-0">
-            <i data-lucide="shopping-bag" class="w-6 h-6"></i>
-        </div>
-        <div class="flex-1 min-w-0">
-            <p class="text-sm text-slate-500 dark:text-slate-400 mb-0.5"><span id="notif-name" class="font-bold text-slate-800 dark:text-white truncate inline-block max-w-[120px] align-bottom"></span> memesan</p>
-            <p id="notif-service" class="text-sm font-bold text-brand-600 dark:text-brand-400 truncate"></p>
-            <p id="notif-time" class="text-xs text-slate-400 mt-1"></p>
-        </div>
-    </div>
-
-    <!-- Modals Section -->
-    <!-- Seasonal Promo Modal -->
+    <!-- Modals -->
     <div id="seasonal-promo-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible">
         <div class="bg-white dark:bg-darkCard w-full max-w-md rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95 p-8 text-center border-4 border-brand-500">
             <button onclick="tutupSeasonalPromo()" class="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white transition z-10">
@@ -764,9 +530,8 @@
         </div>
     </div>
 
-    <!-- Service Modal -->
     <div id="service-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible">
-        <div class="bg-white dark:bg-darkCard w-full max-w-2xl rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95 text-left">
+        <div class="bg-white dark:bg-darkCard w-full max-w-2xl rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95">
             <button onclick="closeModal()" class="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white transition">
                 <i data-lucide="x" class="w-8 h-8"></i>
             </button>
@@ -811,17 +576,16 @@
         </div>
     </div>
 
-    <!-- Voucher Claim Modal -->
     <div id="voucher-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible">
-        <div class="bg-white dark:bg-darkCard w-full max-w-md rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95 p-8 text-center text-left">
+        <div class="bg-white dark:bg-darkCard w-full max-w-md rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95 p-8 text-center">
             <button onclick="tutupVoucherModal()" class="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white transition">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
             <div class="w-16 h-16 bg-brand-100 dark:bg-brand-900/30 text-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <i data-lucide="ticket" class="w-8 h-8"></i>
             </div>
-            <h3 class="text-2xl font-bold mb-2 text-slate-800 dark:text-white text-center">Klaim Voucher</h3>
-            <p class="text-slate-500 dark:text-slate-400 text-sm mb-6 leading-relaxed text-center">Dapatkan potongan harga spesial untuk pesanan desain Anda. Masukkan kode unik di bawah ini.</p>
+            <h3 class="text-2xl font-bold mb-2 text-slate-800 dark:text-white">Klaim Voucher</h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-6 leading-relaxed">Dapatkan potongan harga spesial untuk pesanan desain Anda. Masukkan kode unik di bawah ini.</p>
             <div class="space-y-4 text-left">
                 <input type="text" id="voucher-input" placeholder="Masukkan kode voucher" class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:border-brand-600 text-center text-lg font-bold uppercase tracking-widest text-slate-800 dark:text-white transition">
                 <button onclick="terapkanVoucher()" class="w-full bg-brand-600 text-white font-bold py-4 rounded-xl hover:bg-brand-700 transition shadow-lg shadow-brand-200 dark:shadow-none">Terapkan Diskon</button>
@@ -829,17 +593,16 @@
         </div>
     </div>
 
-    <!-- Admin Authentication Modal -->
     <div id="admin-login-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible">
-        <div class="bg-white dark:bg-darkCard w-full max-w-md rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95 p-8 text-center text-left">
+        <div class="bg-white dark:bg-darkCard w-full max-w-md rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95 p-8 text-center">
             <button onclick="tutupLoginAdmin()" class="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white transition">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
             <div class="w-16 h-16 bg-red-100 dark:bg-red-900/30 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <i data-lucide="lock" class="w-8 h-8"></i>
             </div>
-            <h3 class="text-2xl font-bold mb-2 text-slate-800 dark:text-white text-center">Akses Admin</h3>
-            <p class="text-slate-500 dark:text-slate-400 text-sm mb-6 leading-relaxed text-center">Masukkan kredensial untuk mengakses mode administrator.</p>
+            <h3 class="text-2xl font-bold mb-2 text-slate-800 dark:text-white">Akses Admin</h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-6 leading-relaxed">Masukkan kredensial untuk mengakses mode administrator.</p>
             <div class="space-y-4 text-left">
                 <input type="text" id="admin-user" placeholder="Username" class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:border-red-600 text-lg font-bold text-slate-800 dark:text-white transition">
                 <input type="password" id="admin-pass" placeholder="Password" class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:border-red-600 text-lg font-bold text-slate-800 dark:text-white transition">
@@ -848,9 +611,8 @@
         </div>
     </div>
 
-    <!-- Admin Control Dashboard Modal -->
     <div id="admin-dashboard-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible">
-        <div class="bg-white dark:bg-darkCard w-full max-w-lg rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95 p-8 max-h-[90vh] overflow-y-auto text-left">
+        <div class="bg-white dark:bg-darkCard w-full max-w-lg rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95 p-8 max-h-[90vh] overflow-y-auto">
             <button onclick="tutupAdminDashboard()" class="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white transition">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
@@ -864,7 +626,6 @@
                 </div>
             </div>
             <div class="space-y-6">
-                <!-- Theme Toggle Option -->
                 <div class="flex items-center justify-between p-4 border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-slate-900/50">
                     <div>
                         <div class="font-bold text-slate-800 dark:text-white">Mode Gelap / Terang</div>
@@ -873,7 +634,6 @@
                     <button id="btn-admin-theme" onclick="togglePendingTheme()" class="px-4 py-2 bg-slate-200 dark:bg-slate-700 rounded-lg text-sm font-bold dark:text-white hover:bg-slate-300 transition">Ubah Tema</button>
                 </div>
 
-                <!-- Seasonal Settings -->
                 <div class="p-4 border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-slate-900/50">
                     <div class="mb-4">
                         <div class="font-bold text-slate-800 dark:text-white">Tema Musiman</div>
@@ -887,7 +647,6 @@
                     </select>
                 </div>
 
-                <!-- Promo Management Panel -->
                 <div class="p-4 border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-slate-900/50">
                     <div class="mb-4">
                         <div class="font-bold text-slate-800 dark:text-white">Manajemen Promo Otomatis</div>
@@ -915,10 +674,11 @@
                         </div>
                     </div>
 
-                    <div id="admin-promo-list" class="space-y-2 max-h-48 overflow-y-auto pr-2"></div>
+                    <div id="admin-promo-list" class="space-y-2 max-h-48 overflow-y-auto pr-2">
+                        <!-- List Promo -> Rendered by JS -->
+                    </div>
                 </div>
 
-                <!-- Service Management Panel -->
                 <div class="p-4 border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-slate-900/50 mt-4">
                     <div class="mb-4">
                         <div class="font-bold text-slate-800 dark:text-white">Manajemen Layanan</div>
@@ -948,7 +708,9 @@
                         </div>
                     </div>
 
-                    <div id="admin-srv-list" class="space-y-2 max-h-64 overflow-y-auto pr-2"></div>
+                    <div id="admin-srv-list" class="space-y-2 max-h-64 overflow-y-auto pr-2">
+                        <!-- List Layanan -> Rendered by JS -->
+                    </div>
                 </div>
 
                 <button onclick="terapkanPerubahanAdmin()" class="w-full bg-emerald-600 text-white font-bold py-4 rounded-xl hover:bg-emerald-700 transition shadow-lg shadow-emerald-200 dark:shadow-none text-lg mt-4">
@@ -958,1194 +720,1280 @@
         </div>
     </div>
 
-    <!-- Scripts Section -->
+    <!-- Bagian Akhir Body Sama seperti aslinya, sampai footer -->
+    <section id="karya" class="py-24 px-6 lg:px-12 bg-white dark:bg-darkBg overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12" data-aos="fade-up">
+                <div>
+                    <span class="text-brand-600 dark:text-brand-400 font-bold uppercase tracking-widest text-sm mb-4 block">Portofolio</span>
+                    <h2 class="text-4xl md:text-5xl font-bold dark:text-white">Hasil Karya Terbaru</h2>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-6 md:mt-0">
+                    <button onclick="filterKarya('all')" class="filter-btn active px-6 py-2 rounded-full text-sm font-bold bg-brand-600 text-white transition">Semua</button>
+                </div>
+            </div>
+            <div class="relative group" data-aos="fade-up">
+                <div id="karya-slider" class="slider-container gap-6 py-4">
+                    <div class="slider-item karya-item" data-category="banner">
+                        <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
+                            <img src="Image/bannersholawat.png" alt="Landscape Work 1" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
+                                <h4 class="text-white font-bold text-xl">Banner Acara</h4>
+                                <p class="text-brand-300 text-sm">Kegiatan</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-item karya-item" data-category="banner">
+                        <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
+                            <img src="Image/banner2.png" alt="Landscape Work 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
+                                <h4 class="text-white font-bold text-xl">Banner Event Dan Kegiatan</h4>
+                                <p class="text-brand-300 text-sm">Organisasi & Acara</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-item karya-item" data-category="banner">
+                        <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
+                            <img src="Image/pamflet.png" alt="Landscape Work 3" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
+                                <h4 class="text-white font-bold text-xl">Pamflet</h4>
+                                <p class="text-brand-300 text-sm">Promosi Produk & Layanan</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-item karya-item" data-category="banner">
+                        <div class="bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden aspect-landscape relative group">
+                            <img src="Image/poster.png" alt="Landscape Work 4" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
+                                <h4 class="text-white font-bold text-xl">Poster</h4>
+                                <p class="text-brand-300 text-sm">Ucapan Dan Branding</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="prevSlide()" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white dark:bg-slate-800 p-4 rounded-full shadow-xl text-brand-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all z-10">
+                    <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                </button>
+                <button onclick="nextSlide()" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white dark:bg-slate-800 p-4 rounded-full shadow-xl text-brand-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all z-10">
+                    <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-bold dark:text-white">Apa Kata Klien Kami?</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-8 bg-white dark:bg-darkCard border border-slate-100 dark:border-slate-800 rounded-3xl shadow-sm" data-aos="fade-up">
+                <div class="flex text-yellow-400 mb-4"><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i></div>
+                <p class="text-slate-600 dark:text-slate-400 italic mb-6">"Desainnya sangat modern dan sesuai dengan visi brand kami. Proses revisinya juga sangat cepat dan komunikatif."</p>
+                <div class="font-bold dark:text-white">Adid Irwansah</div>
+                <div class="text-sm text-slate-400">CEO PT. Sukses Bersama</div>
+            </div>
+            <div class="p-8 bg-white dark:bg-darkCard border border-slate-100 dark:border-slate-800 rounded-3xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex text-yellow-400 mb-4"><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i></div>
+                <p class="text-slate-600 dark:text-slate-400 italic mb-6">"Puas banget dengan desain pamflet acaranya. Sangat profesional dan eye-catching buat promosi di media sosial."</p>
+                <div class="font-bold dark:text-white">Siti Aminah</div>
+                <div class="text-sm text-slate-400">Ketua Organisasi Mahasiswa</div>
+            </div>
+            <div class="p-8 bg-white dark:bg-darkCard border border-slate-100 dark:border-slate-800 rounded-3xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex text-yellow-400 mb-4"><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i></div>
+                <p class="text-slate-600 dark:text-slate-400 italic mb-6">"Harga terjangkau tapi hasilnya nggak murahan. Bagas sangat teliti memperhatikan detail terkecil dalam desain."</p>
+                <div class="font-bold dark:text-white">Rogif Asfahany Ahda</div>
+                <div class="text-sm text-slate-400">Founder Ran's Fotografer Banyuwangi</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 lg:px-12 bg-white dark:bg-darkBg">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-brand-600 dark:text-brand-400 font-bold uppercase tracking-widest text-sm mb-4 block">Pertanyaan Umum</span>
+                <h2 class="text-4xl font-bold dark:text-white">Sering Ditanyakan</h2>
+            </div>
+            <div class="space-y-4" data-aos="fade-up">
+                <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
+                    <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
+                        <span class="font-bold text-lg dark:text-white">Berapa lama proses pengerjaan satu desain?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-brand-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6">
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Pengerjaan normal memakan waktu 4-7 hari kerja tergantung antrean dan tingkat kerumitan desain. Kami tidak melayani sistem urgent demi menjaga kualitas.</p>
+                    </div>
+                </div>
+                <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
+                    <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
+                        <span class="font-bold text-lg dark:text-white">Format file apa saja yang akan saya dapatkan?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-brand-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6">
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Anda akan mendapatkan paket lengkap berupa file master (PSD/CDR), file gambar kualitas tinggi (JPEG/PNG), dan file siap cetak (PDF).</p>
+                    </div>
+                </div>
+                <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
+                    <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
+                        <span class="font-bold text-lg dark:text-white">Apakah ada batas jumlah revisi?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-brand-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6">
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Ya, Kami memberikan jatah revisi maksimal 3 kali untuk perubahan minor (warna, teks, dan tata letak). Jika melebihi dari batas jumlah yang ditentukan maka akan dikenakan biaya tambahan.</p>
+                    </div>
+                </div>
+                <div class="faq-item border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-darkCard overflow-hidden transition-all duration-300">
+                    <button class="flex items-center justify-between w-full p-6 text-left" onclick="toggleFaq(this)">
+                        <span class="font-bold text-lg dark:text-white">Bagaimana sistem pembayarannya?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-brand-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6">
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Sistem pembayaran menggunakan Down Payment (DP) 50% di awal sebelum projek dikerjakan, dan pelunasan 50% sisanya setelah desain disetujui. (Desain dibawah harga 30.000 tidak perlu DP)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak" class="py-24 px-6 lg:px-12 max-w-7xl mx-auto relative overflow-hidden">
+        <div class="bg-brand-600 rounded-[3rem] p-8 md:p-16 text-white grid md:grid-cols-2 gap-12 items-center relative z-10" data-aos="zoom-in">
+            <div>
+                <h2 class="text-4xl font-bold mb-6">Mari Mulai Projek <br>Hebat Bersama.</h2>
+                <p class="text-brand-100 text-lg mb-8">Konsultasikan kebutuhan desain Anda secara gratis. Kami siap membantu kapanpun.</p>
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-brand-500 p-3 rounded-xl"><i data-lucide="phone" class="w-6 h-6"></i></div>
+                        <div>
+                            <div class="text-sm text-brand-200">WhatsApp</div>
+                            <div class="font-bold">0857 0884 5405</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 group cursor-pointer" onclick="copyEmail()">
+                        <div class="bg-brand-500 p-3 rounded-xl group-hover:bg-white group-hover:text-brand-600 transition"><i data-lucide="mail" class="w-6 h-6"></i></div>
+                        <div>
+                            <div class="text-sm text-brand-200 flex items-center gap-2">Email <span class="text-[10px] bg-brand-700 px-2 py-0.5 rounded" id="copy-status">Click to copy</span></div>
+                            <div class="font-bold">akunkhusus0728@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-brand-500 p-3 rounded-xl mt-1"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
+                        <div>
+                            <div class="text-sm text-brand-200">Alamat</div>
+                            <div class="font-bold max-w-xs text-sm">Jl. KH Ahmad Asyari, Dusun Krajan, Pakistaji, Kec. Kabat, Kabupaten Banyuwangi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] text-slate-800 dark:text-white">
+                <form id="contact-form" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Nama Lengkap</label>
+                        <input type="text" id="name-input" placeholder="Masukkan nama" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-600">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Keperluan</label>
+                        <select id="service-input" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-600">
+                            <option>Desain Sertifikat/Pamflet</option>
+                            <option>Desain Kaos/Banner</option>
+                            <option>Desain Poster Promo/Event</option>
+                            <option>Desain Poster Film</option>
+                            <option>Lainnya</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Pesan Singkat</label>
+                        <textarea id="message-input" placeholder="Ceritakan kebutuhan Anda" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-900 h-32 focus:outline-none focus:ring-2 focus:ring-brand-600"></textarea>
+                    </div>
+                    <button type="button" onclick="kirimWA()" class="w-full bg-brand-600 text-white font-bold py-4 rounded-xl hover:bg-brand-700 transition shadow-lg shadow-brand-100 dark:shadow-none">Kirim Pesan via WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 px-6 lg:px-12 border-t border-slate-100 dark:border-slate-800 text-center bg-white dark:bg-darkBg relative overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center relative z-10">
+            <img src="Image/logobesar.png" alt="BDG Logo" class="h-8 w-auto mb-4 md:mb-0">
+            <p class="text-slate-400 text-sm">© 2023 Bagas Desainer Grafis. Didesain dengan penuh dedikasi.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="text-slate-400 hover:text-brand-600 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-brand-600 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-brand-600 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" onclick="scrollToTop()" class="fixed bottom-32 right-8 z-50 bg-brand-600 text-white p-4 rounded-full shadow-2xl opacity-0 invisible translate-y-10 transition-all duration-300 hover:bg-brand-700">
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </button>
+
+    <a href="https://wa.me/6285708845405" class="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+
+    <div id="fake-notif" class="fixed bottom-24 left-6 md:bottom-8 md:left-8 z-[90] bg-white dark:bg-darkCard p-4 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 flex items-center gap-4 transition-all duration-500 translate-y-20 opacity-0 pointer-events-none max-w-[calc(100vw-3rem)] md:max-w-sm">
+        <div class="w-12 h-12 rounded-full bg-brand-100 dark:bg-brand-900/30 text-brand-600 flex items-center justify-center shrink-0">
+            <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+        </div>
+        <div class="flex-1 min-w-0">
+            <p class="text-sm text-slate-500 dark:text-slate-400 mb-0.5"><span id="notif-name" class="font-bold text-slate-800 dark:text-white truncate inline-block max-w-[120px] align-bottom"></span> memesan</p>
+            <p id="notif-service" class="text-sm font-bold text-brand-600 dark:text-brand-400 truncate"></p>
+            <p id="notif-time" class="text-xs text-slate-400 mt-1"></p>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        /**
-         * ============================================================================
-         * BDG ENTERPRISE APPLICATION SYSTEM - PRODUCTION REFACTOR
-         * ============================================================================
-         * Namespace: Encapsulated Module Pattern (IIFE Namespace)
-         * Kepatuhan: Zero-Global Pollution, Secure Storage, Defensive DOM Rendering
-         * ============================================================================
-         */
+        // Data Global dan Konfigurasi
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxvidEJ0cLMEoS4ekiThbkOz8F5v41auh8i1LxgY5ADuDAdeFPHXfPQ9G622hZuVb7g/exec';
+        const SCRIPT_URL_LAYANAN = 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec';
+        const SCRIPT_URL_VOUCHER = 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec';
+        const SCRIPT_URL_PROMO = 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec';
+        
+        let allServicesData = []; // Menyimpan semua data layanan (termasuk yang OFF)
+        let activeServices = []; // Hanya layanan yang ON
+        const fallbackServices = [
+            { id: "LYN-1", nama_layanan: "Desain Sertifikat", harga: 20000, icon_lucide: "award", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 1 },
+            { id: "LYN-2", nama_layanan: "Desain Twibbon", harga: 20000, icon_lucide: "image", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 2 },
+            { id: "LYN-3", nama_layanan: "Desain Pamflet", harga: 25000, icon_lucide: "file-text", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 3 },
+            { id: "LYN-4", nama_layanan: "Desain ID Card", harga: 30000, icon_lucide: "credit-card", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 4 },
+            { id: "LYN-5", nama_layanan: "Desain Banner", harga: 30000, icon_lucide: "maximize", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 5 },
+            { id: "LYN-6", nama_layanan: "Poster Dakwah", harga: 40000, icon_lucide: "heart", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 6 },
+            { id: "LYN-7", nama_layanan: "Poster Promosi", harga: 40000, icon_lucide: "trending-up", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 7 },
+            { id: "LYN-8", nama_layanan: "Poster Webinar", harga: 40000, icon_lucide: "video", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 8 },
+            { id: "LYN-9", nama_layanan: "Birthday Poster", harga: 25000, icon_lucide: "gift", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 9 },
+            { id: "LYN-10", nama_layanan: "Desain Kaos", harga: 50000, icon_lucide: "shirt", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 10 },
+            { id: "LYN-11", nama_layanan: "Desain Poster Film", harga: 180000, icon_lucide: "clapperboard", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 11 }
+        ];
 
-        (function (window, document) {
-            'use strict';
+        // State Global Diskon
+        let voucherAktifData = JSON.parse(localStorage.getItem('bdg_active_voucher_data')) || null; // Data spesifik voucher
+        let activePromosData = []; // Data promo otomatis realtime
+        let editPromoId = null;
 
-            // Namespace Utama Aplikasi
-            const BDG = {
-                // --- KONFIGURASI IMMUTABLE ---
-                Config: Object.freeze({
-                    API_URL: 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec',
-                    MAX_RETRIES: 3,
-                    RETRY_DELAY_MS: 1000,
-                    LOCAL_FALLBACK_SERVICES: [
-                        { id: "LYN-1", nama_layanan: "Desain Sertifikat", harga: 20000, icon_lucide: "award", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 1 },
-                        { id: "LYN-2", nama_layanan: "Desain Twibbon", harga: 20000, icon_lucide: "image", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 2 },
-                        { id: "LYN-3", nama_layanan: "Desain Pamflet", harga: 25000, icon_lucide: "file-text", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 3 },
-                        { id: "LYN-4", nama_layanan: "Desain ID Card", harga: 30000, icon_lucide: "credit-card", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 4 },
-                        { id: "LYN-5", nama_layanan: "Desain Banner", harga: 30000, icon_lucide: "maximize", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 5 },
-                        { id: "LYN-6", nama_layanan: "Poster Dakwah", harga: 40000, icon_lucide: "heart", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 6 },
-                        { id: "LYN-7", nama_layanan: "Poster Promosi", harga: 40000, icon_lucide: "trending-up", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 7 },
-                        { id: "LYN-8", nama_layanan: "Poster Webinar", harga: 40000, icon_lucide: "video", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 8 },
-                        { id: "LYN-9", nama_layanan: "Birthday Poster", harga: 25000, icon_lucide: "gift", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 9 },
-                        { id: "LYN-10", nama_layanan: "Desain Kaos", harga: 50000, icon_lucide: "shirt", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 10 },
-                        { id: "LYN-11", nama_layanan: "Desain Poster Film", harga: 180000, icon_lucide: "clapperboard", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 11 }
-                    ]
-                }),
+        // Fungsi Cerdas Hitung Diskon
+        function getDiskonRate(tipeTarget, namaLayananTujuan = "") {
+            // 1. Cek Voucher dulu (Prioritas tertinggi)
+            if (voucherAktifData) {
+                if (voucherAktifData.target === 'SEMUA') return voucherAktifData.diskon;
+                if (tipeTarget === 'ig' && voucherAktifData.target === 'PAKET_IG') return voucherAktifData.diskon;
+                if (tipeTarget === 'layanan' && voucherAktifData.target === 'LAYANAN_TERTENTU' && voucherAktifData.layanan_target.toLowerCase() === namaLayananTujuan.toLowerCase()) {
+                    return voucherAktifData.diskon;
+                }
+            }
+            
+            // 2. Jika tidak ada voucher yang cocok, cek Promo Otomatis
+            let maxPromoDiskon = 0;
+            const hariIni = new Date().toISOString().split('T')[0];
 
-                // --- MANAJEMEN STATE REAKTIF ---
-                State: {
-                    allServices: [],
-                    activeServices: [],
-                    activePromos: [],
-                    activeVoucher: null,
-                    editPromoId: null,
-                    isMenuOpen: false,
-                    pendingSeasonalTheme: 'normal',
-                    pendingIsDark: false,
-                    domCache: new Map()
-                },
+            activePromosData.forEach(promo => {
+                if (promo.status !== 'AKTIF' && promo.status !== 'ON') return;
+                if (promo.tanggal_mulai && hariIni < promo.tanggal_mulai) return;
+                if (promo.tanggal_akhir && hariIni > promo.tanggal_akhir) return;
 
-                // --- SISTEM UTILITAS (STORAGE, DATE & VALIDATOR) ---
-                Utils: {
-                    readStorage(key, fallback = null) {
-                        try {
-                            const data = localStorage.getItem(key);
-                            return data ? JSON.parse(data) : fallback;
-                        } catch (e) {
-                            console.error(`[STORAGE] Gagal membaca key "${key}":`, e);
-                            return fallback;
-                        }
-                    },
+                let applicable = false;
+                if (promo.target === 'SEMUA') applicable = true;
+                if (tipeTarget === 'ig' && promo.target === 'PAKET_IG') applicable = true;
+                if (tipeTarget === 'layanan' && promo.target === 'LAYANAN_TERTENTU' && promo.layanan_target?.toLowerCase() === namaLayananTujuan.toLowerCase()) applicable = true;
 
-                    writeStorage(key, value) {
-                        try {
-                            localStorage.setItem(key, JSON.stringify(value));
-                        } catch (e) {
-                            console.error(`[STORAGE] Gagal menulis key "${key}":`, e);
-                        }
-                    },
+                if (applicable && promo.diskon > maxPromoDiskon) {
+                    maxPromoDiskon = promo.diskon;
+                }
+            });
 
-                    getLocalISODate() {
-                        const date = new Date();
-                        const offset = date.getTimezoneOffset();
-                        return new Date(date.getTime() - (offset * 60 * 1000)).toISOString().split('T')[0];
-                    },
+            return maxPromoDiskon; 
+        }
 
-                    isValidLucideIcon(iconName) {
-                        if (!iconName) return false;
-                        if (typeof lucide === 'undefined' || !lucide.icons) return true;
-                        const camel = iconName.replace(/-([a-z])/g, g => g[1].toUpperCase());
-                        const pascal = camel.charAt(0).toUpperCase() + camel.slice(1);
-                        return !!(lucide.icons[camel] || lucide.icons[pascal] || lucide.icons[iconName]);
-                    }
-                },
+        // ----------------------------------------------------
+        // INITIALIZATION & EVENT LISTENERS
+        // ----------------------------------------------------
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            initScrollSpy();
+            fetchServices();
+            fetchPromos();
+            updateHargaInstagram();
+            applySeasonalTheme();
+            setTimeout(tampilkanNotifPalsu, 5000);
+            AOS.init({ duration: 800, once: true, offset: 100 });
+            lucide.createIcons();
+        });
 
-                // --- KONEKSI JARINGAN (RETRY ENGINE DENGAN BACKOFF EXPONENTIAL) ---
-                API: {
-                    async execute(url, method = 'GET', bodyPayload = null) {
-                        let attempts = BDG.Config.MAX_RETRIES;
-                        let currentDelay = BDG.Config.RETRY_DELAY_MS;
+        // ----------------------------------------------------
+        // THEME MANAGEMENT (Dark / Light)
+        // ----------------------------------------------------
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
 
-                        const runFetch = async () => {
-                            const options = { method, redirect: 'follow' };
-                            if (method === 'POST' && bodyPayload) {
-                                options.headers = { 'Content-Type': 'text/plain;charset=utf-8' };
-                                options.body = JSON.stringify(bodyPayload);
-                            }
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                html.classList.add('dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            } else {
+                html.classList.remove('dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            }
+        }
 
-                            const response = await fetch(url, options);
-                            if (!response.ok) {
-                                throw new Error(`HTTP ${response.status}: Koneksi gagal ditolak oleh server.`);
-                            }
-                            const text = await response.text();
-                            try {
-                                return JSON.parse(text);
-                            } catch (e) {
-                                throw new Error("Respons eksternal server tidak berupa format JSON.");
-                            }
-                        };
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            
+            sunIcon.classList.toggle('hidden');
+            moonIcon.classList.toggle('hidden');
+        });
 
-                        const executeWithRetry = async (remainingAttempts) => {
-                            try {
-                                return await runFetch();
-                            } catch (err) {
-                                if (remainingAttempts > 1) {
-                                    console.warn(`[API] Kegagalan komunikasi. Mencoba kembali dalam ${currentDelay}ms... (Sisa upaya: ${remainingAttempts - 1})`);
-                                    await new Promise(resolve => setTimeout(resolve, currentDelay));
-                                    currentDelay *= 1.8; // Exponential scaling
-                                    return executeWithRetry(remainingAttempts - 1);
-                                }
-                                throw err;
-                            }
-                        };
+        // ----------------------------------------------------
+        // NAVIGATION & HAMBURGER MENU
+        // ----------------------------------------------------
+        const menuBtn = document.getElementById('menu-btn');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuLinks = document.querySelectorAll('.menu-link:not([onclick])');
+        const hamburgerLines = document.querySelector('.hamburger-lines');
+        let isMenuOpen = false;
 
-                        return executeWithRetry(attempts);
-                    }
-                },
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+            document.body.classList.toggle('sidebar-open');
+            
+            if(hamburgerLines) {
+                hamburgerLines.parentElement.classList.toggle('hamburger-active', isMenuOpen);
+            }
+        }
 
-                // --- REAKTIF MODIFIKASI HARGA & PROMO SINKRONISASI ---
-                Engine: {
-                    hitungDiskonLayanan(hargaDasar, namaLayanan = "") {
-                        let potongan = 0;
-                        const vch = BDG.State.activeVoucher;
+        menuBtn.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(isMenuOpen) toggleMenu();
+            });
+        });
 
-                        // 1. Evaluasi Voucher Aktif (Prioritas Pertama)
-                        if (vch) {
-                            let eligible = false;
-                            if (vch.target === 'SEMUA') eligible = true;
-                            if (vch.target === 'LAYANAN_TERTENTU' && 
-                                vch.layanan_target && namaLayanan &&
-                                vch.layanan_target.toLowerCase() === namaLayanan.toLowerCase()) {
-                                eligible = true;
-                            }
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024 && isMenuOpen) toggleMenu();
+        });
 
-                            if (eligible) {
-                                const rate = parseFloat(vch.diskon || 0);
-                                potongan = vch.tipe_diskon === 'NOMINAL' ? rate : hargaDasar * rate;
-                                return Math.min(hargaDasar, potongan);
-                            }
-                        }
-
-                        // 2. Evaluasi Promo Otomatis Berbasis Periode Kalender
-                        let maxPromoRate = 0;
-                        const hariIni = BDG.Utils.getLocalISODate();
-
-                        BDG.State.activePromos.forEach(p => {
-                            const isAktif = p.status === 'AKTIF' || p.status === 'ON';
-                            if (!isAktif) return;
-                            if (p.tanggal_mulai && hariIni < p.tanggal_mulai) return;
-                            if (p.tanggal_akhir && hariIni > p.tanggal_akhir) return;
-
-                            let eligible = false;
-                            if (p.target === 'SEMUA') eligible = true;
-                            if (p.target === 'LAYANAN_TERTENTU' && 
-                                p.layanan_target && namaLayanan &&
-                                p.layanan_target.toLowerCase() === namaLayanan.toLowerCase()) {
-                                eligible = true;
-                            }
-
-                            if (eligible && parseFloat(p.diskon) > maxPromoRate) {
-                                maxPromoRate = parseFloat(p.diskon);
-                            }
-                        });
-
-                        potongan = hargaDasar * maxPromoRate;
-                        return Math.min(hargaDasar, potongan);
-                    },
-
-                    getDiskonInstagram() {
-                        let rate = 0;
-                        const vch = BDG.State.activeVoucher;
-
-                        if (vch && (vch.target === 'SEMUA' || vch.target === 'PAKET_IG')) {
-                            return parseFloat(vch.diskon || 0);
-                        }
-
-                        const hariIni = BDG.Utils.getLocalISODate();
-                        BDG.State.activePromos.forEach(p => {
-                            const isAktif = p.status === 'AKTIF' || p.status === 'ON';
-                            if (!isAktif) return;
-                            if (p.tanggal_mulai && hariIni < p.tanggal_mulai) return;
-                            if (p.tanggal_akhir && hariIni > p.tanggal_akhir) return;
-
-                            if ((p.target === 'SEMUA' || p.target === 'PAKET_IG') && parseFloat(p.diskon) > rate) {
-                                rate = parseFloat(p.diskon);
-                            }
-                        });
-
-                        return rate;
-                    }
-                },
-
-                // --- SISTEM RENDER ANTARMUKA (DOM CACHING & SKELETON ENGINE) ---
-                UI: {
-                    initDomCache() {
-                        const elements = [
-                            'services-container', 'theme-toggle', 'sun-icon', 'moon-icon', 'menu-btn', 
-                            'mobile-menu', 'backToTop', 'scroll-progress', 'seasonal-ornaments',
-                            'admin-promo-list', 'admin-srv-list', 'voucher-input', 'new-srv-id',
-                            'new-srv-nama', 'new-srv-harga', 'new-srv-icon', 'new-srv-urutan',
-                            'new-srv-status', 'new-srv-deskripsi', 'new-srv-wa', 'btn-submit-srv',
-                            'btn-cancel-srv', 'new-promo-name', 'new-promo-target', 'new-promo-specific',
-                            'new-promo-discount', 'new-promo-start', 'new-promo-end', 'btn-submit-promo',
-                            'btn-cancel-edit'
-                        ];
-                        elements.forEach(id => {
-                            const el = document.getElementById(id);
-                            if (el) BDG.State.domCache.set(id, el);
-                        });
-                    },
-
-                    get(id) {
-                        if (BDG.State.domCache.has(id)) {
-                            return BDG.State.domCache.get(id);
-                        }
-                        const el = document.getElementById(id);
-                        if (el) BDG.State.domCache.set(id, el);
-                        return el;
-                    },
-
-                    injectSkeletonLoaders() {
-                        const container = BDG.UI.get('services-container');
-                        if (!container) return;
-
-                        const skeletonHtml = Array(4).fill(`
-                            <div class="bg-white dark:bg-darkCard p-8 rounded-3xl border border-slate-100 dark:border-slate-800 animate-pulse flex flex-col items-start">
-                                <div class="bg-slate-200 dark:bg-slate-700 w-16 h-16 rounded-2xl mb-6"></div>
-                                <div class="h-6 bg-slate-200 dark:bg-slate-700 rounded w-3/4 mb-4"></div>
-                                <div class="h-8 bg-slate-200 dark:bg-slate-700 rounded w-1/2 mb-6"></div>
-                                <div class="mt-auto w-full h-12 bg-slate-200 dark:bg-slate-700 rounded-xl"></div>
-                            </div>
-                        `).join('');
-
-                        container.innerHTML = skeletonHtml;
-                    },
-
-                    renderMainServices() {
-                        const container = BDG.UI.get('services-container');
-                        if (!container) return;
-
-                        const services = BDG.State.activeServices;
-                        if (services.length === 0) {
-                            container.innerHTML = `
-                                <div class="col-span-full text-center py-12">
-                                    <p class="text-slate-400 dark:text-slate-500">Tidak ada layanan aktif saat ini.</p>
-                                </div>
-                            `;
-                            return;
-                        }
-
-                        container.innerHTML = services.map((s, idx) => {
-                            const potongan = BDG.Engine.hitungDiskonLayanan(s.harga, s.nama_layanan);
-                            const hargaAkhir = Math.max(0, s.harga - potongan);
-                            const isDiskon = potongan > 0;
-
-                            const tagVoucher = isDiskon ? `<span class="text-[10px] font-bold uppercase tracking-wider text-green-500 bg-green-50 dark:bg-green-900/20 px-2 py-0.5 rounded-md mb-1 inline-block animate-pulse">Diskon Terpasang</span>` : '';
-                            const hargaCoret = isDiskon ? `<span class="text-slate-400 line-through text-sm mr-2">${formatRupiah(s.harga)}</span>` : '';
-
-                            return `
-                                <div class="service-card bg-white dark:bg-darkCard p-8 rounded-3xl border border-slate-100 dark:border-slate-800 transition-all duration-300 flex flex-col items-start" data-aos="fade-up">
-                                    <div class="bg-brand-50 dark:bg-brand-900/30 p-4 rounded-2xl mb-6 text-brand-600 dark:text-brand-400">
-                                        <i data-lucide="${s.icon_lucide || 'image'}" class="w-8 h-8"></i>
-                                    </div>
-                                    <h3 class="font-bold text-xl mb-2 dark:text-white text-left">${s.nama_layanan}</h3>
-                                    <div class="mb-6 text-left">
-                                        ${tagVoucher}
-                                        <div class="flex flex-col">
-                                            ${hargaCoret}
-                                            <span class="text-brand-600 dark:text-brand-400 font-bold text-2xl">${formatRupiah(hargaAkhir)}</span>
-                                        </div>
-                                    </div>
-                                    <button onclick="openServiceModal(${idx})" class="mt-auto w-full text-center py-3 bg-slate-50 dark:bg-slate-800 hover:bg-brand-600 hover:text-white transition rounded-xl font-semibold text-sm dark:text-slate-300">Pilih Layanan</button>
-                                </div>
-                            `;
-                }).join('');
-
-                lucide.createIcons();
-                if (typeof AOS !== 'undefined') AOS.refresh();
-            },
-
-            renderInstagramPackages() {
-                document.querySelectorAll('.ig-price-display').forEach(el => {
-                    const basePrice = parseFloat(el.getAttribute('data-base'));
-                    const rate = BDG.Engine.getDiskonInstagram();
-                    const hargaAkhir = basePrice - (basePrice * rate);
-
-                    el.innerText = formatRupiah(hargaAkhir);
-                    const wrapper = el.closest('.ig-price-container');
-                    if (!wrapper) return;
-                    const coretElement = wrapper.querySelector('.ig-harga-coret');
-
-                    if (rate > 0) {
-                        if (!coretElement) {
-                            const coretNode = document.createElement('div');
-                            coretNode.className = 'ig-harga-coret text-sm font-semibold text-slate-400 line-through mb-1';
-                            coretNode.innerText = formatRupiah(basePrice);
-                            wrapper.insertBefore(coretNode, el);
-                        }
-                    } else if (coretElement) {
-                        coretElement.remove();
-                    }
+        // ----------------------------------------------------
+        // SCROLL HANDLING & SCROLL SPY
+        // ----------------------------------------------------
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    handleScroll();
+                    ticking = false;
                 });
-            },
-
-            toggleButtonLoading(btn, isLoading, textLoading = "Sedang Memproses...") {
-                if (!btn) return;
-                if (isLoading) {
-                    btn.setAttribute('disabled', 'true');
-                    btn.dataset.originalHtml = btn.innerHTML;
-                    btn.innerHTML = `<span class="inline-block animate-spin mr-2">⏳</span> ${textLoading}`;
-                } else {
-                    btn.removeAttribute('disabled');
-                    btn.innerHTML = btn.dataset.originalHtml || "Kirim";
-                }
+                ticking = true;
             }
-        },
+        });
 
-        // --- INTEGRASI ANIMASI MUSIMAN & GARBAGE COLLECTOR INTERVAL ---
-        Seasonal: {
-            applyCurrentTheme() {
-                const theme = BDG.Utils.readStorage('seasonalTheme', 'normal');
-                document.body.classList.remove('theme-ramadhan', 'theme-xmas', 'theme-imlek');
+        function handleScroll() {
+            const nav = document.querySelector('nav');
+            const btt = document.getElementById('backToTop');
+            
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('scroll-progress').style.width = scrollPercent + '%';
 
-                if (theme !== 'normal') {
-                    document.body.classList.add(`theme-${theme}`);
-                    BDG.Seasonal.injectDecorations(theme);
-                    if (BDG.State.activePromos.length === 0 && !BDG.State.activeVoucher) {
-                        BDG.Seasonal.popupSeasonalModal(theme);
-                    }
-                } else {
-                    BDG.Seasonal.injectDecorations('normal');
-                }
-            },
+            if (window.scrollY > 50) nav.classList.add('shadow-md');
+            else nav.classList.remove('shadow-md');
 
-            injectDecorations(theme) {
-                const container = BDG.UI.get('seasonal-ornaments');
-                if (!container) return;
-                container.innerHTML = '';
-                
-                if (window.snowInterval) {
-                    clearInterval(window.snowInterval);
-                    window.snowInterval = null;
-                }
+            if (window.scrollY > 500) btt.classList.add('visible');
+            else btt.classList.remove('visible');
+        }
 
-                if (theme === 'ramadhan') {
-                    container.innerHTML = `
-                        <div class="ornament orn-float-1 opacity-50 dark:opacity-80">🌙</div>
-                        <div class="ornament orn-float-2 opacity-50 dark:opacity-80">✨</div>
-                        <div class="ornament orn-float-3 opacity-50 dark:opacity-80">🕌</div>
-                    `;
-                } else if (theme === 'xmas') {
-                    container.innerHTML = `
-                        <div class="ornament orn-float-1 opacity-80">🎅</div>
-                        <div class="ornament orn-float-2 opacity-80">🎄</div>
-                    `;
-                    window.snowInterval = setInterval(() => {
-                        const flake = document.createElement('div');
-                        flake.className = 'snow';
-                        flake.innerText = '❄️';
-                        flake.style.left = Math.random() * 100 + 'vw';
-                        flake.style.fontSize = (Math.random() * 1 + 0.5) + 'rem';
-                        flake.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                        container.appendChild(flake);
-                        setTimeout(() => flake.remove(), 5000);
-                    }, 300);
-                } else if (theme === 'imlek') {
-                    container.innerHTML = `
-                        <div class="ornament lantern lantern-left">🏮</div>
-                        <div class="ornament lantern lantern-right">🏮</div>
-                        <div class="ornament orn-float-3 opacity-80">🧧</div>
-                    `;
-                }
-            },
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-            popupSeasonalModal(theme) {
-                const title = document.getElementById('seasonal-promo-title');
-                const desc = document.getElementById('seasonal-promo-desc');
-                const icon = document.getElementById('seasonal-promo-icon');
+        function initScrollSpy() {
+            const sections = document.querySelectorAll('section[id]');
+            const menuLinks = document.querySelectorAll('.sidebar-link.menu-link');
 
-                if (!title || !desc || !icon) return;
-
-                if (theme === 'ramadhan') {
-                    icon.innerText = "🕌";
-                    title.innerText = "Berkah Ramadhan!";
-                    desc.innerText = "Sambut bulan suci dengan visual brand yang lebih fresh. Nikmati diskon spesial untuk semua layanan desain kami.";
-                } else if (theme === 'xmas') {
-                    icon.innerText = "🎅";
-                    title.innerText = "Merry Christmas!";
-                    desc.innerText = "Bagikan kebahagiaan Natal dengan desain visual yang memukau. Dapatkan kado diskon spesial dari BDG Design.";
-                } else if (theme === 'imlek') {
-                    icon.innerText = "🏮";
-                    title.innerText = "Gong Xi Fa Cai!";
-                    desc.innerText = "Awali tahun baru dengan rezeki melimpah dan desain baru. Angpao diskon spesial menanti pesanan Anda hari ini.";
-                }
-                openModalGeneric('seasonal-promo-modal');
-            }
-        },
-
-        // --- SISTEM BOOTSTRAP INISIALISASI ---
-        Init: {
-            async start() {
-                BDG.UI.initDomCache();
-                BDG.Init.setupSystemTheme();
-                BDG.Init.setupScrollProgress();
-                BDG.UI.injectSkeletonLoaders();
-
-                BDG.State.activeVoucher = BDG.Utils.readStorage('bdg_active_voucher_data', null);
-
-                const getServicesUrl = `${BDG.Config.API_URL}?action=getServices`;
-                const getPromosUrl = `${BDG.Config.API_URL}?action=getPromos`;
-
-                if (BDG.Config.API_URL === '' || BDG.Config.API_URL.includes('YOUR_API_URL')) {
-                    console.warn("[BDG] URL Web App API kosong. Mengaktifkan basis data fallback offline lokal.");
-                    BDG.State.allServices = JSON.parse(JSON.stringify(BDG.Config.LOCAL_FALLBACK_SERVICES));
-                    BDG.Init.finalizeDataLoad();
-                } else {
-                    try {
-                        const [servicesRes, promosRes] = await Promise.all([
-                            BDG.API.execute(getServicesUrl).catch(() => ({ success: false, data: BDG.Config.LOCAL_FALLBACK_SERVICES })),
-                            BDG.API.execute(getPromosUrl).catch(() => ({ success: false, data: [] }))
-                        ]);
-
-                        BDG.State.allServices = servicesRes.success ? servicesRes.data : BDG.Config.LOCAL_FALLBACK_SERVICES;
-                        BDG.State.activePromos = promosRes.success ? promosRes.data : [];
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const currentId = entry.target.getAttribute('id');
                         
-                        BDG.Init.finalizeDataLoad();
-                    } catch (e) {
-                        console.error("[BDG] Gagal memuat data dari API Cloud, mengaktifkan data fallback.", e);
-                        BDG.State.allServices = JSON.parse(JSON.stringify(BDG.Config.LOCAL_FALLBACK_SERVICES));
-                        BDG.Init.finalizeDataLoad();
-                    }
-                }
-
-                setInterval(tampilkanNotifPalsu, 12000);
-                AOS.init({ duration: 800, once: true, offset: 100 });
-            },
-
-            finalizeDataLoad() {
-                BDG.State.allServices.sort((a, b) => parseInt(a.urutan || 999) - parseInt(b.urutan || 999));
-                BDG.State.activeServices = BDG.State.allServices.filter(s => s.status === 'ON' || s.status === 'AKTIF');
-
-                BDG.UI.renderMainServices();
-                BDG.UI.renderInstagramPackages();
-                BDG.Seasonal.applyCurrentTheme();
-                initScrollSpy();
-            },
-
-            setupSystemTheme() {
-                const savedTheme = BDG.Utils.readStorage('theme', 'light');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                const htmlEl = document.documentElement;
-
-                if (savedTheme === 'dark' || (savedTheme === 'light' && prefersDark && !localStorage.getItem('theme'))) {
-                    htmlEl.classList.add('dark');
-                    BDG.UI.get('sun-icon').classList.remove('hidden');
-                    BDG.UI.get('moon-icon').classList.add('hidden');
-                } else {
-                    htmlEl.classList.remove('dark');
-                    BDG.UI.get('sun-icon').classList.add('hidden');
-                    BDG.UI.get('moon-icon').classList.remove('hidden');
-                }
-            },
-
-            setupScrollProgress() {
-                let activeTick = false;
-                window.addEventListener('scroll', () => {
-                    if (!activeTick) {
-                        window.requestAnimationFrame(() => {
-                            const percent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-                            const bar = BDG.UI.get('scroll-progress');
-                            const btt = BDG.UI.get('backToTop');
-
-                            if (bar) bar.style.width = percent + '%';
-                            if (btt) {
-                                if (window.scrollY > 500) btt.classList.add('visible');
-                                else btt.classList.remove('visible');
+                        menuLinks.forEach(link => {
+                            link.classList.remove('active-menu');
+                            if (link.getAttribute('data-target') === currentId) {
+                                link.classList.add('active-menu');
                             }
-                            activeTick = false;
                         });
-                        activeTick = true;
                     }
                 });
-            }
+            }, { rootMargin: '-20% 0px -70% 0px' });
+
+            sections.forEach(section => observer.observe(section));
         }
-    };
 
-    // Eksekusi Bootstrap saat DOM Siap
-    document.addEventListener('DOMContentLoaded', BDG.Init.start);
-
-    // ====================================================
-    // EXPOSE GLOBAL METHODS (UNTUK MENJAGA INTEGRITAS BINDING HTML)
-    // ====================================================
-
-    window.formatRupiah = function(angka) {
-        return "Rp" + parseInt(angka).toLocaleString('id-ID');
-    };
-
-    window.tampilkanPeringatan = function(pesan) {
-        const box = document.createElement('div');
-        box.className = 'fixed top-10 left-1/2 transform -translate-x-1/2 bg-brand-600 text-white px-6 py-3 rounded-2xl shadow-2xl z-[200] font-bold text-sm text-center transition-all duration-300';
-        box.innerText = pesan;
-        document.body.appendChild(box);
-        setTimeout(() => {
-            box.classList.add('opacity-0');
-            setTimeout(() => box.remove(), 300);
-        }, 3000);
-    };
-
-    window.scrollToTop = function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
-    window.toggleMenu = function() {
-        BDG.State.isMenuOpen = !BDG.State.isMenuOpen;
-        const mobileMenu = BDG.UI.get('mobile-menu');
-        const lines = document.querySelector('.hamburger-lines');
-
-        if (mobileMenu) mobileMenu.classList.toggle('translate-x-full');
-        document.body.classList.toggle('overflow-hidden');
-        document.body.classList.toggle('sidebar-open');
-
-        if (lines) {
-            lines.parentElement.classList.toggle('hamburger-active', BDG.State.isMenuOpen);
-        }
-    };
-
-    window.nextSlide = function() {
-        const slider = document.getElementById('karya-slider');
-        const first = slider ? slider.querySelector('.slider-item') : null;
-        const width = first ? first.offsetWidth + 24 : 320;
-        if (slider) slider.scrollBy({ left: width, behavior: 'smooth' });
-    };
-
-    window.prevSlide = function() {
-        const slider = document.getElementById('karya-slider');
-        const first = slider ? slider.querySelector('.slider-item') : null;
-        const width = first ? first.offsetWidth + 24 : 320;
-        if (slider) slider.scrollBy({ left: -width, behavior: 'smooth' });
-    };
-
-    window.filterKarya = function(category) {
-        const items = document.querySelectorAll('.karya-item');
-        const buttons = document.querySelectorAll('.filter-btn');
-        const slider = document.getElementById('karya-slider');
-
-        buttons.forEach(btn => {
-            if (btn.getAttribute('onclick') === `filterKarya('${category}')`) {
-                btn.classList.add('bg-brand-600', 'text-white');
-                btn.classList.remove('bg-slate-100', 'text-slate-600');
-            } else {
-                btn.classList.remove('bg-brand-600', 'text-white');
-                btn.classList.add('bg-slate-100', 'text-slate-600');
+        // ----------------------------------------------------
+        // GLOBAL MODAL LISTENER & MODAL LOGIC
+        // ----------------------------------------------------
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('fixed') && e.target.classList.contains('bg-black/60')) {
+                if (e.target.id === 'service-modal') closeModal();
+                if (e.target.id === 'voucher-modal') tutupVoucherModal();
+                if (e.target.id === 'admin-login-modal') tutupLoginAdmin();
+                if (e.target.id === 'admin-dashboard-modal') tutupAdminDashboard();
+                if (e.target.id === 'seasonal-promo-modal') tutupSeasonalPromo();
             }
         });
 
-        items.forEach(item => {
-            item.style.display = (category === 'all' || item.getAttribute('data-category') === category) ? 'block' : 'none';
-        });
-
-        if (slider) slider.scrollTo({ left: 0, behavior: 'smooth' });
-    };
-
-    window.initScrollSpy = function() {
-        const sections = document.querySelectorAll('section[id]');
-        const links = document.querySelectorAll('.sidebar-link.menu-link');
-
-        const obs = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    links.forEach(l => {
-                        l.classList.remove('active-menu');
-                        if (l.getAttribute('data-target') === id) l.classList.add('active-menu');
-                    });
-                }
-            });
-        }, { rootMargin: '-20% 0px -70% 0px' });
-
-        sections.forEach(s => obs.observe(s));
-    };
-
-    window.copyEmail = function() {
-        navigator.clipboard.writeText("akunkhusus0728@gmail.com");
-        const badge = document.getElementById('copy-status');
-        if (!badge) return;
-        badge.innerText = "Copied!";
-        badge.classList.replace('bg-brand-700', 'bg-green-500');
-        setTimeout(() => {
-            badge.innerText = "Click to copy";
-            badge.classList.replace('bg-green-500', 'bg-brand-700');
-        }, 2000);
-    };
-
-    window.toggleFaq = function(btn) {
-        const item = btn.parentElement;
-        const isActive = item.classList.contains('active');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-        if (!isActive) item.classList.add('active');
-    };
-
-    // --- MODAL ENGINE WRAPPERS ---
-    window.openModalGeneric = function(id) {
-        const modal = document.getElementById(id);
-        if (!modal) return;
-        const wrapper = modal.querySelector('div');
-        modal.classList.remove('invisible');
-        modal.classList.add('opacity-100');
-        wrapper.classList.remove('scale-95');
-        wrapper.classList.add('scale-100');
-        document.body.classList.add('modal-active');
-        lucide.createIcons();
-    };
-
-    window.closeModalGeneric = function(id) {
-        const modal = document.getElementById(id);
-        if (!modal) return;
-        const wrapper = modal.querySelector('div');
-        modal.classList.remove('opacity-100');
-        modal.classList.add('invisible');
-        wrapper.classList.remove('scale-100');
-        wrapper.classList.add('scale-95');
-        document.body.classList.remove('modal-active');
-    };
-
-    window.closeModal = function() { closeModalGeneric('service-modal'); };
-    window.bukaVoucherModal = function() { if (BDG.State.isMenuOpen) toggleMenu(); openModalGeneric('voucher-modal'); };
-    window.tutupVoucherModal = function() { closeModalGeneric('voucher-modal'); };
-    window.bukaLoginAdmin = function() { if (BDG.State.isMenuOpen) toggleMenu(); openModalGeneric('admin-login-modal'); };
-    window.tutupLoginAdmin = function() { closeModalGeneric('admin-login-modal'); };
-    window.tutupSeasonalPromo = function() { closeModalGeneric('seasonal-promo-modal'); };
-    window.tutupAdminDashboard = function() { closeModalGeneric('admin-dashboard-modal'); };
-
-    window.openServiceModal = function(idx) {
-        const s = BDG.State.activeServices[idx];
-        const potongan = BDG.Engine.hitungDiskonLayanan(s.harga, s.nama_layanan);
-        const hargaAkhir = Math.max(0, s.harga - potongan);
-        const hargaTeks = formatRupiah(hargaAkhir);
-
-        document.getElementById('modal-title').innerText = `Raih Perhatian dengan "${s.nama_layanan}" Menarik!`;
-        document.getElementById('modal-intro').innerText = s.deskripsi || `Buat bisnis atau karya Anda semakin dilirik dengan "${s.nama_layanan}" yang eye-catching! Kami menawarkan hasil profesional, kreatif, dan sesuai dengan harapan Anda.`;
-        document.getElementById('modal-price-header').innerText = `Paket lengkap "${hargaTeks}" ini sudah termasuk:`;
-        
-        document.querySelectorAll('.modal-service-name').forEach(el => el.innerText = s.nama_layanan);
-        
-        let waText = `Halo BDG, saya ingin memesan: *${s.nama_layanan}* seharga ${hargaTeks}.${getTeksDiskonWA('layanan', s.nama_layanan)}\nMohon info selanjutnya.`;
-        if (s.whatsapp_message) {
-            waText = s.whatsapp_message.replace('{{harga}}', hargaTeks).replace('{{diskon}}', getTeksDiskonWA('layanan', s.nama_layanan));
+        function openModalGeneric(modalId) {
+            const modal = document.getElementById(modalId);
+            if(!modal) return;
+            const content = modal.querySelector('div');
+            modal.classList.remove('invisible');
+            modal.classList.add('opacity-100');
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+            document.body.classList.add('modal-active');
+            lucide.createIcons();
         }
+
+        function closeModalGeneric(modalId) {
+            const modal = document.getElementById(modalId);
+            if(!modal) return;
+            const content = modal.querySelector('div');
+            modal.classList.remove('opacity-100');
+            modal.classList.add('invisible');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            document.body.classList.remove('modal-active');
+        }
+
+        function bukaVoucherModal() { if(isMenuOpen) toggleMenu(); openModalGeneric('voucher-modal'); }
+        function tutupVoucherModal() { closeModalGeneric('voucher-modal'); }
         
-        document.getElementById('modal-whatsapp-btn').href = `https://wa.me/6285708845405?text=${encodeURIComponent(waText)}`;
-        openModalGeneric('service-modal');
-    };
+        function bukaLoginAdmin() { if(isMenuOpen) toggleMenu(); openModalGeneric('admin-login-modal'); }
+        function tutupLoginAdmin() { closeModalGeneric('admin-login-modal'); }
+        
+        function bukaAdminDashboard() { 
+            pendingSeasonalTheme = localStorage.getItem('seasonalTheme') || 'normal';
+            pendingIsDark = document.documentElement.classList.contains('dark');
 
-    // --- FORM SUBMIT & WHATSAPP GENERATOR ---
-    window.getTeksDiskonWA = function(tipe = "", name = "") {
-        const rate = tipe === 'ig' ? BDG.Engine.getDiskonInstagram() : 0;
-        const vch = BDG.State.activeVoucher;
+            document.getElementById('theme-selector').value = pendingSeasonalTheme;
+            updateBtnThemeAdmin();
+            renderAdminPromos();
+            renderAdminServices();
+            openModalGeneric('admin-dashboard-modal'); 
+        }
+        function tutupAdminDashboard() { closeModalGeneric('admin-dashboard-modal'); }
+        
+        function tutupSeasonalPromo() { closeModalGeneric('seasonal-promo-modal'); }
+        function closeModal() { closeModalGeneric('service-modal'); }
 
-        if (tipe === 'layanan') {
-            const cut = BDG.Engine.hitungDiskonLayanan(100000, name); // base dummy 100k
-            if (cut > 0) {
-                if (vch) {
-                    return `\n*(Menggunakan voucher ${vch.kode} potongan ${vch.tipe_diskon === 'NOMINAL' ? formatRupiah(vch.diskon) : (vch.diskon * 100) + '%'})*`;
-                } else {
-                    return `\n*(Menggunakan promo otomatis potongan)*`;
-                }
+        // ----------------------------------------------------
+        // UTILITIES & SERVICES
+        // ----------------------------------------------------
+        function tampilkanPeringatan(pesan) {
+            const kotakPeringatan = document.createElement('div');
+            kotakPeringatan.className = 'fixed top-10 left-1/2 transform -translate-x-1/2 bg-brand-600 text-white px-6 py-3 rounded-2xl shadow-2xl z-[200] font-bold text-sm text-center';
+            kotakPeringatan.innerText = pesan;
+            document.body.appendChild(kotakPeringatan);
+            setTimeout(() => kotakPeringatan.remove(), 3000);
+        }
+
+        function formatRupiah(angka) {
+            return "Rp" + angka.toLocaleString('id-ID');
+        }
+
+        function copyEmail() {
+            const email = "akunkhusus0728@gmail.com";
+            navigator.clipboard.writeText(email);
+            const status = document.getElementById('copy-status');
+            status.innerText = "Copied!";
+            status.classList.replace('bg-brand-700', 'bg-green-500');
+            setTimeout(() => {
+                status.innerText = "Click to copy";
+                status.classList.replace('bg-green-500', 'bg-brand-700');
+            }, 2000);
+        }
+
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
+        }
+
+        // ----------------------------------------------------
+        // DATA RENDERING (Layanan, Voucher, Admin)
+        // ----------------------------------------------------
+
+        async function fetchServices() {
+            const container = document.getElementById('services-container');
+            const skeleton = `
+                <div class="bg-white dark:bg-darkCard p-8 rounded-3xl border border-slate-100 dark:border-slate-800 animate-pulse flex flex-col items-start">
+                    <div class="bg-slate-200 dark:bg-slate-700 w-16 h-16 rounded-2xl mb-6"></div>
+                    <div class="h-6 bg-slate-200 dark:bg-slate-700 rounded w-3/4 mb-4"></div>
+                    <div class="h-8 bg-slate-200 dark:bg-slate-700 rounded w-1/2 mb-6"></div>
+                    <div class="mt-auto w-full h-12 bg-slate-200 dark:bg-slate-700 rounded-xl"></div>
+                </div>
+            `;
+            container.innerHTML = Array(4).fill(skeleton).join('');
+
+            if (SCRIPT_URL_LAYANAN === 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
+                allServicesData = fallbackServices;
+                processServices();
+                return;
             }
-        } else if (rate > 0) {
-            if (vch) {
-                return `\n*(Menggunakan voucher ${vch.kode} diskon ${rate * 100}%)*`;
-            } else {
-                return `\n*(Menggunakan promo otomatis diskon ${rate * 100}%)*`;
+
+            try {
+                const response = await fetch(SCRIPT_URL_LAYANAN);
+                const data = await response.json();
+                allServicesData = data.map((s, i) => ({ ...s, id: s.id || 'LYN-' + Date.now() + i }));
+                processServices();
+            } catch (error) {
+                console.warn("Gagal mengambil data dari Spreadsheet, menggunakan fallback:", error);
+                allServicesData = fallbackServices;
+                processServices();
             }
         }
-        return '';
-    };
 
-    window.triggerKlaimKuotaVoucher = async function() {
-        const vch = BDG.State.activeVoucher;
-        if (!vch) return;
-        try {
-            fetch(BDG.Config.API_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                body: JSON.stringify({ action: 'INCREMENT_VOUCHER_USAGE', kode: vch.kode })
-            });
-        } catch (e) {
-            console.warn("[VOUCHER] Gagal asinkron kuota:", e);
-        }
-    };
-
-    window.pesanInstagram = function(paket, basePrice) {
-        const rate = BDG.Engine.getDiskonInstagram();
-        const akhir = basePrice - (basePrice * rate);
-        const teks = formatRupiah(akhir);
-        
-        triggerKlaimKuotaVoucher();
-        const wa = `Halo BDG, saya ingin pesan *Paket Instagram ${paket}* dengan harga ${teks}.${getTeksDiskonWA('ig')}`;
-        window.open(`https://wa.me/6285708845405?text=${encodeURIComponent(wa)}`, '_blank');
-    };
-
-    window.kirimWA = function() {
-        const nama = document.getElementById('name-input').value.trim();
-        const keperluan = document.getElementById('service-input').value;
-        const pesan = document.getElementById('message-input').value.trim();
-        
-        if (!nama) { tampilkanPeringatan("Tolong masukkan nama Anda"); return; }
-        
-        triggerKlaimKuotaVoucher();
-        const wa = `Halo BDG, saya *${nama}*.\nSaya ingin memesan: *${keperluan}*.${getTeksDiskonWA('layanan', keperluan)}\n\n*Pesan:*\n${pesan}`;
-        window.open(`https://wa.me/6285708845405?text=${encodeURIComponent(wa)}`, '_blank');
-    };
-
-    window.terapkanVoucher = async function() {
-        const code = document.getElementById('voucher-input').value.trim().toUpperCase();
-        if (!code) { tampilkanPeringatan("Masukkan kode voucher."); return; }
-
-        const btn = document.querySelector('#voucher-modal button[onclick="terapkanVoucher()"]');
-        BDG.UI.toggleButtonLoading(btn, true, "Validasi...");
-
-        try {
-            if (BDG.Config.API_URL === '' || BDG.Config.API_URL.includes('YOUR_API_URL')) {
-                throw new Error("Layanan cloud voucher tidak aktif.");
+        async function fetchPromos() {
+            if (SCRIPT_URL_PROMO === 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') return;
+            try {
+                const response = await fetch(SCRIPT_URL_PROMO + '?action=getPromos');
+                if (!response.ok) throw new Error("Gagal load promo");
+                const data = await response.json();
+                activePromosData = data;
+                renderLayanan();
+                updateHargaInstagram();
+            } catch (error) {
+                console.warn("Gagal load data promo:", error);
             }
-            const res = await BDG.API.execute(`${BDG.Config.API_URL}?action=validateVoucher&kode=${encodeURIComponent(code)}`);
+        }
 
-            if (res && res.success) {
-                const voucher = res.data;
-                BDG.Utils.writeStorage('bdg_active_voucher_data', voucher);
-                BDG.State.activeVoucher = voucher;
+        function processServices() {
+            // Sort seluruh data berdasarkan urutan
+            allServicesData.sort((a, b) => parseInt(a.urutan || 99) - parseInt(b.urutan || 99));
+            // Filter layanan aktif
+            activeServices = allServicesData.filter(s => s.status !== 'OFF');
+            renderLayanan();
+        }
+
+        function renderLayanan() {
+            const servicesContainer = document.getElementById('services-container');
+            if(activeServices.length === 0) return;
+
+            servicesContainer.innerHTML = activeServices.map((s, index) => {
+                const diskonRate = getDiskonRate('layanan', s.nama_layanan);
+                const potongan = s.harga * diskonRate;
+                const hargaSetelahDiskon = s.harga - potongan;
                 
-                tampilkanPeringatan(`Sukses: Voucher "${voucher.kode}" berhasil dipasang!`);
-                BDG.UI.renderMainServices();
-                BDG.UI.renderInstagramPackages();
+                const isDiskon = potongan > 0;
+                const tagVoucher = isDiskon ? `<span class="text-[10px] font-bold uppercase tracking-wider text-green-500 bg-green-50 dark:bg-green-900/20 px-2 py-0.5 rounded-md mb-1 inline-block">Diskon Terpasang</span>` : '';
+                const hargaCoret = isDiskon ? `<span class="text-slate-400 line-through text-sm">${formatRupiah(s.harga)}</span>` : '';
+                
+                return `
+                    <div class="service-card bg-white dark:bg-darkCard p-8 rounded-3xl border border-slate-100 dark:border-slate-800 transition-all duration-300 flex flex-col items-start" data-aos="fade-up">
+                        <div class="bg-brand-50 dark:bg-brand-900/30 p-4 rounded-2xl mb-6 text-brand-600 dark:text-brand-400">
+                            <i data-lucide="${s.icon_lucide}" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2 dark:text-white">${s.nama_layanan}</h3>
+                        <div class="mb-6">
+                            ${tagVoucher}
+                            <div class="flex flex-col">
+                                ${hargaCoret}
+                                <span class="text-brand-600 dark:text-brand-400 font-bold text-2xl">${formatRupiah(hargaSetelahDiskon)}</span>
+                            </div>
+                        </div>
+                        <button onclick="openServiceModal(${index})" class="mt-auto w-full text-center py-3 bg-slate-50 dark:bg-slate-800 hover:bg-brand-600 hover:text-white transition rounded-xl font-semibold text-sm dark:text-slate-300">Pilih Layanan</button>
+                    </div>
+                `;
+            }).join('');
+            lucide.createIcons();
+        }
+
+        function updateHargaInstagram() {
+            document.querySelectorAll('.ig-price-display').forEach(el => {
+                const basePrice = parseFloat(el.getAttribute('data-base'));
+                const diskonRate = getDiskonRate('ig');
+                const hargaAkhir = basePrice - (basePrice * diskonRate);
+                
+                el.innerText = formatRupiah(hargaAkhir);
+                
+                const wadah = el.closest('.ig-price-container');
+                const existingCoret = wadah.querySelector('.ig-harga-coret');
+                
+                if (diskonRate > 0) {
+                    if (!existingCoret) {
+                        const coret = document.createElement('div');
+                        coret.className = 'ig-harga-coret text-sm font-semibold text-slate-400 line-through mb-1';
+                        coret.innerText = formatRupiah(basePrice);
+                        wadah.insertBefore(coret, el);
+                    }
+                } else if (existingCoret) {
+                    existingCoret.remove();
+                }
+            });
+        }
+
+        function openServiceModal(index) {
+            const service = activeServices[index];
+            const diskonRate = getDiskonRate('layanan', service.nama_layanan);
+            const hargaAkhir = service.harga - (service.harga * diskonRate);
+            const hargaTeks = formatRupiah(hargaAkhir);
+
+            document.getElementById('modal-title').innerText = `Raih Perhatian dengan "${service.nama_layanan}" Menarik!`;
+            
+            const defaultIntro = `Buat bisnis atau karya Anda semakin dilirik dengan "${service.nama_layanan}" yang eye-catching! Kami menawarkan hasil profesional, kreatif, dan sesuai dengan harapan Anda.`;
+            document.getElementById('modal-intro').innerText = service.deskripsi ? service.deskripsi : defaultIntro;
+            
+            document.getElementById('modal-price-header').innerText = `Paket lengkap "${hargaTeks}" ini sudah termasuk:`;
+            document.querySelectorAll('.modal-service-name').forEach(el => el.innerText = service.nama_layanan);
+            
+            let waText = `Halo BDG, saya ingin memesan: *${service.nama_layanan}* seharga ${hargaTeks}.${getTeksDiskonWA('layanan', service.nama_layanan)}%0AMohon info selanjutnya.`;
+            if (service.whatsapp_message) {
+                waText = service.whatsapp_message.replace('{{harga}}', hargaTeks).replace('{{diskon}}', getTeksDiskonWA('layanan', service.nama_layanan));
+            }
+            
+            document.getElementById('modal-whatsapp-btn').href = `https://wa.me/6285708845405?text=${encodeURIComponent(waText).replace(/%250A/gi, '%0A')}`;
+            
+            openModalGeneric('service-modal');
+        }
+
+        // ----------------------------------------------------
+        // VOUCHER REALTIME LOGIC
+        // ----------------------------------------------------
+        
+        async function terapkanVoucher() {
+            const input = document.getElementById('voucher-input').value.trim().toUpperCase();
+            if (!input) {
+                tampilkanPeringatan("Tolong masukkan kode voucher.");
+                return;
+            }
+
+            const btn = document.querySelector('#voucher-modal button[onclick="terapkanVoucher()"]');
+            const originalText = btn.innerText;
+            btn.innerText = "Mengecek...";
+            btn.disabled = true;
+
+            try {
+                if (SCRIPT_URL_VOUCHER === '=https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
+                    throw new Error("URL API Voucher belum diatur.");
+                }
+
+                // Call data realtime dari Spreadsheet
+                const response = await fetch(SCRIPT_URL_VOUCHER + '?action=getVouchers');
+                if (!response.ok) throw new Error("Gagal terhubung ke server.");
+                const data = await response.json();
+
+                // Cari voucher berdasarkan kode
+                const voucher = data.find(v => v.kode.toUpperCase() === input);
+
+                if (!voucher) {
+                    throw new Error("Kode voucher tidak ditemukan.");
+                }
+
+                // 1. Validasi Status
+                if (voucher.status.toUpperCase() !== 'AKTIF' && voucher.status.toUpperCase() !== 'ON') {
+                    throw new Error("Maaf, voucher ini sudah tidak aktif.");
+                }
+
+                // 2. Validasi Tanggal
+                const hariIni = new Date().toISOString().split('T')[0];
+                if (voucher.tanggal_mulai && hariIni < voucher.tanggal_mulai) {
+                    throw new Error("Voucher belum bisa digunakan.");
+                }
+                if (voucher.tanggal_akhir && hariIni > voucher.tanggal_akhir) {
+                    throw new Error("Maaf, voucher sudah kedaluwarsa.");
+                }
+
+                // 3. Simpan State Berhasil
+                localStorage.setItem('bdg_active_voucher_data', JSON.stringify(voucher));
+                voucherAktifData = voucher;
+                
+                tampilkanPeringatan(`Voucher berhasil! Anda mendapat potongan harga.`);
+                
+                // Update UI Layanan
+                renderLayanan();
+                updateHargaInstagram();
                 tutupVoucherModal();
                 document.getElementById('voucher-input').value = "";
-            } else {
-                throw new Error(res.message || "Voucher tidak valid.");
+
+            } catch (error) {
+                tampilkanPeringatan(error.message || "Terjadi kesalahan sistem.");
+            } finally {
+                btn.innerText = originalText;
+                btn.disabled = false;
             }
-        } catch (err) {
-            tampilkanPeringatan(err.message || "Gagal memproses voucher.");
-        } finally {
-            BDG.UI.toggleButtonLoading(btn, false);
-        }
-    };
-
-    // --- ADMIN PANEL CONTROL DELEGATES ---
-    window.prosesLoginAdmin = function() {
-        const user = document.getElementById('admin-user').value;
-        const pass = document.getElementById('admin-pass').value;
-        if (user === 'bdg' && pass === 'adminbdg1') {
-            tampilkanPeringatan('Autentikasi diizinkan.');
-            tutupLoginAdmin();
-            document.getElementById('admin-user').value = '';
-            document.getElementById('admin-pass').value = '';
-            setTimeout(bukaAdminDashboard, 300);
-        } else {
-            tampilkanPeringatan('Username/Password Salah.');
-        }
-    };
-
-    window.bukaAdminDashboard = function() {
-        BDG.State.pendingSeasonalTheme = BDG.Utils.readStorage('seasonalTheme', 'normal');
-        BDG.State.pendingIsDark = document.documentElement.classList.contains('dark');
-
-        document.getElementById('theme-selector').value = BDG.State.pendingSeasonalTheme;
-        updateBtnThemeAdmin();
-        renderAdminPromos();
-        renderAdminServices();
-        openModalGeneric('admin-dashboard-modal');
-    };
-
-    window.updateBtnThemeAdmin = function() {
-        const btn = document.getElementById('btn-admin-theme');
-        if (btn) btn.innerText = BDG.State.pendingIsDark ? 'Ke Mode Terang' : 'Ke Mode Gelap';
-    };
-
-    window.togglePendingTheme = function() {
-        BDG.State.pendingIsDark = !BDG.State.pendingIsDark;
-        updateBtnThemeAdmin();
-    };
-
-    window.setSeasonalThemeAdmin = function(val) {
-        BDG.State.pendingSeasonalTheme = val;
-    };
-
-    window.terapkanPerubahanAdmin = function() {
-        const isDark = document.documentElement.classList.contains('dark');
-        if (BDG.State.pendingIsDark !== isDark) {
-            const toggle = document.getElementById('theme-toggle');
-            if (toggle) toggle.click();
         }
 
-        BDG.Utils.writeStorage('seasonalTheme', BDG.State.pendingSeasonalTheme);
-        BDG.Seasonal.applyCurrentTheme();
+        // Trigger ketika storage berubah di tab lain
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'bdg_active_voucher_data') voucherAktifData = JSON.parse(e.newValue);
+            if (e.key === 'seasonalTheme') applySeasonalTheme();
+            
+            if (['bdg_active_voucher_data', 'seasonalTheme'].includes(e.key)) {
+                renderLayanan();
+                updateHargaInstagram();
+            }
+        });
 
-        BDG.UI.renderMainServices();
-        BDG.UI.renderInstagramPackages();
+        // ----------------------------------------------------
+        // ADMIN LOGIC
+        // ----------------------------------------------------
 
-        tampilkanPeringatan('Konfigurasi berhasil diterapkan.');
-        tutupAdminDashboard();
-    };
-
-    // PANEL ADMIN: SINKRONISASI PROMO
-    window.renderAdminPromos = function() {
-        const container = document.getElementById('admin-promo-list');
-        if (!container) return;
-        
-        if (BDG.State.activePromos.length === 0) {
-            container.innerHTML = '<p class="text-sm text-slate-500 text-center py-4">Belum ada promo terdaftar.</p>';
-            return;
+        function prosesLoginAdmin() {
+            const user = document.getElementById('admin-user').value;
+            const pass = document.getElementById('admin-pass').value;
+            if(user === 'bdg' && pass === 'adminbdg1') {
+                tampilkanPeringatan('Akses Admin Berhasil Diberikan');
+                tutupLoginAdmin();
+                document.getElementById('admin-user').value = '';
+                document.getElementById('admin-pass').value = '';
+                setTimeout(() => { bukaAdminDashboard(); }, 300);
+            } else {
+                tampilkanPeringatan('Username atau Password Salah');
+            }
         }
 
-        container.innerHTML = BDG.State.activePromos.map((p, idx) => {
-            const prs = Math.round(parseFloat(p.diskon || 0) * 100);
-            const active = p.status === 'AKTIF' || p.status === 'ON';
-            return `
+        let pendingSeasonalTheme = localStorage.getItem('seasonalTheme') || 'normal';
+        let pendingIsDark = false;
+
+        function togglePendingTheme() {
+            pendingIsDark = !pendingIsDark;
+            updateBtnThemeAdmin();
+        }
+
+        function updateBtnThemeAdmin() {
+            const btn = document.getElementById('btn-admin-theme');
+            btn.innerText = pendingIsDark ? 'Ke Mode Terang' : 'Ke Mode Gelap';
+        }
+
+        // --- MANAJEMEN PROMO ADMIN ---
+        function renderAdminPromos() {
+            const container = document.getElementById('admin-promo-list');
+            if(!container) return;
+            
+            if(activePromosData.length === 0) {
+                container.innerHTML = '<p class="text-sm text-slate-500 text-center py-4">Belum ada promo aktif.</p>';
+                return;
+            }
+
+            container.innerHTML = activePromosData.map((p, i) => `
                 <div class="p-3 border border-slate-200 dark:border-slate-700 rounded-xl mb-2 bg-white dark:bg-slate-800">
                     <div class="flex justify-between items-start">
                         <div>
-                            <div class="font-bold text-brand-600 dark:text-brand-400 text-left">${p.nama_promo}</div>
-                            <div class="text-xs text-slate-500 mt-1 text-left">Target: ${p.target} ${p.target === 'LAYANAN_TERTENTU' ? '('+p.layanan_target+')' : ''}</div>
-                            <div class="text-xs text-slate-500 text-left">Diskon: ${prs}% | Tgl: ${p.tanggal_mulai} s/d ${p.tanggal_akhir}</div>
+                            <div class="font-bold text-brand-600 dark:text-brand-400">${p.nama_promo}</div>
+                            <div class="text-xs text-slate-500 mt-1">Target: ${p.target} ${p.target === 'LAYANAN_TERTENTU' ? '('+p.layanan_target+')' : ''}</div>
+                            <div class="text-xs text-slate-500">Diskon: ${p.diskon * 100}% | Tgl: ${p.tanggal_mulai} s/d ${p.tanggal_akhir}</div>
                         </div>
                     </div>
                     <div class="flex flex-wrap gap-2 mt-3">
-                        <button onclick="togglePromoStatus(${idx})" class="px-3 py-1 text-xs font-bold rounded-lg transition ${active ? 'bg-green-100 text-green-600 dark:bg-green-900/30' : 'bg-slate-100 text-slate-500 dark:bg-slate-700 dark:text-slate-400'}">
-                            ${active ? 'Aktif' : 'Nonaktif'}
+                        <button onclick="togglePromoStatus(${i})" class="px-3 py-1 text-xs font-bold rounded-lg transition ${p.status === 'AKTIF' || p.status === 'ON' ? 'bg-green-100 text-green-600 dark:bg-green-900/30' : 'bg-slate-100 text-slate-500 dark:bg-slate-700 dark:text-slate-400'}">
+                            ${p.status === 'AKTIF' || p.status === 'ON' ? 'Aktif' : 'Nonaktif'}
                         </button>
-                        <button onclick="editPromo(${idx})" class="px-3 py-1 text-xs font-bold rounded-lg bg-blue-100 text-blue-600 dark:bg-blue-900/30 hover:bg-blue-200 transition">
+                        <button onclick="editPromo(${i})" class="px-3 py-1 text-xs font-bold rounded-lg bg-blue-100 text-blue-600 dark:bg-blue-900/30 hover:bg-blue-200 transition">
                             Edit
                         </button>
-                        <button onclick="hapusPromo(${idx})" class="px-3 py-1 text-xs font-bold rounded-lg bg-red-100 text-red-600 dark:bg-red-900/30 hover:bg-red-200 transition">
+                        <button onclick="hapusPromo(${i})" class="px-3 py-1 text-xs font-bold rounded-lg bg-red-100 text-red-600 dark:bg-red-900/30 hover:bg-red-200 transition">
                             Hapus
                         </button>
                     </div>
                 </div>
-            `;
-        }).join('');
-    };
-
-    window.editPromo = function(idx) {
-        const p = BDG.State.activePromos[idx];
-        BDG.State.editPromoId = p.id;
-        
-        document.getElementById('new-promo-name').value = p.nama_promo;
-        document.getElementById('new-promo-target').value = p.target;
-        document.getElementById('new-promo-specific').value = p.layanan_target || '';
-        document.getElementById('new-promo-discount').value = Math.round(parseFloat(p.diskon || 0) * 100);
-        document.getElementById('new-promo-start').value = p.tanggal_mulai || '';
-        document.getElementById('new-promo-end').value = p.tanggal_akhir || '';
-        
-        document.getElementById('btn-submit-promo').innerText = 'Simpan Promo';
-        document.getElementById('btn-cancel-edit').classList.remove('hidden');
-    };
-
-    window.batalEditPromo = function() {
-        BDG.State.editPromoId = null;
-        document.getElementById('new-promo-name').value = '';
-        document.getElementById('new-promo-target').value = 'SEMUA';
-        document.getElementById('new-promo-specific').value = '';
-        document.getElementById('new-promo-discount').value = '';
-        document.getElementById('new-promo-start').value = '';
-        document.getElementById('new-promo-end').value = '';
-        
-        document.getElementById('btn-submit-promo').innerText = 'Tambah Promo';
-        document.getElementById('btn-cancel-edit').classList.add('hidden');
-    };
-
-    window.tambahPromo = async function() {
-        const nama = document.getElementById('new-promo-name').value.trim();
-        const target = document.getElementById('new-promo-target').value;
-        const specific = document.getElementById('new-promo-specific').value.trim();
-        const diskon = parseFloat(document.getElementById('new-promo-discount').value);
-        const start = document.getElementById('new-promo-start').value;
-        const end = document.getElementById('new-promo-end').value;
-
-        if (!nama || isNaN(diskon) || !start || !end) {
-            tampilkanPeringatan('Mohon lengkapi seluruh isian promo.');
-            return;
-        }
-        if (target === 'LAYANAN_TERTENTU' && !specific) {
-            tampilkanPeringatan('Tulis layanan spesifik.');
-            return;
+            `).join('');
         }
 
-        const btn = document.getElementById('btn-submit-promo');
-        BDG.UI.toggleButtonLoading(btn, true, "Menyimpan...");
+        function editPromo(index) {
+            const p = activePromosData[index];
+            editPromoId = p.id;
+            
+            document.getElementById('new-promo-name').value = p.nama_promo;
+            document.getElementById('new-promo-target').value = p.target;
+            document.getElementById('new-promo-specific').value = p.layanan_target || '';
+            document.getElementById('new-promo-discount').value = p.diskon * 100;
+            document.getElementById('new-promo-start').value = p.tanggal_mulai;
+            document.getElementById('new-promo-end').value = p.tanggal_akhir;
+            
+            document.getElementById('btn-submit-promo').innerText = 'Simpan Promo';
+            document.getElementById('btn-cancel-edit').classList.remove('hidden');
+        }
 
-        const payload = {
-            id: BDG.State.editPromoId || '',
-            nama_promo: nama,
-            jenis_promo: 'OTOMATIS',
-            target: target,
-            layanan_target: target === 'LAYANAN_TERTENTU' ? specific : '',
-            diskon: diskon / 100,
-            tanggal_mulai: start,
-            tanggal_akhir: end,
-            status: 'AKTIF'
-        };
+        function batalEditPromo() {
+            editPromoId = null;
+            document.getElementById('new-promo-name').value = '';
+            document.getElementById('new-promo-target').value = 'SEMUA';
+            document.getElementById('new-promo-specific').value = '';
+            document.getElementById('new-promo-discount').value = '';
+            document.getElementById('new-promo-start').value = '';
+            document.getElementById('new-promo-end').value = '';
+            
+            document.getElementById('btn-submit-promo').innerText = 'Tambah Promo';
+            document.getElementById('btn-cancel-edit').classList.add('hidden');
+        }
 
-        try {
-            const res = await BDG.API.execute(BDG.Config.API_URL, 'POST', {
-                action: 'SAVE_PROMO',
-                promo: payload
-            });
+        async function tambahPromo() {
+            const nama_promo = document.getElementById('new-promo-name').value.trim();
+            const target = document.getElementById('new-promo-target').value;
+            const specific = document.getElementById('new-promo-specific').value.trim();
+            const diskonVal = parseFloat(document.getElementById('new-promo-discount').value);
+            const start = document.getElementById('new-promo-start').value;
+            const end = document.getElementById('new-promo-end').value;
 
-            if (res && res.success) {
-                const saved = res.data;
-                const idx = BDG.State.activePromos.findIndex(p => p.id === saved.id || (BDG.State.editPromoId && p.id === BDG.State.editPromoId));
-                if (idx !== -1) {
-                    BDG.State.activePromos[idx] = saved;
-                } else {
-                    BDG.State.activePromos.push(saved);
+            if(!nama_promo || isNaN(diskonVal) || !start || !end) {
+                tampilkanPeringatan('Mohon lengkapi data promo');
+                return;
+            }
+            if(target === 'LAYANAN_TERTENTU' && !specific) {
+                tampilkanPeringatan('Masukkan nama layanan spesifik');
+                return;
+            }
+
+            const diskon = diskonVal / 100;
+
+            if (editPromoId) {
+                const index = activePromosData.findIndex(p => p.id === editPromoId);
+                if (index !== -1) {
+                    activePromosData[index] = {
+                        ...activePromosData[index],
+                        nama_promo, target, layanan_target: target === 'LAYANAN_TERTENTU' ? specific : '',
+                        diskon, tanggal_mulai: start, tanggal_akhir: end
+                    };
+                    tampilkanPeringatan('Menyimpan perubahan...');
+                    if (SCRIPT_URL_PROMO !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
+                        fetch(SCRIPT_URL_PROMO, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'UPDATE', promo: activePromosData[index] }) }).catch(console.error);
+                    }
                 }
-                tampilkanPeringatan('Promo tersimpan cloud.');
                 batalEditPromo();
-                renderAdminPromos();
-                BDG.UI.renderMainServices();
-                BDG.UI.renderInstagramPackages();
             } else {
-                throw new Error(res.message);
-            }
-        } catch (err) {
-            tampilkanPeringatan(`Gagal menyimpan: ${err.message}`);
-        } finally {
-            BDG.UI.toggleButtonLoading(btn, false);
-        }
-    };
-
-    window.togglePromoStatus = async function(idx) {
-        const promo = BDG.State.activePromos[idx];
-        const old = promo.status;
-        promo.status = (old === 'AKTIF' || old === 'ON') ? 'OFF' : 'AKTIF';
-        
-        tampilkanPeringatan('Memperbarui status...');
-        renderAdminPromos();
-        BDG.UI.renderMainServices();
-        BDG.UI.renderInstagramPackages();
-
-        try {
-            const res = await BDG.API.execute(BDG.Config.API_URL, 'POST', {
-                action: 'SAVE_PROMO',
-                promo: promo
-            });
-            if (res && res.success) {
-                BDG.State.activePromos[idx] = res.data;
-                tampilkanPeringatan('Status promo sinkron.');
-            } else { throw new Error(); }
-        } catch (e) {
-            promo.status = old;
-            tampilkanPeringatan('Gagal sinkronisasi status.');
-        } finally {
-            renderAdminPromos();
-            BDG.UI.renderMainServices();
-            BDG.UI.renderInstagramPackages();
-        }
-    };
-
-    window.hapusPromo = async function(idx) {
-        const promo = BDG.State.activePromos[idx];
-        tampilkanPeringatan('Menghapus promo...');
-
-        try {
-            const res = await BDG.API.execute(BDG.Config.API_URL, 'POST', {
-                action: 'DELETE_PROMO',
-                id: promo.id
-            });
-            if (res && res.success) {
-                BDG.State.activePromos.splice(idx, 1);
-                tampilkanPeringatan('Promo terhapus cloud.');
-            } else { throw new Error(); }
-        } catch (e) {
-            tampilkanPeringatan('Gagal menghapus dari database cloud.');
-        } finally {
-            renderAdminPromos();
-            BDG.UI.renderMainServices();
-            BDG.UI.renderInstagramPackages();
-        }
-    };
-
-    // PANEL ADMIN: SINKRONISASI LAYANAN
-    window.renderAdminServices = function() {
-        const container = document.getElementById('admin-srv-list');
-        if (!container) return;
-        
-        if (BDG.State.allServices.length === 0) {
-            container.innerHTML = '<p class="text-sm text-slate-500 text-center py-4">Belum ada layanan aktif.</p>';
-            return;
-        }
-
-        container.innerHTML = BDG.State.allServices.map(s => `
-            <div class="p-3 border border-slate-200 dark:border-slate-700 rounded-xl mb-2 bg-white dark:bg-slate-800 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-900/30 text-brand-600 flex items-center justify-center shrink-0">
-                        <i data-lucide="${s.icon_lucide || 'image'}" class="w-5 h-5"></i>
-                    </div>
-                    <div>
-                        <div class="font-bold text-slate-800 dark:text-white text-sm text-left">${s.nama_layanan}</div>
-                        <div class="text-xs text-slate-500 text-left">Urutan: ${s.urutan || '-'} | Harga: ${formatRupiah(s.harga)}</div>
-                    </div>
-                </div>
-                <div class="flex gap-2">
-                    <button onclick="toggleSrvStatus('${s.id}')" class="px-2 py-1 text-xs font-bold rounded-lg transition ${s.status === 'AKTIF' || s.status === 'ON' ? 'bg-green-100 text-green-600 dark:bg-green-900/30' : 'bg-slate-100 text-slate-500 dark:bg-slate-700 dark:text-slate-400'}">
-                        ${s.status === 'AKTIF' || s.status === 'ON' ? 'ON' : 'OFF'}
-                    </button>
-                    <button onclick="editLayanan('${s.id}')" class="px-2 py-1 text-xs font-bold rounded-lg bg-blue-100 text-blue-600 dark:bg-blue-900/30 hover:bg-blue-200 transition">
-                        Edit
-                    </button>
-                    <button onclick="hapusLayanan('${s.id}', this)" class="px-2 py-1 text-xs font-bold rounded-lg bg-red-100 text-red-600 dark:bg-red-900/30 hover:bg-red-200 transition">
-                        Hapus
-                    </button>
-                </div>
-            </div>
-        `).join('');
-        lucide.createIcons();
-    };
-
-    window.editLayanan = function(id) {
-        const s = BDG.State.allServices.find(item => item.id === id);
-        if (!s) return;
-
-        document.getElementById('new-srv-id').value = s.id;
-        document.getElementById('new-srv-nama').value = s.nama_layanan;
-        document.getElementById('new-srv-harga').value = s.harga;
-        document.getElementById('new-srv-icon').value = s.icon_lucide;
-        document.getElementById('new-srv-urutan').value = s.urutan || 99;
-        document.getElementById('new-srv-status').value = s.status === 'AKTIF' || s.status === 'ON' ? 'ON' : 'OFF';
-        document.getElementById('new-srv-deskripsi').value = s.deskripsi || '';
-        document.getElementById('new-srv-wa').value = s.whatsapp_message || '';
-        
-        document.getElementById('btn-submit-srv').innerText = 'Simpan Perubahan';
-        document.getElementById('btn-cancel-srv').classList.remove('hidden');
-    };
-
-    window.batalEditLayanan = function() {
-        document.getElementById('new-srv-id').value = '';
-        document.getElementById('new-srv-nama').value = '';
-        document.getElementById('new-srv-harga').value = '';
-        document.getElementById('new-srv-icon').value = '';
-        document.getElementById('new-srv-urutan').value = '';
-        document.getElementById('new-srv-status').value = 'ON';
-        document.getElementById('new-srv-deskripsi').value = '';
-        document.getElementById('new-srv-wa').value = '';
-        
-        document.getElementById('btn-submit-srv').innerText = 'Tambah Layanan';
-        document.getElementById('btn-cancel-srv').classList.add('hidden');
-    };
-
-    window.simpanLayanan = async function() {
-        const id = document.getElementById('new-srv-id').value;
-        const nama = document.getElementById('new-srv-nama').value.trim();
-        const harga = parseInt(document.getElementById('new-srv-harga').value);
-        const icon = document.getElementById('new-srv-icon').value.trim().toLowerCase();
-        const urutan = parseInt(document.getElementById('new-srv-urutan').value) || 999;
-        const status = document.getElementById('new-srv-status').value;
-        const deskripsi = document.getElementById('new-srv-deskripsi').value.trim();
-        const wa = document.getElementById('new-srv-wa').value.trim();
-
-        if (!nama || nama.length < 3) return tampilkanPeringatan('Nama layanan minimal 3 karakter.');
-        if (isNaN(harga) || harga <= 0) return tampilkanPeringatan('Harga numerik harus valid.');
-        if (!icon) return tampilkanPeringatan('Icon Lucide tidak boleh kosong.');
-        if (!BDG.Utils.isValidLucideIcon(icon)) return tampilkanPeringatan(`Icon "${icon}" tidak terdaftar di Lucide.`);
-
-        const btn = document.getElementById('btn-submit-srv');
-        BDG.UI.toggleButtonLoading(btn, true, "Menyimpan...");
-
-        const payload = { 
-            id: id || '',
-            nama_layanan: nama, 
-            harga: harga, 
-            icon_lucide: icon, 
-            urutan: urutan, 
-            status: status === 'ON' ? 'ON' : 'OFF', 
-            deskripsi: deskripsi, 
-            whatsapp_message: wa 
-        };
-
-        try {
-            const res = await BDG.API.execute(BDG.Config.API_URL, 'POST', {
-                action: 'SAVE_SERVICE',
-                layanan: payload
-            });
-
-            if (res && res.success) {
-                const saved = res.data;
-                const idx = BDG.State.allServices.findIndex(s => s.id === saved.id || (id && s.id === id));
-                if (idx !== -1) {
-                    BDG.State.allServices[idx] = saved;
-                } else {
-                    BDG.State.allServices.push(saved);
+                const newPromo = { 
+                    id: 'PRM-' + Date.now(),
+                    nama_promo: nama_promo, 
+                    jenis_promo: 'OTOMATIS',
+                    target: target,
+                    layanan_target: target === 'LAYANAN_TERTENTU' ? specific : '',
+                    diskon: diskon, 
+                    tanggal_mulai: start,
+                    tanggal_akhir: end,
+                    status: 'AKTIF' 
+                };
+                activePromosData.push(newPromo);
+                tampilkanPeringatan('Menambahkan promo...');
+                if (SCRIPT_URL_PROMO !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
+                    fetch(SCRIPT_URL_PROMO, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'CREATE', promo: newPromo }) }).catch(console.error);
                 }
-                tampilkanPeringatan('Layanan disinkronkan ke Cloud.');
-                batalEditLayanan();
-                BDG.State.allServices.sort((a, b) => parseInt(a.urutan || 999) - parseInt(b.urutan || 999));
-                BDG.State.activeServices = BDG.State.allServices.filter(s => s.status === 'ON' || s.status === 'AKTIF');
-                BDG.UI.renderMainServices();
+                document.getElementById('new-promo-name').value = '';
+                document.getElementById('new-promo-specific').value = '';
+                document.getElementById('new-promo-discount').value = '';
+            }
+            
+            renderAdminPromos();
+            renderLayanan();
+            updateHargaInstagram();
+        }
+
+        async function togglePromoStatus(index) {
+            const promo = activePromosData[index];
+            const newStatus = (promo.status === 'AKTIF' || promo.status === 'ON') ? 'OFF' : 'AKTIF';
+            promo.status = newStatus;
+            
+            renderAdminPromos();
+            renderLayanan();
+            updateHargaInstagram();
+
+            if (SCRIPT_URL_PROMO !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
+                fetch(SCRIPT_URL_PROMO, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'UPDATE', promo: promo }) }).catch(console.error);
+            }
+        }
+
+        async function hapusPromo(index) {
+            const deletedPromo = activePromosData[index];
+            activePromosData.splice(index, 1);
+            
+            renderAdminPromos();
+            renderLayanan();
+            updateHargaInstagram();
+
+            if (SCRIPT_URL_PROMO !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
+                fetch(SCRIPT_URL_PROMO, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'DELETE', promo: deletedPromo }) }).catch(console.error);
+            }
+        }
+
+        // --- MANAJEMEN LAYANAN ADMIN ---
+        function renderAdminServices() {
+            const container = document.getElementById('admin-srv-list');
+            if(!container) return;
+            
+            if(allServicesData.length === 0) {
+                container.innerHTML = '<p class="text-sm text-slate-500 text-center py-4">Belum ada layanan.</p>';
+                return;
+            }
+
+            container.innerHTML = allServicesData.map(s => `
+                <div class="p-3 border border-slate-200 dark:border-slate-700 rounded-xl mb-2 bg-white dark:bg-slate-800 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-900/30 text-brand-600 flex items-center justify-center shrink-0">
+                            <i data-lucide="${s.icon_lucide}" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-slate-800 dark:text-white text-sm">${s.nama_layanan}</div>
+                            <div class="text-xs text-slate-500">Urutan: ${s.urutan || '-'} | Harga: ${formatRupiah(s.harga)}</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="toggleSrvStatus('${s.id}')" class="px-2 py-1 text-xs font-bold rounded-lg transition ${s.status === 'AKTIF' || s.status === 'ON' ? 'bg-green-100 text-green-600 dark:bg-green-900/30' : 'bg-slate-100 text-slate-500 dark:bg-slate-700 dark:text-slate-400'}">
+                            ${s.status === 'AKTIF' || s.status === 'ON' ? 'ON' : 'OFF'}
+                        </button>
+                        <button onclick="editLayanan('${s.id}')" class="px-2 py-1 text-xs font-bold rounded-lg bg-blue-100 text-blue-600 dark:bg-blue-900/30 hover:bg-blue-200 transition">
+                            Edit
+                        </button>
+                        <button onclick="hapusLayanan('${s.id}', this)" class="px-2 py-1 text-xs font-bold rounded-lg bg-red-100 text-red-600 dark:bg-red-900/30 hover:bg-red-200 transition">
+                            Hapus
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        // Cek validasi ikon lucide (kebab-case ke camelCase)
+        function isLucideIconValid(iconName) {
+            if (!iconName) return false;
+            const camelCaseName = iconName.replace(/-([a-z])/g, g => g[1].toUpperCase());
+            return !!lucide.icons[camelCaseName] || !!lucide.icons[iconName];
+        }
+
+        function simpanLayanan() {
+            const id = document.getElementById('new-srv-id').value;
+            const nama = document.getElementById('new-srv-nama').value.trim();
+            const harga = parseInt(document.getElementById('new-srv-harga').value);
+            const icon = document.getElementById('new-srv-icon').value.trim();
+            const urutan = parseInt(document.getElementById('new-srv-urutan').value) || 99;
+            const status = document.getElementById('new-srv-status').value;
+            const deskripsi = document.getElementById('new-srv-deskripsi').value.trim();
+            const wa = document.getElementById('new-srv-wa').value.trim();
+
+            // Validasi Input
+            if (!nama) return tampilkanPeringatan('Nama layanan tidak boleh kosong');
+            if (isNaN(harga) || harga < 0) return tampilkanPeringatan('Harga harus berupa angka valid');
+            if (!isLucideIconValid(icon)) return tampilkanPeringatan('Icon Lucide tidak valid');
+
+            const payload = { 
+                id: id || 'LYN-' + Date.now(),
+                nama_layanan: nama, 
+                harga: harga, 
+                icon_lucide: icon, 
+                urutan: urutan, 
+                status: status, 
+                deskripsi: deskripsi, 
+                whatsapp_message: wa 
+            };
+
+            if (id) {
+                // Update Layanan
+                const index = allServicesData.findIndex(s => s.id === id);
+                if (index !== -1) {
+                    allServicesData[index] = payload;
+                    tampilkanPeringatan('Perubahan layanan disimpan');
+                    if (SCRIPT_URL_LAYANAN !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
+                        fetch(SCRIPT_URL_LAYANAN, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'UPDATE', layanan: payload }) }).catch(console.error);
+                    }
+                }
+            } else {
+                // Tambah Layanan
+                allServicesData.push(payload);
+                tampilkanPeringatan('Layanan baru ditambahkan');
+                if (SCRIPT_URL_LAYANAN !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
+                    fetch(SCRIPT_URL_LAYANAN, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'CREATE', layanan: payload }) }).catch(console.error);
+                }
+            }
+
+            batalEditLayanan();
+            processServices(); // Render UI Utama
+            renderAdminServices(); // Render UI Admin
+        }
+
+        function editLayanan(id) {
+            const s = allServicesData.find(item => item.id === id);
+            if (!s) return;
+
+            document.getElementById('new-srv-id').value = s.id;
+            document.getElementById('new-srv-nama').value = s.nama_layanan;
+            document.getElementById('new-srv-harga').value = s.harga;
+            document.getElementById('new-srv-icon').value = s.icon_lucide;
+            document.getElementById('new-srv-urutan').value = s.urutan || 99;
+            document.getElementById('new-srv-status').value = s.status === 'AKTIF' || s.status === 'ON' ? 'ON' : 'OFF';
+            document.getElementById('new-srv-deskripsi').value = s.deskripsi || '';
+            document.getElementById('new-srv-wa').value = s.whatsapp_message || '';
+            
+            document.getElementById('btn-submit-srv').innerText = 'Simpan Perubahan';
+            document.getElementById('btn-cancel-srv').classList.remove('hidden');
+        }
+
+        function batalEditLayanan() {
+            document.getElementById('new-srv-id').value = '';
+            document.getElementById('new-srv-nama').value = '';
+            document.getElementById('new-srv-harga').value = '';
+            document.getElementById('new-srv-icon').value = '';
+            document.getElementById('new-srv-urutan').value = '';
+            document.getElementById('new-srv-status').value = 'ON';
+            document.getElementById('new-srv-deskripsi').value = '';
+            document.getElementById('new-srv-wa').value = '';
+            
+            document.getElementById('btn-submit-srv').innerText = 'Tambah Layanan';
+            document.getElementById('btn-cancel-srv').classList.add('hidden');
+        }
+
+        function hapusLayanan(id, btn) {
+            // Konfirmasi hapus inline tanpa alert bawaan
+            if (btn.innerText !== 'Yakin?') {
+                btn.innerText = 'Yakin?';
+                btn.classList.replace('bg-red-100', 'bg-red-600');
+                btn.classList.replace('text-red-600', 'text-white');
+                
+                // Kembalikan ke mode awal jika tidak jadi ditekan setelah 3 detik
+                setTimeout(() => {
+                    if(document.body.contains(btn) && btn.innerText === 'Yakin?') {
+                        btn.innerText = 'Hapus';
+                        btn.classList.replace('bg-red-600', 'bg-red-100');
+                        btn.classList.replace('text-white', 'text-red-600');
+                    }
+                }, 3000);
+                return;
+            }
+
+            // Eksekusi penghapusan
+            const index = allServicesData.findIndex(s => s.id === id);
+            if (index !== -1) {
+                const deletedSrv = allServicesData[index];
+                allServicesData.splice(index, 1);
+                
+                processServices(); // Perbarui UI website langsung
+                renderAdminServices(); // Perbarui list admin
+                tampilkanPeringatan('Layanan dihapus');
+
+                if (SCRIPT_URL_LAYANAN !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
+                    fetch(SCRIPT_URL_LAYANAN, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'DELETE', layanan: deletedSrv }) }).catch(console.error);
+                }
+            }
+        }
+
+        function toggleSrvStatus(id) {
+            const index = allServicesData.findIndex(s => s.id === id);
+            if (index !== -1) {
+                const srv = allServicesData[index];
+                srv.status = (srv.status === 'AKTIF' || srv.status === 'ON') ? 'OFF' : 'ON';
+                
+                processServices();
                 renderAdminServices();
-            } else {
-                throw new Error(res.message);
-            }
-        } catch (err) {
-            tampilkanPeringatan(`Gagal menyimpan: ${err.message}`);
-        } finally {
-            BDG.UI.toggleButtonLoading(btn, false);
-        }
-    };
-
-    window.toggleSrvStatus = async function(id) {
-        const srv = BDG.State.allServices.find(s => s.id === id);
-        if (!srv) return;
-        
-        const old = srv.status;
-        srv.status = (old === 'AKTIF' || old === 'ON') ? 'OFF' : 'ON';
-        
-        tampilkanPeringatan('Menghubungi cloud...');
-        BDG.State.activeServices = BDG.State.allServices.filter(s => s.status === 'ON' || s.status === 'AKTIF');
-        BDG.UI.renderMainServices();
-        renderAdminServices();
-
-        try {
-            const res = await BDG.API.execute(BDG.Config.API_URL, 'POST', {
-                action: 'SAVE_SERVICE',
-                layanan: srv
-            });
-            if (res && res.success) {
-                const idx = BDG.State.allServices.findIndex(s => s.id === id);
-                if (idx !== -1) BDG.State.allServices[idx] = res.data;
-                tampilkanPeringatan('Status layanan cloud diperbarui.');
-            } else { throw new Error(); }
-        } catch (e) {
-            srv.status = old;
-            tampilkanPeringatan('Gagal sinkronisasi status.');
-        } finally {
-            BDG.State.activeServices = BDG.State.allServices.filter(s => s.status === 'ON' || s.status === 'AKTIF');
-            BDG.UI.renderMainServices();
-            renderAdminServices();
-        }
-    };
-
-    window.hapusLayanan = async function(id, btn) {
-        if (btn.innerText !== 'Yakin?') {
-            btn.innerText = 'Yakin?';
-            btn.classList.replace('bg-red-100', 'bg-red-600');
-            btn.classList.replace('text-red-600', 'text-white');
-            setTimeout(() => {
-                if (document.body.contains(btn) && btn.innerText === 'Yakin?') {
-                    btn.innerText = 'Hapus';
-                    btn.classList.replace('bg-red-600', 'bg-red-100');
-                    btn.classList.replace('text-white', 'text-red-600');
+                
+                if (SCRIPT_URL_LAYANAN !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
+                    fetch(SCRIPT_URL_LAYANAN, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'UPDATE', layanan: srv }) }).catch(console.error);
                 }
-            }, 3000);
-            return;
+            }
         }
 
-        tampilkanPeringatan('Menghapus dari cloud...');
-        btn.setAttribute('disabled', 'true');
+        function setSeasonalThemeAdmin(theme) { pendingSeasonalTheme = theme; }
 
-        try {
-            const res = await BDG.API.execute(BDG.Config.API_URL, 'POST', {
-                action: 'DELETE_SERVICE',
-                id: id
+        function terapkanPerubahanAdmin() {
+            const isCurrentlyDark = document.documentElement.classList.contains('dark');
+            if(pendingIsDark !== isCurrentlyDark) {
+                document.getElementById('theme-toggle').click();
+            }
+
+            localStorage.setItem('seasonalTheme', pendingSeasonalTheme);
+            applySeasonalTheme();
+
+            renderLayanan();
+            updateHargaInstagram();
+
+            tampilkanPeringatan('Perubahan berhasil diterapkan');
+            tutupAdminDashboard();
+        }
+
+        // ----------------------------------------------------
+        // SEASONAL THEMES
+        // ----------------------------------------------------
+        function applySeasonalTheme() {
+            const theme = localStorage.getItem('seasonalTheme') || 'normal';
+            document.body.classList.remove('theme-ramadhan', 'theme-xmas', 'theme-imlek');
+            
+            if (theme !== 'normal') {
+                document.body.classList.add(`theme-${theme}`);
+                renderOrnamenMusiman(theme);
+                if(activePromosData.length === 0 && !voucherAktifData) tampilkanPromoMusiman(theme);
+            } else {
+                renderOrnamenMusiman('normal');
+            }
+        }
+
+        function renderOrnamenMusiman(theme) {
+            const container = document.getElementById('seasonal-ornaments');
+            container.innerHTML = '';
+            if(window.snowInterval) clearInterval(window.snowInterval);
+
+            if (theme === 'ramadhan') {
+                container.innerHTML = `
+                    <div class="ornament orn-float-1 opacity-50 dark:opacity-80">🌙</div>
+                    <div class="ornament orn-float-2 opacity-50 dark:opacity-80">✨</div>
+                    <div class="ornament orn-float-3 opacity-50 dark:opacity-80">🕌</div>
+                `;
+            } else if (theme === 'xmas') {
+                container.innerHTML = `
+                    <div class="ornament orn-float-1 opacity-80">🎅</div>
+                    <div class="ornament orn-float-2 opacity-80">🎄</div>
+                `;
+                window.snowInterval = setInterval(() => {
+                    const snow = document.createElement('div');
+                    snow.className = 'snow';
+                    snow.innerText = '❄️';
+                    snow.style.left = Math.random() * 100 + 'vw';
+                    snow.style.fontSize = (Math.random() * 1 + 0.5) + 'rem';
+                    snow.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    container.appendChild(snow);
+                    setTimeout(() => snow.remove(), 5000);
+                }, 300);
+            } else if (theme === 'imlek') {
+                container.innerHTML = `
+                    <div class="ornament lantern lantern-left">🏮</div>
+                    <div class="ornament lantern lantern-right">🏮</div>
+                    <div class="ornament orn-float-3 opacity-80">🧧</div>
+                `;
+            }
+        }
+
+        function tampilkanPromoMusiman(theme) {
+            const title = document.getElementById('seasonal-promo-title');
+            const desc = document.getElementById('seasonal-promo-desc');
+            const icon = document.getElementById('seasonal-promo-icon');
+
+            if (theme === 'ramadhan') {
+                icon.innerText = "🕌";
+                title.innerText = "Berkah Ramadhan!";
+                desc.innerText = "Sambut bulan suci dengan visual brand yang lebih fresh. Nikmati diskon spesial untuk semua layanan desain kami.";
+            } else if (theme === 'xmas') {
+                icon.innerText = "🎅";
+                title.innerText = "Merry Christmas!";
+                desc.innerText = "Bagikan kebahagiaan Natal dengan desain visual yang memukau. Dapatkan kado diskon spesial dari BDG Design.";
+            } else if (theme === 'imlek') {
+                icon.innerText = "🏮";
+                title.innerText = "Gong Xi Fa Cai!";
+                desc.innerText = "Awali tahun baru dengan rezeki melimpah dan desain baru. Angpao diskon spesial menanti pesanan Anda hari ini.";
+            }
+            openModalGeneric('seasonal-promo-modal');
+        }
+
+        // ----------------------------------------------------
+        // WA INTEGRATION
+        // ----------------------------------------------------
+        function getTeksDiskonWA(tipeTarget = "", namaLayanan = "") {
+            const diskonRate = getDiskonRate(tipeTarget, namaLayanan);
+            
+            if (diskonRate > 0) {
+                if (voucherAktifData && 
+                   ((voucherAktifData.target === 'SEMUA') || 
+                    (tipeTarget === 'ig' && voucherAktifData.target === 'PAKET_IG') || 
+                    (tipeTarget === 'layanan' && voucherAktifData.target === 'LAYANAN_TERTENTU' && voucherAktifData.layanan_target.toLowerCase() === namaLayanan.toLowerCase()))) {
+                     return `%0A*(Menggunakan voucher ${voucherAktifData.kode} diskon ${diskonRate * 100}%)*`;
+                } else {
+                     return `%0A*(Menggunakan promo otomatis diskon ${diskonRate * 100}%)*`;
+                }
+            }
+            return '';
+        }
+
+        function pesanInstagram(paket, basePrice) {
+            const diskonRate = getDiskonRate('ig');
+            const hargaAkhir = basePrice - (basePrice * diskonRate);
+            const hargaTeks = formatRupiah(hargaAkhir);
+            
+            let waText = `Halo BDG, saya ingin pesan *Paket Instagram ${paket}* dengan harga ${hargaTeks}.${getTeksDiskonWA('ig')}`;
+            window.open(`https://wa.me/6285708845405?text=${waText}`, '_blank');
+        }
+
+        function kirimWA() {
+            const nama = document.getElementById('name-input').value;
+            const keperluan = document.getElementById('service-input').value;
+            const pesan = document.getElementById('message-input').value;
+            
+            if(!nama) { tampilkanPeringatan("Tolong masukkan nama Anda"); return; }
+            
+            let text = `Halo BDG, saya *${nama}*.%0ASaya ingin memesan: *${keperluan}*.${getTeksDiskonWA('layanan', keperluan)}%0A%0A*Pesan:*%0A${pesan}`;
+            window.open(`https://wa.me/6285708845405?text=${text}`, '_blank');
+        }
+
+        // ----------------------------------------------------
+        // MISCELLANEOUS (Slider, Fake Notif, Counters)
+        // ----------------------------------------------------
+        const slider = document.getElementById('karya-slider');
+        function nextSlide() { slider.scrollBy({ left: slider.offsetWidth / 2, behavior: 'smooth' }); }
+        function prevSlide() { slider.scrollBy({ left: -(slider.offsetWidth / 2), behavior: 'smooth' }); }
+        function filterKarya(category) { slider.scrollTo({ left: 0, behavior: 'smooth' }); }
+
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+        const observerOptions = { threshold: 0.5 };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 15);
+                        } else {
+                            counter.innerText = target + (counter.getAttribute('data-target') === '99' ? '%' : '+');
+                        }
+                    };
+                    updateCount();
+                    counterObserver.unobserve(counter);
+                }
             });
-            if (res && res.success) {
-                BDG.State.allServices = BDG.State.allServices.filter(s => s.id !== id);
-                tampilkanPeringatan('Layanan terhapus cloud.');
-            } else { throw new Error(); }
-        } catch (e) {
-            tampilkanPeringatan('Gagal menghapus data layanan.');
-        } finally {
-            btn.removeAttribute('disabled');
-            BDG.State.activeServices = BDG.State.allServices.filter(s => s.status === 'ON' || s.status === 'AKTIF');
-            BDG.UI.renderMainServices();
-            renderAdminServices();
-        }
-    };
+        }, observerOptions);
 
-})(window, document);
-</script>
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        const namaPelanggan = ['Budi Santoso', 'CV Maju Jaya', 'Andi Rizky', 'Siti Aminah', 'Toko Berkah', 'PT Bismar', 'Dimas', 'Citra Lestari', 'Warung Sederhana', 'PT Makmur', 'Ahmad', 'Nisa', 'Klinik Sehat', 'Rina', 'Dedi'];
+        const waktuPesan = ['Baru saja', '1 menit yang lalu', 'Beberapa detik yang lalu', '2 menit yang lalu'];
+
+        function tampilkanNotifPalsu() {
+            const notif = document.getElementById('fake-notif');
+            if (notif.classList.contains('translate-y-0')) return;
+
+            const namaRandom = namaPelanggan[Math.floor(Math.random() * namaPelanggan.length)];
+            const layananRandom = activeServices.length > 0 
+                ? activeServices[Math.floor(Math.random() * activeServices.length)].nama_layanan 
+                : "Desain Pamflet";
+            const waktuRandom = waktuPesan[Math.floor(Math.random() * waktuPesan.length)];
+
+            document.getElementById('notif-name').innerText = namaRandom;
+            document.getElementById('notif-service').innerText = layananRandom;
+            document.getElementById('notif-time').innerText = waktuRandom;
+            lucide.createIcons();
+
+            notif.classList.remove('translate-y-20', 'opacity-0');
+            notif.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                notif.classList.remove('translate-y-0', 'opacity-100');
+                notif.classList.add('translate-y-20', 'opacity-0');
+                jadwalkanNotifSelanjutnya();
+            }, 4000);
+        }
+
+        function jadwalkanNotifSelanjutnya() {
+            const jedaAcak = Math.floor(Math.random() * (15000 - 8000 + 1)) + 8000;
+            setTimeout(tampilkanNotifPalsu, jedaAcak);
+        }
+    </script>
 </body>
 </html>
