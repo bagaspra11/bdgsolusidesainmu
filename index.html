@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="Image/favicon.png">
+    <link class="h-10 w-auto" rel="icon" type="image/png" href="Image/favicon.png">
     
     <!-- Meta Preview & SEO -->
     <title>BDG - Bagas Desainer Grafis | Jasa Desain Profesional</title>
@@ -396,7 +396,7 @@
                     <span class="text-brand-600 dark:text-brand-400 font-bold uppercase tracking-widest text-sm mb-4 block">Tentang BDG</span>
                     <h2 class="text-4xl md:text-5xl font-bold mb-8 leading-tight dark:text-white">Mewujudkan Ide Menjadi <span class="text-brand-600">Karya Visual</span> yang Bermakna.</h2>
                     <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
-                        BDG (Bagas Desainer Grafis) adalah jasa desain profesional yang berfokus pada estetika modern dan komunikasi visual yang efektif. Didirikan oleh <strong>Bagas Prayoga</strong>, kami hadir untuk memberikan solusi desain eksklusif yang mudah diakses oleh semua kalangan.
+                        BDG (Bagas Desainer Grafis) adalah jasa desain profesional yang berfokus pada estetika modern and komunikasi visual yang efektif. Didirikan oleh <strong>Bagas Prayoga</strong>, kami hadir untuk memberikan solusi desain eksklusif yang mudah diakses oleh semua kalangan.
                     </p>
                     <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
                         Kami percaya bahwa desain yang baik bukan hanya soal keindahan, tapi tentang bagaimana pesan Anda tersampaikan dengan jelas kepada audiens.
@@ -974,26 +974,50 @@
         // State Global Diskon Aktif
         let voucherAktifData = JSON.parse(localStorage.getItem('bdg_active_voucher_data')) || null;
 
-        // Hitung Diskon
+        // Hitung Diskon (Dengan Perbaikan Pencocokan Tanggal Lokal & Format Angka)
         function getDiskonRate(tipeTarget, namaLayananTujuan = "") {
             if (voucherAktifData) {
-                const statusStr = (voucherAktifData.status || '').toUpperCase();
+                const statusStr = String(voucherAktifData.status || '').trim().toUpperCase();
                 if (statusStr !== 'ON' && statusStr !== 'AKTIF') return 0;
 
-                const hariIni = new Date().toISOString().split('T')[0];
-                if (voucherAktifData.tanggal_mulai && hariIni < voucherAktifData.tanggal_mulai) return 0;
-                if (voucherAktifData.tanggal_akhir && hariIni > voucherAktifData.tanggal_akhir) return 0;
+                // Konversi waktu lokal ke format YYYY-MM-DD
+                const d = new Date();
+                const yyyy = d.getFullYear();
+                const mm = String(d.getMonth() + 1).padStart(2, '0');
+                const dd = String(d.getDate()).padStart(2, '0');
+                const hariIni = `${yyyy}-${mm}-${dd}`;
+
+                const cleanDate = (dStr) => {
+                    if (!dStr) return '';
+                    return String(dStr).split('T')[0].trim();
+                };
+
+                const start = cleanDate(voucherAktifData.tanggal_mulai);
+                const end = cleanDate(voucherAktifData.tanggal_akhir);
+
+                if (start && hariIni < start) return 0;
+                if (end && hariIni > end) return 0;
 
                 const limit = parseInt(voucherAktifData.kuota) || 0;
                 const used = parseInt(voucherAktifData.kuota_terpakai) || 0;
                 if (limit > 0 && used >= limit) return 0;
 
-                const diskonRate = parseFloat(voucherAktifData.diskon) || 0;
+                let diskonRate = parseFloat(voucherAktifData.diskon) || 0;
+                // Jika diskon berupa angka bulat (misal 10 untuk 10%), ubah menjadi desimal (0.1)
+                if (diskonRate > 1) {
+                    diskonRate = diskonRate / 100;
+                }
 
-                if (voucherAktifData.target === 'SEMUA') return diskonRate;
-                if (tipeTarget === 'ig' && voucherAktifData.target === 'PAKET_IG') return diskonRate;
-                if (tipeTarget === 'layanan' && voucherAktifData.target === 'LAYANAN_TERTENTU' && voucherAktifData.layanan_target?.toLowerCase() === namaLayananTujuan.toLowerCase()) {
-                    return diskonRate;
+                const target = String(voucherAktifData.target || '').trim().toUpperCase();
+
+                if (target === 'SEMUA') return diskonRate;
+                if (tipeTarget === 'ig' && target === 'PAKET_IG') return diskonRate;
+                if (tipeTarget === 'layanan' && target === 'LAYANAN_TERTENTU') {
+                    const vchTargetLayanan = String(voucherAktifData.layanan_target || '').trim().toLowerCase();
+                    const inputLayanan = String(namaLayananTujuan || '').trim().toLowerCase();
+                    if (vchTargetLayanan === inputLayanan) {
+                        return diskonRate;
+                    }
                 }
             }
             return 0; 
@@ -1211,25 +1235,6 @@
             return "Rp" + parseFloat(angka).toLocaleString('id-ID');
         }
 
-        function copyEmail() {
-            const email = "akunkhusus0728@gmail.com";
-            navigator.clipboard.writeText(email);
-            const status = document.getElementById('copy-status');
-            status.innerText = "Copied!";
-            status.classList.replace('bg-brand-700', 'bg-green-500');
-            setTimeout(() => {
-                status.innerText = "Click to copy";
-                status.classList.replace('bg-green-500', 'bg-brand-700');
-            }, 2000);
-        }
-
-        function toggleFaq(button) {
-            const item = button.parentElement;
-            const isActive = item.classList.contains('active');
-            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-            if (!isActive) item.classList.add('active');
-        }
-
         // ----------------------------------------------------
         // DATA RENDERING (Layanan, Voucher, Admin)
         // ----------------------------------------------------
@@ -1393,7 +1398,7 @@
 
                 const voucher = result.data;
                 
-                // Simpan State Berhasil
+                // Simpan State Berhasil ke Local Storage dan Variabel Global
                 localStorage.setItem('bdg_active_voucher_data', JSON.stringify(voucher));
                 voucherAktifData = voucher;
                 
