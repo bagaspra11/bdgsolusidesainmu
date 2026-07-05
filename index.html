@@ -367,7 +367,7 @@
         <button id="close-menu" class="hidden"></button>
     </div>
 
-    <!-- Sisa HTML Konten tidak ada yang diubah -->
+    <!-- Sisa HTML Konten -->
     <section id="home" class="relative min-h-screen flex items-center pt-20 px-6 lg:px-12 bg-gradient-to-b from-brand-50 to-white dark:from-slate-900 dark:to-darkBg overflow-hidden">
         <div class="max-w-7xl mx-auto text-center relative z-10">
             <div data-aos="fade-up" data-aos-duration="1000">
@@ -647,35 +647,40 @@
                     </select>
                 </div>
 
+                <!-- Modifikasi Bagian Promo Menjadi Manajemen Voucher -->
                 <div class="p-4 border border-slate-100 dark:border-slate-800 rounded-2xl bg-slate-50 dark:bg-slate-900/50">
                     <div class="mb-4">
-                        <div class="font-bold text-slate-800 dark:text-white">Manajemen Promo Otomatis</div>
-                        <div class="text-sm text-slate-500">Terapkan diskon otomatis tanpa kode</div>
+                        <div class="font-bold text-slate-800 dark:text-white">Manajemen Voucher</div>
+                        <div class="text-sm text-slate-500">Kelola kupon diskon agar dapat diklaim pengguna</div>
                     </div>
                     
                     <div class="space-y-2 mb-4">
-                        <input type="text" id="new-promo-name" placeholder="Nama Promo" class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm focus:outline-none focus:border-brand-600 dark:text-white">
+                        <input type="hidden" id="new-vch-id">
+                        <input type="text" id="new-vch-kode" placeholder="Kode Voucher (Cth: MERDEKA) *" class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm focus:outline-none focus:border-brand-600 dark:text-white uppercase tracking-wider font-bold">
                         <div class="grid grid-cols-2 gap-2">
-                            <select id="new-promo-target" class="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm focus:outline-none focus:border-brand-600 dark:text-white">
+                            <input type="number" id="new-vch-diskon" placeholder="Diskon (%) *" class="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm focus:outline-none focus:border-brand-600 dark:text-white">
+                            <input type="number" id="new-vch-kuota" placeholder="Kuota Penggunaan *" class="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm focus:outline-none focus:border-brand-600 dark:text-white">
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <select id="new-vch-target" class="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm focus:outline-none focus:border-brand-600 dark:text-white">
                                 <option value="SEMUA">Semua Layanan</option>
                                 <option value="PAKET_IG">Paket IG Saja</option>
                                 <option value="LAYANAN_TERTENTU">Layanan Tertentu</option>
                             </select>
-                            <input type="text" id="new-promo-specific" placeholder="Spesifik (Cth: Desain Kaos)" class="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm focus:outline-none focus:border-brand-600 dark:text-white">
+                            <input type="text" id="new-vch-specific" placeholder="Nama Layanan Spesifik" class="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm focus:outline-none focus:border-brand-600 dark:text-white">
                         </div>
-                        <div class="grid grid-cols-3 gap-2">
-                            <input type="number" id="new-promo-discount" placeholder="Diskon (%)" class="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm focus:outline-none focus:border-brand-600 dark:text-white">
-                            <input type="date" id="new-promo-start" class="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm focus:outline-none focus:border-brand-600 dark:text-white">
-                            <input type="date" id="new-promo-end" class="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm focus:outline-none focus:border-brand-600 dark:text-white">
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="date" id="new-vch-start" class="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm focus:outline-none focus:border-brand-600 dark:text-white">
+                            <input type="date" id="new-vch-end" class="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm focus:outline-none focus:border-brand-600 dark:text-white">
                         </div>
                         <div class="flex gap-2">
-                            <button id="btn-submit-promo" onclick="tambahPromo()" class="flex-1 py-2 bg-brand-100 text-brand-600 dark:bg-brand-900/30 dark:text-brand-400 rounded-lg text-sm font-bold hover:bg-brand-200 transition">Tambah Promo</button>
-                            <button id="btn-cancel-edit" onclick="batalEditPromo()" class="hidden py-2 px-4 bg-slate-200 text-slate-600 dark:bg-slate-700 dark:text-slate-300 rounded-lg text-sm font-bold hover:bg-slate-300 transition">Batal</button>
+                            <button id="btn-submit-vch" onclick="simpanVoucher()" class="flex-1 py-2 bg-brand-100 text-brand-600 dark:bg-brand-900/30 dark:text-brand-400 rounded-lg text-sm font-bold hover:bg-brand-200 transition">Tambah Voucher</button>
+                            <button id="btn-cancel-vch" onclick="batalEditVoucher()" class="hidden py-2 px-4 bg-slate-200 text-slate-600 dark:bg-slate-700 dark:text-slate-300 rounded-lg text-sm font-bold hover:bg-slate-300 transition">Batal</button>
                         </div>
                     </div>
 
-                    <div id="admin-promo-list" class="space-y-2 max-h-48 overflow-y-auto pr-2">
-                        <!-- List Promo -> Rendered by JS -->
+                    <div id="admin-vch-list" class="space-y-2 max-h-48 overflow-y-auto pr-2">
+                        <!-- List Voucher -> Rendered by JS -->
                     </div>
                 </div>
 
@@ -720,7 +725,7 @@
         </div>
     </div>
 
-    <!-- Bagian Akhir Body Sama seperti aslinya, sampai footer -->
+    <!-- Bagian Akhir Body -->
     <section id="karya" class="py-24 px-6 lg:px-12 bg-white dark:bg-darkBg overflow-hidden">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12" data-aos="fade-up">
@@ -942,14 +947,16 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // Data Global dan Konfigurasi
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxVpfpwLhbGqd9w5gfDI4H8W4-e9k9jAEgzjN5sG_Nzy9uhKw3OahhoVkDM5sqHm0HI/exec';
-        const SCRIPT_URL_LAYANAN = 'https://script.google.com/macros/s/AKfycbxVpfpwLhbGqd9w5gfDI4H8W4-e9k9jAEgzjN5sG_Nzy9uhKw3OahhoVkDM5sqHm0HI/exec';
-        const SCRIPT_URL_VOUCHER = 'https://script.google.com/macros/s/AKfycbxVpfpwLhbGqd9w5gfDI4H8W4-e9k9jAEgzjN5sG_Nzy9uhKw3OahhoVkDM5sqHm0HI/exec';
-        const SCRIPT_URL_PROMO = 'https://script.google.com/macros/s/AKfycbxVpfpwLhbGqd9w5gfDI4H8W4-e9k9jAEgzjN5sG_Nzy9uhKw3OahhoVkDM5sqHm0HI/exec';
+        // Data Global dan Konfigurasi Tunggal Apps Script
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzWyevRftWHgeb6DDaMEUyYs7B8gRwwOdQRvvnD8l04oWLnok7g_aE-K-sJSfmylp0w/exec'; 
         
-        let allServicesData = []; // Menyimpan semua data layanan (termasuk yang OFF)
-        let activeServices = []; // Hanya layanan yang ON
+        const SCRIPT_URL_LAYANAN = SCRIPT_URL;
+        const SCRIPT_URL_VOUCHER = SCRIPT_URL;
+        
+        let allServicesData = []; // Menyimpan semua data layanan dari DB
+        let activeServices = []; // Hanya layanan yang berstatus ON
+        let allVouchersData = []; // Menyimpan semua voucher dari DB untuk panel Admin
+        
         const fallbackServices = [
             { id: "LYN-1", nama_layanan: "Desain Sertifikat", harga: 20000, icon_lucide: "award", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 1 },
             { id: "LYN-2", nama_layanan: "Desain Twibbon", harga: 20000, icon_lucide: "image", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 2 },
@@ -964,66 +971,46 @@
             { id: "LYN-11", nama_layanan: "Desain Poster Film", harga: 180000, icon_lucide: "clapperboard", deskripsi: "", whatsapp_message: "", status: "ON", urutan: 11 }
         ];
 
-        // State Global Diskon
-        let voucherAktifData = JSON.parse(localStorage.getItem('bdg_active_voucher_data')) || null; // Data spesifik voucher
-        let activePromosData = []; // Data promo otomatis realtime
-        let editPromoId = null;
+        // State Global Diskon Aktif
+        let voucherAktifData = JSON.parse(localStorage.getItem('bdg_active_voucher_data')) || null;
 
-        // Fungsi Cerdas Hitung Diskon
+        // Hitung Diskon
         function getDiskonRate(tipeTarget, namaLayananTujuan = "") {
-            // 1. Cek Voucher dulu (Prioritas tertinggi)
             if (voucherAktifData) {
-                if (voucherAktifData.target === 'SEMUA') return voucherAktifData.diskon;
-                if (tipeTarget === 'ig' && voucherAktifData.target === 'PAKET_IG') return voucherAktifData.diskon;
-                if (tipeTarget === 'layanan' && voucherAktifData.target === 'LAYANAN_TERTENTU' && namaLayananTujuan && voucherAktifData.layanan_target && voucherAktifData.layanan_target.toLowerCase() === namaLayananTujuan.toLowerCase()) {
-                    return voucherAktifData.diskon;
+                const statusStr = (voucherAktifData.status || '').toUpperCase();
+                if (statusStr !== 'ON' && statusStr !== 'AKTIF') return 0;
+
+                const hariIni = new Date().toISOString().split('T')[0];
+                if (voucherAktifData.tanggal_mulai && hariIni < voucherAktifData.tanggal_mulai) return 0;
+                if (voucherAktifData.tanggal_akhir && hariIni > voucherAktifData.tanggal_akhir) return 0;
+
+                const limit = parseInt(voucherAktifData.kuota) || 0;
+                const used = parseInt(voucherAktifData.kuota_terpakai) || 0;
+                if (limit > 0 && used >= limit) return 0;
+
+                const diskonRate = parseFloat(voucherAktifData.diskon) || 0;
+
+                if (voucherAktifData.target === 'SEMUA') return diskonRate;
+                if (tipeTarget === 'ig' && voucherAktifData.target === 'PAKET_IG') return diskonRate;
+                if (tipeTarget === 'layanan' && voucherAktifData.target === 'LAYANAN_TERTENTU' && voucherAktifData.layanan_target?.toLowerCase() === namaLayananTujuan.toLowerCase()) {
+                    return diskonRate;
                 }
             }
-            
-            // 2. Jika tidak ada voucher yang cocok, cek Promo Otomatis
-            let maxPromoDiskon = 0;
-            const hariIni = new Date().toISOString().split('T')[0];
-
-            activePromosData.forEach(promo => {
-                if (promo.status !== 'AKTIF' && promo.status !== 'ON') return;
-                if (promo.tanggal_mulai && hariIni < promo.tanggal_mulai) return;
-                if (promo.tanggal_akhir && hariIni > promo.tanggal_akhir) return;
-
-                let applicable = false;
-                if (promo.target === 'SEMUA') applicable = true;
-                if (tipeTarget === 'ig' && promo.target === 'PAKET_IG') applicable = true;
-                if (tipeTarget === 'layanan' && promo.target === 'LAYANAN_TERTENTU' && namaLayananTujuan && promo.layanan_target && promo.layanan_target.toLowerCase() === namaLayananTujuan.toLowerCase()) applicable = true;
-
-                if (applicable && promo.diskon > maxPromoDiskon) {
-                    maxPromoDiskon = promo.diskon;
-                }
-            });
-
-            return maxPromoDiskon; 
+            return 0; 
         }
 
         // ----------------------------------------------------
         // INITIALIZATION & EVENT LISTENERS
         // ----------------------------------------------------
-        
         document.addEventListener('DOMContentLoaded', () => {
             initTheme();
             initScrollSpy();
             fetchServices();
-            fetchPromos();
-            updateHargaInstagram();
+            fetchVouchers();
             applySeasonalTheme();
             setTimeout(tampilkanNotifPalsu, 5000);
             AOS.init({ duration: 800, once: true, offset: 100 });
             lucide.createIcons();
-            
-            // Daftarkan listener pada tombol modal WhatsApp untuk melacak penggunaan voucher
-            const modalWaBtn = document.getElementById('modal-whatsapp-btn');
-            if(modalWaBtn) {
-                modalWaBtn.addEventListener('click', () => {
-                    incrementVoucherUsageIfAny();
-                });
-            }
         });
 
         // ----------------------------------------------------
@@ -1111,7 +1098,8 @@
             const btt = document.getElementById('backToTop');
             
             const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            document.getElementById('scroll-progress').style.width = scrollPercent + '%';
+            const progressEl = document.getElementById('scroll-progress');
+            if (progressEl) progressEl.style.width = scrollPercent + '%';
 
             if (window.scrollY > 50) nav.classList.add('shadow-md');
             else nav.classList.remove('shadow-md');
@@ -1188,13 +1176,18 @@
         function bukaLoginAdmin() { if(isMenuOpen) toggleMenu(); openModalGeneric('admin-login-modal'); }
         function tutupLoginAdmin() { closeModalGeneric('admin-login-modal'); }
         
-        function bukaAdminDashboard() { 
+        async function bukaAdminDashboard() { 
             pendingSeasonalTheme = localStorage.getItem('seasonalTheme') || 'normal';
             pendingIsDark = document.documentElement.classList.contains('dark');
 
             document.getElementById('theme-selector').value = pendingSeasonalTheme;
             updateBtnThemeAdmin();
-            renderAdminPromos();
+            
+            // Mengambil pembaruan data real-time saat membuka panel admin
+            await fetchServices();
+            await fetchVouchers();
+            
+            renderAdminVouchers();
             renderAdminServices();
             openModalGeneric('admin-dashboard-modal'); 
         }
@@ -1215,7 +1208,7 @@
         }
 
         function formatRupiah(angka) {
-            return "Rp" + Number(angka).toLocaleString('id-ID');
+            return "Rp" + parseFloat(angka).toLocaleString('id-ID');
         }
 
         function copyEmail() {
@@ -1240,7 +1233,6 @@
         // ----------------------------------------------------
         // DATA RENDERING (Layanan, Voucher, Admin)
         // ----------------------------------------------------
-
         async function fetchServices() {
             const container = document.getElementById('services-container');
             const skeleton = `
@@ -1254,44 +1246,40 @@
             container.innerHTML = Array(4).fill(skeleton).join('');
 
             try {
-                // Penambahan parameter action=getServices untuk dibaca doGet Apps Script
                 const response = await fetch(SCRIPT_URL_LAYANAN + '?action=getServices');
-                if (!response.ok) throw new Error("Gagal mengambil data dari Google Sheet");
-                const res = await response.json();
-                if (res && res.success && Array.isArray(res.data)) {
-                    allServicesData = res.data.map((s, i) => ({ ...s, id: s.id || 'LYN-' + Date.now() + i }));
+                const result = await response.json();
+                
+                if (result.success && result.data && result.data.length > 0) {
+                    allServicesData = result.data;
                 } else {
-                    throw new Error("Skema database layanan tidak valid");
+                    console.warn("Spreadsheet kosong, memuat fallback data.");
+                    allServicesData = fallbackServices;
                 }
                 processServices();
             } catch (error) {
-                console.warn("Gagal mengambil data dari Spreadsheet, menggunakan fallback lokal:", error);
+                console.warn("Koneksi gagal, memuat fallback data:", error);
                 allServicesData = fallbackServices;
                 processServices();
             }
         }
 
-        async function fetchPromos() {
+        async function fetchVouchers() {
             try {
-                const response = await fetch(SCRIPT_URL_PROMO + '?action=getPromos');
-                if (!response.ok) throw new Error("Gagal memuat data promo");
-                const res = await response.json();
-                if (res && res.success && Array.isArray(res.data)) {
-                    activePromosData = res.data;
+                const response = await fetch(SCRIPT_URL_VOUCHER + '?action=getVouchers');
+                const result = await response.json();
+                if (result.success && result.data) {
+                    allVouchersData = result.data;
                 }
-                renderLayanan();
-                updateHargaInstagram();
             } catch (error) {
-                console.warn("Gagal memuat data promo otomatis:", error);
+                console.warn("Gagal mengambil data kupon voucher:", error);
             }
         }
 
         function processServices() {
-            // Urutkan data berdasarkan input urutan
             allServicesData.sort((a, b) => parseInt(a.urutan || 99) - parseInt(b.urutan || 99));
-            // Tampilkan hanya layanan yang berstatus ON atau AKTIF
-            activeServices = allServicesData.filter(s => s.status === 'ON' || s.status === 'AKTIF');
+            activeServices = allServicesData.filter(s => s.status !== 'OFF');
             renderLayanan();
+            updateHargaInstagram();
         }
 
         function renderLayanan() {
@@ -1370,7 +1358,11 @@
                 waText = service.whatsapp_message.replace('{{harga}}', hargaTeks).replace('{{diskon}}', getTeksDiskonWA('layanan', service.nama_layanan));
             }
             
-            document.getElementById('modal-whatsapp-btn').href = `https://wa.me/6285708845405?text=${encodeURIComponent(waText).replace(/%250A/gi, '%0A')}`;
+            const modalWaBtn = document.getElementById('modal-whatsapp-btn');
+            modalWaBtn.href = `https://wa.me/6285708845405?text=${encodeURIComponent(waText).replace(/%250A/gi, '%0A')}`;
+            modalWaBtn.onclick = () => {
+                potongKuotaVoucher();
+            };
             
             openModalGeneric('service-modal');
         }
@@ -1378,7 +1370,6 @@
         // ----------------------------------------------------
         // VOUCHER REALTIME LOGIC
         // ----------------------------------------------------
-        
         async function terapkanVoucher() {
             const input = document.getElementById('voucher-input').value.trim().toUpperCase();
             if (!input) {
@@ -1392,24 +1383,22 @@
             btn.disabled = true;
 
             try {
-                // Hubungkan langsung ke endpoint Apps Script validateVoucher
-                const response = await fetch(SCRIPT_URL_VOUCHER + '?action=validateVoucher&kode=' + encodeURIComponent(input));
+                const response = await fetch(SCRIPT_URL_VOUCHER + `?action=validateVoucher&kode=${encodeURIComponent(input)}`);
                 if (!response.ok) throw new Error("Gagal terhubung ke server.");
-                const resJson = await response.json();
+                const result = await response.json();
 
-                if (!resJson.success) {
-                    throw new Error(resJson.message || "Kode voucher tidak valid.");
+                if (!result.success) {
+                    throw new Error(result.message || "Kode voucher tidak valid.");
                 }
 
-                const voucher = resJson.data;
-
-                // Simpan State Berhasil ke LocalStorage
+                const voucher = result.data;
+                
+                // Simpan State Berhasil
                 localStorage.setItem('bdg_active_voucher_data', JSON.stringify(voucher));
                 voucherAktifData = voucher;
                 
-                tampilkanPeringatan(`Voucher berhasil! Anda mendapat potongan harga.`);
+                tampilkanPeringatan(`Voucher "${voucher.kode}" berhasil diterapkan!`);
                 
-                // Perbarui Tampilan
                 renderLayanan();
                 updateHargaInstagram();
                 tutupVoucherModal();
@@ -1423,12 +1412,15 @@
             }
         }
 
-        // Jalankan sinkronisasi diskon saat penyimpanan storage berubah di tab lain
+        // Sinkronisasi lintas Tab / Frame
         window.addEventListener('storage', (e) => {
-            if (e.key === 'bdg_active_voucher_data') voucherAktifData = JSON.parse(e.newValue);
-            if (e.key === 'seasonalTheme') applySeasonalTheme();
-            
-            if (['bdg_active_voucher_data', 'seasonalTheme'].includes(e.key)) {
+            if (e.key === 'bdg_active_voucher_data') {
+                voucherAktifData = JSON.parse(e.newValue);
+                renderLayanan();
+                updateHargaInstagram();
+            }
+            if (e.key === 'seasonalTheme') {
+                applySeasonalTheme();
                 renderLayanan();
                 updateHargaInstagram();
             }
@@ -1437,7 +1429,6 @@
         // ----------------------------------------------------
         // ADMIN LOGIC
         // ----------------------------------------------------
-
         function prosesLoginAdmin() {
             const user = document.getElementById('admin-user').value;
             const pass = document.getElementById('admin-pass').value;
@@ -1465,78 +1456,91 @@
             btn.innerText = pendingIsDark ? 'Ke Mode Terang' : 'Ke Mode Gelap';
         }
 
-        // --- MANAJEMEN PROMO ADMIN ---
-        function renderAdminPromos() {
-            const container = document.getElementById('admin-promo-list');
+        // --- MANAJEMEN VOUCHER ADMIN ---
+        function renderAdminVouchers() {
+            const container = document.getElementById('admin-vch-list');
             if(!container) return;
             
-            if(activePromosData.length === 0) {
-                container.innerHTML = '<p class="text-sm text-slate-500 text-center py-4">Belum ada promo aktif.</p>';
+            if(allVouchersData.length === 0) {
+                container.innerHTML = '<p class="text-sm text-slate-500 text-center py-4">Belum ada voucher terbuat.</p>';
                 return;
             }
 
-            container.innerHTML = activePromosData.map((p, i) => `
-                <div class="p-3 border border-slate-200 dark:border-slate-700 rounded-xl mb-2 bg-white dark:bg-slate-800">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <div class="font-bold text-brand-600 dark:text-brand-400">${p.nama_promo}</div>
-                            <div class="text-xs text-slate-500 mt-1">Target: ${p.target} ${p.target === 'LAYANAN_TERTENTU' ? '('+p.layanan_target+')' : ''}</div>
-                            <div class="text-xs text-slate-500">Diskon: ${p.diskon * 100}% | Tgl: ${p.tanggal_mulai} s/d ${p.tanggal_akhir}</div>
+            container.innerHTML = allVouchersData.map(v => {
+                const diskonPersen = (parseFloat(v.diskon) * 100).toFixed(0);
+                const limit = parseInt(v.kuota) || 0;
+                const used = parseInt(v.kuota_terpakai) || 0;
+                const sisa = limit > 0 ? (limit - used) : 'Unlimited';
+
+                return `
+                    <div class="p-3 border border-slate-200 dark:border-slate-700 rounded-xl mb-2 bg-white dark:bg-slate-800">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="font-bold text-brand-600 dark:text-brand-400">${v.kode}</div>
+                                <div class="text-xs text-slate-500 mt-1">Target: ${v.target} ${v.target === 'LAYANAN_TERTENTU' ? '('+(v.layanan_target || '')+')' : ''}</div>
+                                <div class="text-xs text-slate-500 font-semibold">Diskon: ${diskonPersen}% | Sisa Kuota: ${sisa} (${used}/${limit})</div>
+                                <div class="text-[10px] text-slate-400">Tgl: ${v.tanggal_mulai || '-'} s/d ${v.tanggal_akhir || '-'}</div>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <button onclick="toggleVchStatus('${v.id}')" class="px-3 py-1 text-xs font-bold rounded-lg transition ${v.status === 'AKTIF' || v.status === 'ON' ? 'bg-green-100 text-green-600 dark:bg-green-900/30' : 'bg-slate-100 text-slate-500 dark:bg-slate-700 dark:text-slate-400'}">
+                                ${v.status === 'AKTIF' || v.status === 'ON' ? 'Aktif' : 'Nonaktif'}
+                            </button>
+                            <button onclick="editVoucher('${v.id}')" class="px-3 py-1 text-xs font-bold rounded-lg bg-blue-100 text-blue-600 dark:bg-blue-900/30 hover:bg-blue-200 transition">
+                                Edit
+                            </button>
+                            <button onclick="hapusVoucher('${v.id}', this)" class="px-3 py-1 text-xs font-bold rounded-lg bg-red-100 text-red-600 dark:bg-red-900/30 hover:bg-red-200 transition">
+                                Hapus
+                            </button>
                         </div>
                     </div>
-                    <div class="flex flex-wrap gap-2 mt-3">
-                        <button onclick="togglePromoStatus(${i})" class="px-3 py-1 text-xs font-bold rounded-lg transition ${p.status === 'AKTIF' || p.status === 'ON' ? 'bg-green-100 text-green-600 dark:bg-green-900/30' : 'bg-slate-100 text-slate-500 dark:bg-slate-700 dark:text-slate-400'}">
-                            ${p.status === 'AKTIF' || p.status === 'ON' ? 'Aktif' : 'Nonaktif'}
-                        </button>
-                        <button onclick="editPromo(${i})" class="px-3 py-1 text-xs font-bold rounded-lg bg-blue-100 text-blue-600 dark:bg-blue-900/30 hover:bg-blue-200 transition">
-                            Edit
-                        </button>
-                        <button onclick="hapusPromo(${i})" class="px-3 py-1 text-xs font-bold rounded-lg bg-red-100 text-red-600 dark:bg-red-900/30 hover:bg-red-200 transition">
-                            Hapus
-                        </button>
-                    </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
         }
 
-        function editPromo(index) {
-            const p = activePromosData[index];
-            editPromoId = p.id;
+        function editVoucher(id) {
+            const v = allVouchersData.find(item => item.id === id);
+            if (!v) return;
             
-            document.getElementById('new-promo-name').value = p.nama_promo;
-            document.getElementById('new-promo-target').value = p.target;
-            document.getElementById('new-promo-specific').value = p.layanan_target || '';
-            document.getElementById('new-promo-discount').value = p.diskon * 100;
-            document.getElementById('new-promo-start').value = p.tanggal_mulai;
-            document.getElementById('new-promo-end').value = p.tanggal_akhir;
+            document.getElementById('new-vch-id').value = v.id;
+            document.getElementById('new-vch-kode').value = v.kode;
+            document.getElementById('new-vch-diskon').value = parseFloat(v.diskon) * 100;
+            document.getElementById('new-vch-kuota').value = v.kuota;
+            document.getElementById('new-vch-target').value = v.target;
+            document.getElementById('new-vch-specific').value = v.layanan_target || '';
+            document.getElementById('new-vch-start').value = v.tanggal_mulai;
+            document.getElementById('new-vch-end').value = v.tanggal_akhir;
             
-            document.getElementById('btn-submit-promo').innerText = 'Simpan Promo';
-            document.getElementById('btn-cancel-edit').classList.remove('hidden');
+            document.getElementById('btn-submit-vch').innerText = 'Simpan Perubahan';
+            document.getElementById('btn-cancel-vch').classList.remove('hidden');
         }
 
-        function batalEditPromo() {
-            editPromoId = null;
-            document.getElementById('new-promo-name').value = '';
-            document.getElementById('new-promo-target').value = 'SEMUA';
-            document.getElementById('new-promo-specific').value = '';
-            document.getElementById('new-promo-discount').value = '';
-            document.getElementById('new-promo-start').value = '';
-            document.getElementById('new-promo-end').value = '';
+        function batalEditVoucher() {
+            document.getElementById('new-vch-id').value = '';
+            document.getElementById('new-vch-kode').value = '';
+            document.getElementById('new-vch-diskon').value = '';
+            document.getElementById('new-vch-kuota').value = '';
+            document.getElementById('new-vch-target').value = 'SEMUA';
+            document.getElementById('new-vch-specific').value = '';
+            document.getElementById('new-vch-start').value = '';
+            document.getElementById('new-vch-end').value = '';
             
-            document.getElementById('btn-submit-promo').innerText = 'Tambah Promo';
-            document.getElementById('btn-cancel-edit').classList.add('hidden');
+            document.getElementById('btn-submit-vch').innerText = 'Tambah Voucher';
+            document.getElementById('btn-cancel-vch').classList.add('hidden');
         }
 
-        async function tambahPromo() {
-            const nama_promo = document.getElementById('new-promo-name').value.trim();
-            const target = document.getElementById('new-promo-target').value;
-            const specific = document.getElementById('new-promo-specific').value.trim();
-            const diskonVal = parseFloat(document.getElementById('new-promo-discount').value);
-            const start = document.getElementById('new-promo-start').value;
-            const end = document.getElementById('new-promo-end').value;
+        async function simpanVoucher() {
+            const id = document.getElementById('new-vch-id').value;
+            const kode = document.getElementById('new-vch-kode').value.trim().toUpperCase();
+            const diskonVal = parseFloat(document.getElementById('new-vch-diskon').value);
+            const kuota = parseInt(document.getElementById('new-vch-kuota').value) || 0;
+            const target = document.getElementById('new-vch-target').value;
+            const specific = document.getElementById('new-vch-specific').value.trim();
+            const start = document.getElementById('new-vch-start').value;
+            const end = document.getElementById('new-vch-end').value;
 
-            if(!nama_promo || isNaN(diskonVal) || !start || !end) {
-                tampilkanPeringatan('Mohon lengkapi data promo');
+            if(!kode || isNaN(diskonVal) || isNaN(kuota) || !start || !end) {
+                tampilkanPeringatan('Mohon lengkapi data voucher');
                 return;
             }
             if(target === 'LAYANAN_TERTENTU' && !specific) {
@@ -1545,86 +1549,114 @@
             }
 
             const diskon = diskonVal / 100;
+            const payload = {
+                id: id || 'VCH-' + Date.now(),
+                kode: kode,
+                diskon: diskon,
+                tipe_diskon: 'PERSEN',
+                kuota: kuota,
+                kuota_terpakai: 0,
+                target: target,
+                layanan_target: target === 'LAYANAN_TERTENTU' ? specific : '',
+                tanggal_mulai: start,
+                tanggal_akhir: end,
+                status: 'ON'
+            };
 
-            if (editPromoId) {
-                const index = activePromosData.findIndex(p => p.id === editPromoId);
-                if (index !== -1) {
-                    activePromosData[index] = {
-                        ...activePromosData[index],
-                        nama_promo, target, layanan_target: target === 'LAYANAN_TERTENTU' ? specific : '',
-                        diskon, tanggal_mulai: start, tanggal_akhir: end
-                    };
-                    tampilkanPeringatan('Menyimpan perubahan layanan ke Cloud...');
-                    // Diubah untuk mengirim data sesuai router SAVE_PROMO Apps Script
-                    fetch(SCRIPT_URL_PROMO, { 
-                        method: 'POST', 
-                        headers: { 'Content-Type': 'text/plain' }, 
-                        body: JSON.stringify({ action: 'SAVE_PROMO', promo: activePromosData[index] }) 
-                    }).catch(console.error);
+            if (id) {
+                const existing = allVouchersData.find(v => v.id === id);
+                if (existing) {
+                    payload.kuota_terpakai = existing.kuota_terpakai;
+                    payload.status = existing.status;
                 }
-                batalEditPromo();
-            } else {
-                const newPromo = { 
-                    id: 'PRM-' + Date.now(),
-                    nama_promo: nama_promo, 
-                    jenis_promo: 'OTOMATIS',
-                    target: target,
-                    layanan_target: target === 'LAYANAN_TERTENTU' ? specific : '',
-                    diskon: diskon, 
-                    tanggal_mulai: start,
-                    tanggal_akhir: end,
-                    status: 'AKTIF' 
-                };
-                activePromosData.push(newPromo);
-                tampilkanPeringatan('Menambahkan promo ke Cloud...');
-                // Diubah untuk mengirim data sesuai router SAVE_PROMO Apps Script
-                fetch(SCRIPT_URL_PROMO, { 
-                    method: 'POST', 
-                    headers: { 'Content-Type': 'text/plain' }, 
-                    body: JSON.stringify({ action: 'SAVE_PROMO', promo: newPromo }) 
-                }).catch(console.error);
-                
-                document.getElementById('new-promo-name').value = '';
-                document.getElementById('new-promo-specific').value = '';
-                document.getElementById('new-promo-discount').value = '';
             }
-            
-            renderAdminPromos();
-            renderLayanan();
-            updateHargaInstagram();
+
+            tampilkanPeringatan('Menyimpan voucher...');
+
+            try {
+                const response = await fetch(SCRIPT_URL_VOUCHER, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: JSON.stringify({ action: 'SAVE_VOUCHER', voucher: payload })
+                });
+                const result = await response.json();
+                if (result.success) {
+                    tampilkanPeringatan('Voucher berhasil disimpan!');
+                    await fetchVouchers();
+                    renderAdminVouchers();
+                    batalEditVoucher();
+                    renderLayanan();
+                    updateHargaInstagram();
+                } else {
+                    tampilkanPeringatan('Gagal menyimpan: ' + result.message);
+                }
+            } catch (error) {
+                console.error(error);
+                tampilkanPeringatan('Terjadi kesalahan koneksi.');
+            }
         }
 
-        async function togglePromoStatus(index) {
-            const promo = activePromosData[index];
-            const newStatus = (promo.status === 'AKTIF' || promo.status === 'ON') ? 'OFF' : 'AKTIF';
-            promo.status = newStatus;
-            
-            renderAdminPromos();
-            renderLayanan();
-            updateHargaInstagram();
-
-            // Diubah untuk mengirim status ke router SAVE_PROMO Apps Script
-            fetch(SCRIPT_URL_PROMO, { 
-                method: 'POST', 
-                headers: { 'Content-Type': 'text/plain' }, 
-                body: JSON.stringify({ action: 'SAVE_PROMO', promo: promo }) 
-            }).catch(console.error);
+        async function toggleVchStatus(id) {
+            const index = allVouchersData.findIndex(v => v.id === id);
+            if (index !== -1) {
+                const vch = { ...allVouchersData[index] };
+                vch.status = (vch.status === 'AKTIF' || vch.status === 'ON') ? 'OFF' : 'ON';
+                
+                tampilkanPeringatan('Mengubah status...');
+                try {
+                    const response = await fetch(SCRIPT_URL_VOUCHER, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'text/plain' },
+                        body: JSON.stringify({ action: 'SAVE_VOUCHER', voucher: vch })
+                    });
+                    const result = await response.json();
+                    if (result.success) {
+                        tampilkanPeringatan('Status berhasil diubah!');
+                        await fetchVouchers();
+                        renderAdminVouchers();
+                        renderLayanan();
+                        updateHargaInstagram();
+                    }
+                } catch (error) {
+                    console.error(error);
+                }
+            }
         }
 
-        async function hapusPromo(index) {
-            const deletedPromo = activePromosData[index];
-            activePromosData.splice(index, 1);
-            
-            renderAdminPromos();
-            renderLayanan();
-            updateHargaInstagram();
+        async function hapusVoucher(id, btn) {
+            if (btn.innerText !== 'Yakin?') {
+                btn.innerText = 'Yakin?';
+                btn.classList.replace('bg-red-100', 'bg-red-600');
+                btn.classList.replace('text-red-600', 'text-white');
+                
+                setTimeout(() => {
+                    if(document.body.contains(btn) && btn.innerText === 'Yakin?') {
+                        btn.innerText = 'Hapus';
+                        btn.classList.replace('bg-red-600', 'bg-red-100');
+                        btn.classList.replace('text-white', 'text-red-600');
+                    }
+                }, 3000);
+                return;
+            }
 
-            // Diubah untuk menghapus menggunakan parameter DELETE_PROMO & ID yang sesuai Apps Script
-            fetch(SCRIPT_URL_PROMO, { 
-                method: 'POST', 
-                headers: { 'Content-Type': 'text/plain' }, 
-                body: JSON.stringify({ action: 'DELETE_PROMO', id: deletedPromo.id }) 
-            }).catch(console.error);
+            tampilkanPeringatan('Menghapus voucher...');
+            try {
+                const response = await fetch(SCRIPT_URL_VOUCHER, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: JSON.stringify({ action: 'DELETE_VOUCHER', id: id })
+                });
+                const result = await response.json();
+                if (result.success) {
+                    tampilkanPeringatan('Voucher terhapus!');
+                    await fetchVouchers();
+                    renderAdminVouchers();
+                    renderLayanan();
+                    updateHargaInstagram();
+                }
+            } catch (error) {
+                console.error(error);
+            }
         }
 
         // --- MANAJEMEN LAYANAN ADMIN ---
@@ -1664,14 +1696,13 @@
             lucide.createIcons();
         }
 
-        // Cek validasi ikon lucide (kebab-case ke camelCase)
         function isLucideIconValid(iconName) {
             if (!iconName) return false;
             const camelCaseName = iconName.replace(/-([a-z])/g, g => g[1].toUpperCase());
             return !!lucide.icons[camelCaseName] || !!lucide.icons[iconName];
         }
 
-        function simpanLayanan() {
+        async function simpanLayanan() {
             const id = document.getElementById('new-srv-id').value;
             const nama = document.getElementById('new-srv-nama').value.trim();
             const harga = parseInt(document.getElementById('new-srv-harga').value);
@@ -1681,7 +1712,6 @@
             const deskripsi = document.getElementById('new-srv-deskripsi').value.trim();
             const wa = document.getElementById('new-srv-wa').value.trim();
 
-            // Validasi Input
             if (!nama) return tampilkanPeringatan('Nama layanan tidak boleh kosong');
             if (isNaN(harga) || harga < 0) return tampilkanPeringatan('Harga harus berupa angka valid');
             if (!isLucideIconValid(icon)) return tampilkanPeringatan('Icon Lucide tidak valid');
@@ -1697,34 +1727,27 @@
                 whatsapp_message: wa 
             };
 
-            if (id) {
-                // Update Layanan
-                const index = allServicesData.findIndex(s => s.id === id);
-                if (index !== -1) {
-                    allServicesData[index] = payload;
-                    tampilkanPeringatan('Menyimpan perubahan layanan ke Cloud...');
-                    // Diubah untuk mengirim data sesuai router SAVE_SERVICE Apps Script
-                    fetch(SCRIPT_URL_LAYANAN, { 
-                        method: 'POST', 
-                        headers: { 'Content-Type': 'text/plain' }, 
-                        body: JSON.stringify({ action: 'SAVE_SERVICE', layanan: payload }) 
-                    }).catch(console.error);
-                }
-            } else {
-                // Tambah Layanan
-                allServicesData.push(payload);
-                tampilkanPeringatan('Menambahkan layanan baru ke Cloud...');
-                // Diubah untuk mengirim data sesuai router SAVE_SERVICE Apps Script
-                fetch(SCRIPT_URL_LAYANAN, { 
-                    method: 'POST', 
-                    headers: { 'Content-Type': 'text/plain' }, 
-                    body: JSON.stringify({ action: 'SAVE_SERVICE', layanan: payload }) 
-                }).catch(console.error);
-            }
+            tampilkanPeringatan('Menyimpan layanan...');
 
-            batalEditLayanan();
-            processServices(); // Perbarui UI utama
-            renderAdminServices(); // Perbarui list admin
+            try {
+                const response = await fetch(SCRIPT_URL_LAYANAN, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: JSON.stringify({ action: 'SAVE_SERVICE', layanan: payload })
+                });
+                const result = await response.json();
+                if (result.success) {
+                    tampilkanPeringatan('Layanan berhasil disimpan!');
+                    await fetchServices();
+                    renderAdminServices();
+                    batalEditLayanan();
+                } else {
+                    tampilkanPeringatan('Gagal menyimpan: ' + result.message);
+                }
+            } catch (error) {
+                console.error(error);
+                tampilkanPeringatan('Terjadi kesalahan koneksi.');
+            }
         }
 
         function editLayanan(id) {
@@ -1758,14 +1781,12 @@
             document.getElementById('btn-cancel-srv').classList.add('hidden');
         }
 
-        function hapusLayanan(id, btn) {
-            // Konfirmasi hapus inline tanpa alert bawaan
+        async function hapusLayanan(id, btn) {
             if (btn.innerText !== 'Yakin?') {
                 btn.innerText = 'Yakin?';
                 btn.classList.replace('bg-red-100', 'bg-red-600');
                 btn.classList.replace('text-red-600', 'text-white');
                 
-                // Kembalikan ke mode awal jika tidak jadi ditekan setelah 3 detik
                 setTimeout(() => {
                     if(document.body.contains(btn) && btn.innerText === 'Yakin?') {
                         btn.innerText = 'Hapus';
@@ -1776,40 +1797,48 @@
                 return;
             }
 
-            // Eksekusi penghapusan
-            const index = allServicesData.findIndex(s => s.id === id);
-            if (index !== -1) {
-                const deletedSrv = allServicesData[index];
-                allServicesData.splice(index, 1);
-                
-                processServices(); // Perbarui UI website langsung
-                renderAdminServices(); // Perbarui list admin
-                tampilkanPeringatan('Layanan dihapus');
-
-                // Diubah untuk menghapus menggunakan parameter DELETE_SERVICE & ID yang sesuai Apps Script
-                fetch(SCRIPT_URL_LAYANAN, { 
-                    method: 'POST', 
-                    headers: { 'Content-Type': 'text/plain' }, 
-                    body: JSON.stringify({ action: 'DELETE_SERVICE', id: id }) 
-                }).catch(console.error);
+            tampilkanPeringatan('Menghapus layanan...');
+            try {
+                const response = await fetch(SCRIPT_URL_LAYANAN, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: JSON.stringify({ action: 'DELETE_SERVICE', id: id })
+                });
+                const result = await response.json();
+                if (result.success) {
+                    tampilkanPeringatan('Layanan terhapus');
+                    await fetchServices();
+                    renderAdminServices();
+                } else {
+                    tampilkanPeringatan('Gagal menghapus: ' + result.message);
+                }
+            } catch (error) {
+                console.error(error);
             }
         }
 
-        function toggleSrvStatus(id) {
+        async function toggleSrvStatus(id) {
             const index = allServicesData.findIndex(s => s.id === id);
             if (index !== -1) {
-                const srv = allServicesData[index];
+                const srv = { ...allServicesData[index] };
                 srv.status = (srv.status === 'AKTIF' || srv.status === 'ON') ? 'OFF' : 'ON';
                 
-                processServices();
-                renderAdminServices();
-                
-                // Diubah untuk mengirim status ke router SAVE_SERVICE Apps Script
-                fetch(SCRIPT_URL_LAYANAN, { 
-                    method: 'POST', 
-                    headers: { 'Content-Type': 'text/plain' }, 
-                    body: JSON.stringify({ action: 'SAVE_SERVICE', layanan: srv }) 
-                }).catch(console.error);
+                tampilkanPeringatan('Mengubah status...');
+                try {
+                    const response = await fetch(SCRIPT_URL_LAYANAN, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'text/plain' },
+                        body: JSON.stringify({ action: 'SAVE_SERVICE', layanan: srv })
+                    });
+                    const result = await response.json();
+                    if (result.success) {
+                        tampilkanPeringatan('Status berhasil diubah!');
+                        await fetchServices();
+                        renderAdminServices();
+                    }
+                } catch (error) {
+                    console.error(error);
+                }
             }
         }
 
@@ -1841,7 +1870,7 @@
             if (theme !== 'normal') {
                 document.body.classList.add(`theme-${theme}`);
                 renderOrnamenMusiman(theme);
-                if(activePromosData.length === 0 && !voucherAktifData) tampilkanPromoMusiman(theme);
+                if(allVouchersData.length === 0 && !voucherAktifData) tampilkanPromoMusiman(theme);
             } else {
                 renderOrnamenMusiman('normal');
             }
@@ -1909,44 +1938,39 @@
         function getTeksDiskonWA(tipeTarget = "", namaLayanan = "") {
             const diskonRate = getDiskonRate(tipeTarget, namaLayanan);
             
-            if (diskonRate > 0) {
-                if (voucherAktifData && 
-                   ((voucherAktifData.target === 'SEMUA') || 
-                    (tipeTarget === 'ig' && voucherAktifData.target === 'PAKET_IG') || 
-                    (tipeTarget === 'layanan' && voucherAktifData.target === 'LAYANAN_TERTENTU' && voucherAktifData.layanan_target.toLowerCase() === namaLayanan.toLowerCase()))) {
-                     return `%0A*(Menggunakan voucher ${voucherAktifData.kode} diskon ${diskonRate * 100}%)*`;
-                } else {
-                     return `%0A*(Menggunakan promo otomatis diskon ${diskonRate * 100}%)*`;
-                }
+            if (diskonRate > 0 && voucherAktifData) {
+                 return `%0A*(Menggunakan kupon ${voucherAktifData.kode} diskon ${diskonRate * 100}%)*`;
             }
             return '';
         }
 
-        // Fungsi mencatat kuota voucher terpakai ke Apps Script saat transaksi terjadi
-        function incrementVoucherUsageIfAny() {
+        async function potongKuotaVoucher() {
             if (voucherAktifData && voucherAktifData.kode) {
-                fetch(SCRIPT_URL_VOUCHER, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'text/plain' },
-                    body: JSON.stringify({ action: 'INCREMENT_VOUCHER_USAGE', kode: voucherAktifData.kode })
-                }).then(() => {
+                try {
+                    await fetch(SCRIPT_URL_VOUCHER, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'text/plain' },
+                        body: JSON.stringify({ action: 'INCREMENT_VOUCHER_USAGE', kode: voucherAktifData.kode })
+                    });
                     localStorage.removeItem('bdg_active_voucher_data');
                     voucherAktifData = null;
-                }).catch(console.error);
+                } catch (error) {
+                    console.warn("Gagal memotong kuota voucher:", error);
+                }
             }
         }
 
-        function pesanInstagram(paket, basePrice) {
+        async function pesanInstagram(paket, basePrice) {
             const diskonRate = getDiskonRate('ig');
             const hargaAkhir = basePrice - (basePrice * diskonRate);
             const hargaTeks = formatRupiah(hargaAkhir);
             
             let waText = `Halo BDG, saya ingin pesan *Paket Instagram ${paket}* dengan harga ${hargaTeks}.${getTeksDiskonWA('ig')}`;
-            incrementVoucherUsageIfAny();
+            await potongKuotaVoucher();
             window.open(`https://wa.me/6285708845405?text=${waText}`, '_blank');
         }
 
-        function kirimWA() {
+        async function kirimWA() {
             const nama = document.getElementById('name-input').value;
             const keperluan = document.getElementById('service-input').value;
             const pesan = document.getElementById('message-input').value;
@@ -1954,7 +1978,7 @@
             if(!nama) { tampilkanPeringatan("Tolong masukkan nama Anda"); return; }
             
             let text = `Halo BDG, saya *${nama}*.%0ASaya ingin memesan: *${keperluan}*.${getTeksDiskonWA('layanan', keperluan)}%0A%0A*Pesan:*%0A${pesan}`;
-            incrementVoucherUsageIfAny();
+            await potongKuotaVoucher();
             window.open(`https://wa.me/6285708845405?text=${text}`, '_blank');
         }
 
