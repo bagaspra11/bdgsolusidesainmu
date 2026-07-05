@@ -943,10 +943,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         // Data Global dan Konfigurasi
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxvidEJ0cLMEoS4ekiThbkOz8F5v41auh8i1LxgY5ADuDAdeFPHXfPQ9G622hZuVb7g/exec';
-        const SCRIPT_URL_LAYANAN = 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec';
-        const SCRIPT_URL_VOUCHER = 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec';
-        const SCRIPT_URL_PROMO = 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxVpfpwLhbGqd9w5gfDI4H8W4-e9k9jAEgzjN5sG_Nzy9uhKw3OahhoVkDM5sqHm0HI/exec';
+        const SCRIPT_URL_LAYANAN = 'https://script.google.com/macros/s/AKfycbxVpfpwLhbGqd9w5gfDI4H8W4-e9k9jAEgzjN5sG_Nzy9uhKw3OahhoVkDM5sqHm0HI/exec';
+        const SCRIPT_URL_VOUCHER = 'https://script.google.com/macros/s/AKfycbxVpfpwLhbGqd9w5gfDI4H8W4-e9k9jAEgzjN5sG_Nzy9uhKw3OahhoVkDM5sqHm0HI/exec';
+        const SCRIPT_URL_PROMO = 'https://script.google.com/macros/s/AKfycbxVpfpwLhbGqd9w5gfDI4H8W4-e9k9jAEgzjN5sG_Nzy9uhKw3OahhoVkDM5sqHm0HI/exec';
         
         let allServicesData = []; // Menyimpan semua data layanan (termasuk yang OFF)
         let activeServices = []; // Hanya layanan yang ON
@@ -975,7 +975,7 @@
             if (voucherAktifData) {
                 if (voucherAktifData.target === 'SEMUA') return voucherAktifData.diskon;
                 if (tipeTarget === 'ig' && voucherAktifData.target === 'PAKET_IG') return voucherAktifData.diskon;
-                if (tipeTarget === 'layanan' && voucherAktifData.target === 'LAYANAN_TERTENTU' && voucherAktifData.layanan_target.toLowerCase() === namaLayananTujuan.toLowerCase()) {
+                if (tipeTarget === 'layanan' && voucherAktifData.target === 'LAYANAN_TERTENTU' && namaLayananTujuan && voucherAktifData.layanan_target && voucherAktifData.layanan_target.toLowerCase() === namaLayananTujuan.toLowerCase()) {
                     return voucherAktifData.diskon;
                 }
             }
@@ -992,7 +992,7 @@
                 let applicable = false;
                 if (promo.target === 'SEMUA') applicable = true;
                 if (tipeTarget === 'ig' && promo.target === 'PAKET_IG') applicable = true;
-                if (tipeTarget === 'layanan' && promo.target === 'LAYANAN_TERTENTU' && promo.layanan_target?.toLowerCase() === namaLayananTujuan.toLowerCase()) applicable = true;
+                if (tipeTarget === 'layanan' && promo.target === 'LAYANAN_TERTENTU' && namaLayananTujuan && promo.layanan_target && promo.layanan_target.toLowerCase() === namaLayananTujuan.toLowerCase()) applicable = true;
 
                 if (applicable && promo.diskon > maxPromoDiskon) {
                     maxPromoDiskon = promo.diskon;
@@ -1016,6 +1016,14 @@
             setTimeout(tampilkanNotifPalsu, 5000);
             AOS.init({ duration: 800, once: true, offset: 100 });
             lucide.createIcons();
+            
+            // Daftarkan listener pada tombol modal WhatsApp untuk melacak penggunaan voucher
+            const modalWaBtn = document.getElementById('modal-whatsapp-btn');
+            if(modalWaBtn) {
+                modalWaBtn.addEventListener('click', () => {
+                    incrementVoucherUsageIfAny();
+                });
+            }
         });
 
         // ----------------------------------------------------
@@ -1207,7 +1215,7 @@
         }
 
         function formatRupiah(angka) {
-            return "Rp" + angka.toLocaleString('id-ID');
+            return "Rp" + Number(angka).toLocaleString('id-ID');
         }
 
         function copyEmail() {
@@ -1245,43 +1253,44 @@
             `;
             container.innerHTML = Array(4).fill(skeleton).join('');
 
-            if (SCRIPT_URL_LAYANAN === 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
-                allServicesData = fallbackServices;
-                processServices();
-                return;
-            }
-
             try {
-                const response = await fetch(SCRIPT_URL_LAYANAN);
-                const data = await response.json();
-                allServicesData = data.map((s, i) => ({ ...s, id: s.id || 'LYN-' + Date.now() + i }));
+                // Penambahan parameter action=getServices untuk dibaca doGet Apps Script
+                const response = await fetch(SCRIPT_URL_LAYANAN + '?action=getServices');
+                if (!response.ok) throw new Error("Gagal mengambil data dari Google Sheet");
+                const res = await response.json();
+                if (res && res.success && Array.isArray(res.data)) {
+                    allServicesData = res.data.map((s, i) => ({ ...s, id: s.id || 'LYN-' + Date.now() + i }));
+                } else {
+                    throw new Error("Skema database layanan tidak valid");
+                }
                 processServices();
             } catch (error) {
-                console.warn("Gagal mengambil data dari Spreadsheet, menggunakan fallback:", error);
+                console.warn("Gagal mengambil data dari Spreadsheet, menggunakan fallback lokal:", error);
                 allServicesData = fallbackServices;
                 processServices();
             }
         }
 
         async function fetchPromos() {
-            if (SCRIPT_URL_PROMO === 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') return;
             try {
                 const response = await fetch(SCRIPT_URL_PROMO + '?action=getPromos');
-                if (!response.ok) throw new Error("Gagal load promo");
-                const data = await response.json();
-                activePromosData = data;
+                if (!response.ok) throw new Error("Gagal memuat data promo");
+                const res = await response.json();
+                if (res && res.success && Array.isArray(res.data)) {
+                    activePromosData = res.data;
+                }
                 renderLayanan();
                 updateHargaInstagram();
             } catch (error) {
-                console.warn("Gagal load data promo:", error);
+                console.warn("Gagal memuat data promo otomatis:", error);
             }
         }
 
         function processServices() {
-            // Sort seluruh data berdasarkan urutan
+            // Urutkan data berdasarkan input urutan
             allServicesData.sort((a, b) => parseInt(a.urutan || 99) - parseInt(b.urutan || 99));
-            // Filter layanan aktif
-            activeServices = allServicesData.filter(s => s.status !== 'OFF');
+            // Tampilkan hanya layanan yang berstatus ON atau AKTIF
+            activeServices = allServicesData.filter(s => s.status === 'ON' || s.status === 'AKTIF');
             renderLayanan();
         }
 
@@ -1383,43 +1392,24 @@
             btn.disabled = true;
 
             try {
-                if (SCRIPT_URL_VOUCHER === '=https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
-                    throw new Error("URL API Voucher belum diatur.");
-                }
-
-                // Call data realtime dari Spreadsheet
-                const response = await fetch(SCRIPT_URL_VOUCHER + '?action=getVouchers');
+                // Hubungkan langsung ke endpoint Apps Script validateVoucher
+                const response = await fetch(SCRIPT_URL_VOUCHER + '?action=validateVoucher&kode=' + encodeURIComponent(input));
                 if (!response.ok) throw new Error("Gagal terhubung ke server.");
-                const data = await response.json();
+                const resJson = await response.json();
 
-                // Cari voucher berdasarkan kode
-                const voucher = data.find(v => v.kode.toUpperCase() === input);
-
-                if (!voucher) {
-                    throw new Error("Kode voucher tidak ditemukan.");
+                if (!resJson.success) {
+                    throw new Error(resJson.message || "Kode voucher tidak valid.");
                 }
 
-                // 1. Validasi Status
-                if (voucher.status.toUpperCase() !== 'AKTIF' && voucher.status.toUpperCase() !== 'ON') {
-                    throw new Error("Maaf, voucher ini sudah tidak aktif.");
-                }
+                const voucher = resJson.data;
 
-                // 2. Validasi Tanggal
-                const hariIni = new Date().toISOString().split('T')[0];
-                if (voucher.tanggal_mulai && hariIni < voucher.tanggal_mulai) {
-                    throw new Error("Voucher belum bisa digunakan.");
-                }
-                if (voucher.tanggal_akhir && hariIni > voucher.tanggal_akhir) {
-                    throw new Error("Maaf, voucher sudah kedaluwarsa.");
-                }
-
-                // 3. Simpan State Berhasil
+                // Simpan State Berhasil ke LocalStorage
                 localStorage.setItem('bdg_active_voucher_data', JSON.stringify(voucher));
                 voucherAktifData = voucher;
                 
                 tampilkanPeringatan(`Voucher berhasil! Anda mendapat potongan harga.`);
                 
-                // Update UI Layanan
+                // Perbarui Tampilan
                 renderLayanan();
                 updateHargaInstagram();
                 tutupVoucherModal();
@@ -1433,7 +1423,7 @@
             }
         }
 
-        // Trigger ketika storage berubah di tab lain
+        // Jalankan sinkronisasi diskon saat penyimpanan storage berubah di tab lain
         window.addEventListener('storage', (e) => {
             if (e.key === 'bdg_active_voucher_data') voucherAktifData = JSON.parse(e.newValue);
             if (e.key === 'seasonalTheme') applySeasonalTheme();
@@ -1564,10 +1554,13 @@
                         nama_promo, target, layanan_target: target === 'LAYANAN_TERTENTU' ? specific : '',
                         diskon, tanggal_mulai: start, tanggal_akhir: end
                     };
-                    tampilkanPeringatan('Menyimpan perubahan...');
-                    if (SCRIPT_URL_PROMO !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
-                        fetch(SCRIPT_URL_PROMO, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'UPDATE', promo: activePromosData[index] }) }).catch(console.error);
-                    }
+                    tampilkanPeringatan('Menyimpan perubahan layanan ke Cloud...');
+                    // Diubah untuk mengirim data sesuai router SAVE_PROMO Apps Script
+                    fetch(SCRIPT_URL_PROMO, { 
+                        method: 'POST', 
+                        headers: { 'Content-Type': 'text/plain' }, 
+                        body: JSON.stringify({ action: 'SAVE_PROMO', promo: activePromosData[index] }) 
+                    }).catch(console.error);
                 }
                 batalEditPromo();
             } else {
@@ -1583,10 +1576,14 @@
                     status: 'AKTIF' 
                 };
                 activePromosData.push(newPromo);
-                tampilkanPeringatan('Menambahkan promo...');
-                if (SCRIPT_URL_PROMO !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
-                    fetch(SCRIPT_URL_PROMO, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'CREATE', promo: newPromo }) }).catch(console.error);
-                }
+                tampilkanPeringatan('Menambahkan promo ke Cloud...');
+                // Diubah untuk mengirim data sesuai router SAVE_PROMO Apps Script
+                fetch(SCRIPT_URL_PROMO, { 
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'text/plain' }, 
+                    body: JSON.stringify({ action: 'SAVE_PROMO', promo: newPromo }) 
+                }).catch(console.error);
+                
                 document.getElementById('new-promo-name').value = '';
                 document.getElementById('new-promo-specific').value = '';
                 document.getElementById('new-promo-discount').value = '';
@@ -1606,9 +1603,12 @@
             renderLayanan();
             updateHargaInstagram();
 
-            if (SCRIPT_URL_PROMO !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
-                fetch(SCRIPT_URL_PROMO, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'UPDATE', promo: promo }) }).catch(console.error);
-            }
+            // Diubah untuk mengirim status ke router SAVE_PROMO Apps Script
+            fetch(SCRIPT_URL_PROMO, { 
+                method: 'POST', 
+                headers: { 'Content-Type': 'text/plain' }, 
+                body: JSON.stringify({ action: 'SAVE_PROMO', promo: promo }) 
+            }).catch(console.error);
         }
 
         async function hapusPromo(index) {
@@ -1619,9 +1619,12 @@
             renderLayanan();
             updateHargaInstagram();
 
-            if (SCRIPT_URL_PROMO !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
-                fetch(SCRIPT_URL_PROMO, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'DELETE', promo: deletedPromo }) }).catch(console.error);
-            }
+            // Diubah untuk menghapus menggunakan parameter DELETE_PROMO & ID yang sesuai Apps Script
+            fetch(SCRIPT_URL_PROMO, { 
+                method: 'POST', 
+                headers: { 'Content-Type': 'text/plain' }, 
+                body: JSON.stringify({ action: 'DELETE_PROMO', id: deletedPromo.id }) 
+            }).catch(console.error);
         }
 
         // --- MANAJEMEN LAYANAN ADMIN ---
@@ -1689,7 +1692,7 @@
                 harga: harga, 
                 icon_lucide: icon, 
                 urutan: urutan, 
-                status: status, 
+                status: status === 'ON' ? 'ON' : 'OFF', 
                 deskripsi: deskripsi, 
                 whatsapp_message: wa 
             };
@@ -1699,23 +1702,29 @@
                 const index = allServicesData.findIndex(s => s.id === id);
                 if (index !== -1) {
                     allServicesData[index] = payload;
-                    tampilkanPeringatan('Perubahan layanan disimpan');
-                    if (SCRIPT_URL_LAYANAN !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
-                        fetch(SCRIPT_URL_LAYANAN, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'UPDATE', layanan: payload }) }).catch(console.error);
-                    }
+                    tampilkanPeringatan('Menyimpan perubahan layanan ke Cloud...');
+                    // Diubah untuk mengirim data sesuai router SAVE_SERVICE Apps Script
+                    fetch(SCRIPT_URL_LAYANAN, { 
+                        method: 'POST', 
+                        headers: { 'Content-Type': 'text/plain' }, 
+                        body: JSON.stringify({ action: 'SAVE_SERVICE', layanan: payload }) 
+                    }).catch(console.error);
                 }
             } else {
                 // Tambah Layanan
                 allServicesData.push(payload);
-                tampilkanPeringatan('Layanan baru ditambahkan');
-                if (SCRIPT_URL_LAYANAN !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
-                    fetch(SCRIPT_URL_LAYANAN, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'CREATE', layanan: payload }) }).catch(console.error);
-                }
+                tampilkanPeringatan('Menambahkan layanan baru ke Cloud...');
+                // Diubah untuk mengirim data sesuai router SAVE_SERVICE Apps Script
+                fetch(SCRIPT_URL_LAYANAN, { 
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'text/plain' }, 
+                    body: JSON.stringify({ action: 'SAVE_SERVICE', layanan: payload }) 
+                }).catch(console.error);
             }
 
             batalEditLayanan();
-            processServices(); // Render UI Utama
-            renderAdminServices(); // Render UI Admin
+            processServices(); // Perbarui UI utama
+            renderAdminServices(); // Perbarui list admin
         }
 
         function editLayanan(id) {
@@ -1777,9 +1786,12 @@
                 renderAdminServices(); // Perbarui list admin
                 tampilkanPeringatan('Layanan dihapus');
 
-                if (SCRIPT_URL_LAYANAN !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
-                    fetch(SCRIPT_URL_LAYANAN, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'DELETE', layanan: deletedSrv }) }).catch(console.error);
-                }
+                // Diubah untuk menghapus menggunakan parameter DELETE_SERVICE & ID yang sesuai Apps Script
+                fetch(SCRIPT_URL_LAYANAN, { 
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'text/plain' }, 
+                    body: JSON.stringify({ action: 'DELETE_SERVICE', id: id }) 
+                }).catch(console.error);
             }
         }
 
@@ -1792,9 +1804,12 @@
                 processServices();
                 renderAdminServices();
                 
-                if (SCRIPT_URL_LAYANAN !== 'https://script.google.com/macros/s/AKfycbymtfokCEeqsMZ9MLhbv6M5RquMBZoowfDYuwdl8u3t6wsgroXA2nqBwFPKVqT9zEjjEg/exec') {
-                    fetch(SCRIPT_URL_LAYANAN, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'UPDATE', layanan: srv }) }).catch(console.error);
-                }
+                // Diubah untuk mengirim status ke router SAVE_SERVICE Apps Script
+                fetch(SCRIPT_URL_LAYANAN, { 
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'text/plain' }, 
+                    body: JSON.stringify({ action: 'SAVE_SERVICE', layanan: srv }) 
+                }).catch(console.error);
             }
         }
 
@@ -1907,12 +1922,27 @@
             return '';
         }
 
+        // Fungsi mencatat kuota voucher terpakai ke Apps Script saat transaksi terjadi
+        function incrementVoucherUsageIfAny() {
+            if (voucherAktifData && voucherAktifData.kode) {
+                fetch(SCRIPT_URL_VOUCHER, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: JSON.stringify({ action: 'INCREMENT_VOUCHER_USAGE', kode: voucherAktifData.kode })
+                }).then(() => {
+                    localStorage.removeItem('bdg_active_voucher_data');
+                    voucherAktifData = null;
+                }).catch(console.error);
+            }
+        }
+
         function pesanInstagram(paket, basePrice) {
             const diskonRate = getDiskonRate('ig');
             const hargaAkhir = basePrice - (basePrice * diskonRate);
             const hargaTeks = formatRupiah(hargaAkhir);
             
             let waText = `Halo BDG, saya ingin pesan *Paket Instagram ${paket}* dengan harga ${hargaTeks}.${getTeksDiskonWA('ig')}`;
+            incrementVoucherUsageIfAny();
             window.open(`https://wa.me/6285708845405?text=${waText}`, '_blank');
         }
 
@@ -1924,6 +1954,7 @@
             if(!nama) { tampilkanPeringatan("Tolong masukkan nama Anda"); return; }
             
             let text = `Halo BDG, saya *${nama}*.%0ASaya ingin memesan: *${keperluan}*.${getTeksDiskonWA('layanan', keperluan)}%0A%0A*Pesan:*%0A${pesan}`;
+            incrementVoucherUsageIfAny();
             window.open(`https://wa.me/6285708845405?text=${text}`, '_blank');
         }
 
